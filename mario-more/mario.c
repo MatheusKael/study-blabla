@@ -9,10 +9,13 @@ int main(void)
 
     for (int i = 0; i < height; i++)
     {
+        for (i = height; i >= 1; --i)
+   {
         for (int j = 0; j <= 2 * i - 1; ++j)
         {
             printf(" ");
         }
+   }
         make_bricks(i, height, true);
         make_bricks(i, height, false);
 
