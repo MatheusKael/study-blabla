@@ -32,10 +32,7 @@ void make_bricks(int quantity_of_bricks, bool right_side)
         }
         else
         {
-            // if (quantity_of_bricks == 0 & j == 0 & right_side == true)
-            // {
-            //     printf(" ");
-            // }
+        
 
             printf("#");
         }
