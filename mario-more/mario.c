@@ -23,7 +23,7 @@ void make_bricks(int quantity_of_bricks)
 
     for (int j = 0; j <= plus_one; j++)
     {
-        if (j % 2 == 1)
+        if (j == plus_one )
         {
             printf("  ");
         }
