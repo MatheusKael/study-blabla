@@ -13,6 +13,12 @@ int main(void)
 
             printf("#");
         }
+        printf("  ");
+        for (int j = 0; j <= bricks_quantity; j++)
+        {
+
+            printf("#");
+        }
         printf("\n");
     }
     printf("\n");
