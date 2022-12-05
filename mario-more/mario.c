@@ -11,7 +11,7 @@ int main(void)
         // printf("      ");
         for (int o = height; o >= 0; o--)
         {
-            printf("%i", o);
+            printf(" ");
         }
         make_bricks(i, true);
         make_bricks(i, false);
