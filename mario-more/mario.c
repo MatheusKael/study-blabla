@@ -36,6 +36,7 @@ void make_bricks(int quantity_of_bricks)
         {
             // printf("  ");
         }
+        
         else
         {
             printf("#");
