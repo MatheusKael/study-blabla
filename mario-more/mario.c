@@ -16,10 +16,10 @@ int main(void)
 
     for (int i = 0; i < height; i++)
     {
-        for (int j = 1; j <= height * 2 - i; j++)
-        {
-            printf(" ");
-        }
+        // for (int j = 1; j <= height * 2 - i; j++)
+        // {
+        //     printf(" ");
+        // }
         make_bricks(i);
         make_bricks(i);
 
