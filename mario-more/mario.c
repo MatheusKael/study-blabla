@@ -14,7 +14,7 @@ int main(void)
 
             for (int n = o; n >= 0; n--)
             {
-                printf(" ");
+                printf("%i", n);
             }
         }
         make_bricks(i, true);
