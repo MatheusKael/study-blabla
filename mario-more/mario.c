@@ -19,9 +19,12 @@ int main(void)
 void make_bricks(int quantity_of_bricks, bool right_side)
 {
 
-    if (right_side == true)
+    for (int i = 0; i < quantity_of_bricks; i++)
     {
-        printf(" ");
+        if (right_side == true)
+        {
+            printf(" ");
+        }
     }
     for (int j = 0; j <= quantity_of_bricks + 1; j++)
     {
