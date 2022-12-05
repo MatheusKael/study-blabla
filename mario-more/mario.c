@@ -19,17 +19,19 @@ int main(void)
 void make_bricks(int quantity_of_bricks)
 {
 
-  int plus_one = quantity_of_bricks + 1
+  int plus_one = quantity_of_bricks + 1;
 
     for (int j = 0; j <= plus_one; j++)
     {
-        if (j == plus_one )
-        {
-            printf("  ");
-        }
-        else
-        {
-            printf("#");
-        }
+        int test = plus_one / 2;
+        printf("%i", test);
+        // if (j == )
+        // {
+        //     printf("  ");
+        // }
+        // else
+        // {
+        //     printf("#");
+        // }
     }
 }
