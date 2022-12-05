@@ -6,15 +6,16 @@ void make_bricks(int quantity_of_bricks, int height, bool right_side);
 int main(void)
 {
     int height = get_int("Height: ");
-    for (int i = 0; i < height; i++)
-    {
-        for (int k = height; k >= 1; --k)
+    for (int k = height; k >= 1; --k)
         {
             for (int j = 1; j < height - 1; j++)
             {
                 printf(" ");
             }
         }
+    for (int i = 0; i < height; i++)
+    {
+
         make_bricks(i, height, true);
         make_bricks(i, height, false);
 
