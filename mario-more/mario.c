@@ -9,6 +9,10 @@ int main(void)
     for (int i = 0; i < height; i++)
     {
         // printf("      ");
+        for (int o = i; o >= 0; o--)
+        {
+            printf("%i", o);
+        }
         make_bricks(i, true);
         make_bricks(i, false);
         printf("\n");
@@ -19,13 +23,6 @@ int main(void)
 void make_bricks(int quantity_of_bricks, bool right_side)
 {
 
-    for (int i = quantity_of_bricks ; i > 0; i--)
-    {
-            printf("%i", i);
-        if (right_side == true)
-        {
-        }
-    }
     for (int j = 0; j <= quantity_of_bricks + 1; j++)
     {
 
