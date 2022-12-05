@@ -22,7 +22,7 @@ void make_bricks(int quantity_of_bricks)
     for (int j = 0; j <= quantity_of_bricks + 1; j++)
     {
 
-        if (j == quantity_of_bricks+ 1 / 2 )
+        if (j == quantity_of_bricks+ 1 )
         {
             printf("  ");
         }
