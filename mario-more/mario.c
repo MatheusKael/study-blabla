@@ -10,7 +10,7 @@ int main(void)
     {
         for (int k = height; k >= 1; --k)
         {
-            for (int j = 1; j <= height - 1; j++)
+            for (int j = 1; j < height - 1; j++)
             {
                 printf(" ");
             }
