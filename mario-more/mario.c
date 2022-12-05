@@ -19,7 +19,7 @@ int main(void)
 void make_bricks(int quantity_of_bricks)
 {
 
-    for (int j = 0; j <= quantity_of_bricks + 1; j++)
+    for (int j = 0; j <= quantity_of_bricks; j++)
     {
 
         if (j == quantity_of_bricks+ 1 / 2 )
