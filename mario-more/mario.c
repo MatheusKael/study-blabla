@@ -9,7 +9,7 @@ int main(void)
     for (int i = 0; i < height; i++)
     {
         // printf("      ");
-        for (int o = i; o >= 0; o--)
+        for (int o = height; o >= 0; o--)
         {
             printf("%i", o);
         }
