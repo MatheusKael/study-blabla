@@ -1,28 +1,26 @@
 #include <cs50.h>
 #include <stdio.h>
 
+void make_bricks(int quantity_of_bricks);
+
 int main(void)
 {
     int height = get_int("Height: ");
 
     for (int i = 0; i < height; i++)
     {
-        int bricks_quantity = i;
-        for (int j = 0; j <= bricks_quantity; j++)
-        {
-
-            printf("#");
-        }
+        make_bricks(i);
         printf("  ");
-        for (int j = 0; j <= bricks_quantity; j++)
-        {
-
-            printf("#");
-        }
+        make_bricks(i);
         printf("\n");
     }
     printf("\n");
 }
 
-
-void 
+void make_bricks(int quantity_of_bricks)
+{
+    for (int j = 0; j <= quantity_of_bricks; j++)
+    {
+        printf("#");
+    }
+}
