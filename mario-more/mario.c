@@ -19,6 +19,7 @@ int main(void)
 
 void make_bricks(int quantity_of_bricks)
 {
+        printf(" ");
     for (int j = 0; j <= quantity_of_bricks; j++)
     {
         printf("#");
