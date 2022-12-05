@@ -11,8 +11,10 @@ int main(void)
         // printf("      ");
         for (int o = height; o >= 0; o--)
         {
-            printf(" ");
-        }
+
+            for(int n = o; n >= 0; n)
+
+         }
         make_bricks(i, true);
         make_bricks(i, false);
         printf("\n");
