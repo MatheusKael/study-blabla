@@ -11,16 +11,17 @@ int main(void)
         // printf("      ");
         for (int j = 1; j <= height * 2 - (2 * i); j++)
         {
-            printf(" ");
+            printf("%i |", j);
+            printf("%i |", height * 2 - (2 * i));
         }
         make_bricks(i, height, true);
         make_bricks(i, height, false);
-         for (int j = 1; j <= height * 2 - (2 * i); j++)
-        {
-            printf(" ");
-        }
+        //  for (int j = 1; j <= height * 2 - (2 * i); j++)
+        // {
+        //     printf(" ");
+        // }
         printf("\n");
-        
+
     }
     printf("\n");
 }
@@ -34,7 +35,7 @@ void make_bricks(int quantity_of_bricks, int height, bool right_side)
         if (j == quantity_of_bricks + 1)
         {
             printf("  ");
-            
+
         }
         else
         {
