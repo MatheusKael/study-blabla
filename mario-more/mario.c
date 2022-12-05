@@ -8,7 +8,7 @@ int main(void)
     int height = get_int("Height: ");
     for (int i = 0; i < height; i++)
     {
-        printf("     ");
+        printf("      ");
         make_bricks(i, true);
         make_bricks(i, false);
         printf("\n");
