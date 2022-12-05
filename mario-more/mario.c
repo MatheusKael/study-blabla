@@ -28,6 +28,8 @@ void make_bricks(int quantity_of_bricks)
         }
         else
         {
+            if( quantity_of_bricks == 0)
+
             printf("#");
         }
     }
