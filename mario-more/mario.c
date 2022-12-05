@@ -21,17 +21,15 @@ void make_bricks(int quantity_of_bricks)
 
   int plus_one = quantity_of_bricks + 1;
 
-    for (int j = 0; j <= plus_one; j++)
+    for (int j = 0; j <= quantity_of_bricks; j++)
     {
-        int test = plus_one ;
-        printf("%i", test);
-        // if (j == )
-        // {
-        //     printf("  ");
-        // }
-        // else
-        // {
-        //     printf("#");
-        // }
+        if (j == plus_one + 1)
+        {
+            printf("  ");
+        }
+        else
+        {
+            printf("#");
+        }
     }
 }
