@@ -19,10 +19,9 @@ int main(void)
 void make_bricks(int quantity_of_bricks)
 {
 
-  int plus_one = quantity_of_bricks + 1;
-
     for (int j = 0; j <= quantity_of_bricks; j++)
     {
+
         if (j == plus_one + 1)
         {
             printf("  ");
