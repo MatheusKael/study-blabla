@@ -3,7 +3,8 @@
 
 int main(void)
 {
-    int height = getInt;
+    int height = get_int("Height");
 
+    printf("%i", height);
 
 }
