@@ -5,6 +5,9 @@ int main(void)
 {
     int height = get_int("Height: ");
 
-    printf("%i\n", height);
+
+    for(int i = 0; i < height; i++) {
+        printf("#  #\n");
+    }
 
 }
