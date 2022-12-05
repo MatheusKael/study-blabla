@@ -34,7 +34,7 @@ void make_bricks(int quantity_of_bricks)
     {
         if (j == quantity_of_bricks + 1)
         {
-            printf("  ");
+            // printf("  ");
         }
         else
         {
