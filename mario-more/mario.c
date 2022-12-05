@@ -25,7 +25,6 @@ int main(void)
 
         printf("\n");
     }
-    printf("\n");
 }
 
 void make_bricks(int quantity_of_bricks)
