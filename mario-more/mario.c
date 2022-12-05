@@ -8,7 +8,7 @@ int main(void)
     for (int i = 0; i < height; i++)
     {
         int bricks_quantity = i;
-        for (int j = 0; j < bricks_quantity; j++)
+        for (int j = 0; j <= bricks_quantity; j++)
         {
 
             printf("#");
