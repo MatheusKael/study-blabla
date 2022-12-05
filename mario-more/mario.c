@@ -1,7 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 
-void make_bricks(int quantity_of_bricks);
+void make_bricks(int quantity_of_bricks, bool right_side);
 
 int main(void)
 {
@@ -9,28 +9,28 @@ int main(void)
     for (int i = 0; i < height; i++)
     {
         printf("     ");
-        make_bricks(i);
-        make_bricks(i);
+        make_bricks(i, true);
+        make_bricks(i, false);
         printf("\n");
     }
     printf("\n");
 }
 
-void make_bricks(int quantity_of_bricks)
+void make_bricks(int quantity_of_bricks, bool right_side)
 {
 
     for (int j = 0; j <= quantity_of_bricks + 1; j++)
     {
 
-        if (j == quantity_of_bricks+ 1 )
+        if (j == quantity_of_bricks + 1)
         {
             printf("  ");
         }
         else
         {
-            if( quantity_of_bricks == 0)
+            if (quantity_of_bricks == 0 & j == 0 & right_side == true)
             {
-                if ()
+                printf(" ");
             }
 
             printf("#");
