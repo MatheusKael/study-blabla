@@ -5,7 +5,6 @@
 // MasterCard StartNumbers with 51, 52, 53, 54, or 55
 // Visa StartNumbers with 4. -> 4003600000000014
 
-int validate_card_number(int initial_checksum, long number, int number_of_digits);
 int check_if_number_is_two_digits(int number, int checksum);
 int find_start_numbers(long number);
 void check_credit_type(int number, int number_of_digits);
@@ -14,8 +13,9 @@ int main(void)
 {
     long number = get_long("Number: ");
 
-    long first_to_last_digit = number;
+    int checksum = 0;
     long second_to_last_digit = number;
+    long first_to_last_digit = number;
     long start_numbers = find_start_numbers(number);
     int number_of_digits = 0;
 
@@ -23,28 +23,10 @@ int main(void)
     {
         number /= 10;
         ++number_of_digits;
-    } while (number != 0);
-
-    int checksum_result = validate_card_number(0, number, number_of_digits);
-
-    printf("%i", checksum_result);
-
-    if (checksum_result % 10 == 0)
-    {
-        check_credit_type(start_numbers, number_of_digits);
     }
-    else
-    {
-        printf("INVALID\n");
-    }
-}
+    while (number != 0);
 
-int validate_card_number(int initial_checksum, long number, int number_of_digits)
-{
     int count = 0;
-    int checksum = initial_checksum;
-     long first_to_last_digit = number;
-    long second_to_last_digit = number;
     do
     {
         // 4003600000000014 -> 1.4 -> 4
@@ -57,10 +39,20 @@ int validate_card_number(int initial_checksum, long number, int number_of_digits
         second_to_last_digit /= 100;
 
         count++;
-    } while (count < number_of_digits);
+    }
+    while (count < number_of_digits);
 
-    return checksum;
+    if (checksum % 10 == 0)
+    {
+        check_credit_type(start_numbers, number_of_digits);
+    }
+    else
+    {
+        printf("INVALID\n");
+    }
 }
+
+// int validate_card_number(ini)
 
 int check_if_number_is_two_digits(int number, int checksum)
 {
@@ -108,7 +100,8 @@ int find_start_numbers(long number)
     {
         number = number / 10;
 
-    } while (number >= 100);
+    }
+    while (number >= 100);
 
     return number;
 }
