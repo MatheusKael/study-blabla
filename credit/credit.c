@@ -1,4 +1,6 @@
 #include <cs50.h>
+#include <math.h>
+#include <stdlib.h>
 #include <stdio.h>
 
 // American Express StartNumbers (findStartNumbers) with 34 or 37 -> Valid number 371844824216560
@@ -28,7 +30,7 @@ int main(void)
         // printf("%li | ", first_digit_result);
 
         // 4003600000000014 -> 1.4 -> 1 * 2 = 2
-        
+
         long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
         checksum_second +=first_digit_result;
         checksum = check_if_number_is_two_digits(second_digit_result, checksum) ;
@@ -67,12 +69,12 @@ int check_if_number_is_two_digits(int number, int checksum)
     return checksum;
 }
 
-void check_credit_type(int number)
+void check_credit_type(int number, int number_of_digits)
 {
 
 
 
-    if (number / 10 == 4)
+    if (number / 10 == 4 & number_of_digits == 13 || number_of_digits == 16)
        {
         printf("VISA");
     }
