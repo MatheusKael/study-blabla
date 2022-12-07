@@ -62,8 +62,11 @@ int check_if_number_is_two_digits(int number, int checksum)
 
 void check_credit_type(int number)
 {
-    if (number < 10)
-    {
+
+
+
+    if (number / 10 == 4)
+       {
         printf("VISA");
     }
     else if (number > 10 & number < 50)
