@@ -19,7 +19,7 @@ int main(void)
     long first_to_last_digit = number;
     long start_numbers = find_start_numbers(number);
     int number_of_digits = 0;
-    long n = 1;
+    long long n = 0;
 
     do
     {
