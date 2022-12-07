@@ -79,7 +79,7 @@ void check_credit_type(int number, int number_of_digits)
     {
         printf("AMEX");
     }
-    else if (number > 50 & number_of_digits == 16)
+    else if (number > 50 & number < 56 & number_of_digits == 16)
     {
         printf("MASTERCARD");
     }
