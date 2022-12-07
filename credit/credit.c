@@ -21,8 +21,13 @@ int main(void)
     do
     {
 
+        long first_step = ((second_to_last_digit % 100) / 10) * 2;
 
-        checksum+= ((second_to_last_digit % 100) / 10) * 2;
+        if(first_step >= 10)
+        {
+            
+        }
+        checksum+= ();
         second_to_last_digit /= 100;
 
         printf("%i |", checksum);
