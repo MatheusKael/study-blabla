@@ -23,15 +23,15 @@ int main(void)
     {
         // 4003600000000014 -> 1.4 -> 4
          long first_digit_result = (first_to_last_digit % 100) % 10;
-        printf("%li | ", first_digit_result);
+        // printf("%li | ", first_digit_result);
 
         // 4003600000000014 -> 1.4 -> 1 * 2 = 2
         // 369421438430814
         // 4062901840
         long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
-        printf("%li | ", second_digit_result);
 
-        checksum = check_if_number_is_two_digits(second_digit_result, checksum) + first_digit_result;
+        checksum = check_if_number_is_two_digits(second_digit_result, checksum) ;
+        printf("%i | ", checksum);
         first_to_last_digit /= 100;
         second_to_last_digit /= 100;
 
