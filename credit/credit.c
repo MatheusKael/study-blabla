@@ -10,8 +10,8 @@ int main(void)
 {
     int number = get_int("Number: ");
 
+    int remainder = number % 10000000;
 
-
-    printf("%i\n", number % 10000000);
+    printf("%i\n", remainder );
 
 }
