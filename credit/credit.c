@@ -3,7 +3,7 @@
 
 // American Express numbers start with 34 or 37 -> Valid number 371844824216560
 // MasterCard numbers start with 51, 52, 53, 54, or 55
-// Visa numbers start with 4.
+// Visa numbers start with 4. -> 4003600000000014
 
 int check_if_result_is_bigger(int number, int checksum);
 int findStartNumbers(long number);
