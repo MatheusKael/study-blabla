@@ -10,7 +10,7 @@ int main(void)
 {
     long number = get_long("Number: ");
 
-    int remainder = number % - 10;
+    int remainder = number % 11;
 
     printf("%i\n", remainder );
 
