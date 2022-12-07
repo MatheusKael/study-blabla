@@ -22,7 +22,7 @@ int main(void)
     {
 
 
-        checksum+= (second_to_last_digit % 100) % 10;
+        checksum+= (second_to_last_digit % 100) / 10;
         second_to_last_digit /= 10;
 
         printf("%i |", checksum);
