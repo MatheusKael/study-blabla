@@ -75,7 +75,7 @@ void check_credit_type(int number, int number_of_digits)
     {
         printf("VISA");
     }
-    else if (number > 10 & number < 50 & number_of_digits == 15)
+    else if (number == 34 || number == 37 & number_of_digits == 15)
     {
         printf("AMEX");
     }
