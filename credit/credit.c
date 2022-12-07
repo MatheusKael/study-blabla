@@ -20,6 +20,7 @@ int main(void)
     {
 
         second_to_last_digit =second_to_last_digit / 10;
+        
         printf("%li |", second_to_last_digit);
         checksum++;
     } while (checksum <= 10);
