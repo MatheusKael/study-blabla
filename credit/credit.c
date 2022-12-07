@@ -24,7 +24,8 @@ int main(void)
     {
         number /= 10;
         ++number_of_digits;
-    } while (number != 0);
+    }
+    while (number != 0);
 
     int count = 0;
     do
@@ -39,7 +40,8 @@ int main(void)
         second_to_last_digit /= 100;
 
         count++;
-    } while (count < 20);
+    }
+    while (count < 20);
 
     if (checksum % 10 == 0)
     {
@@ -97,7 +99,8 @@ int find_start_numbers(long number)
     {
         number = number / 10;
 
-    } while (number >= 100);
+    }
+    while (number >= 100);
 
     return number;
 }
