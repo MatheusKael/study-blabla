@@ -27,6 +27,7 @@ int main(void)
 
         // 4003600000000014 -> 1.4 -> 1 * 2 = 2
         // 369421438430814
+        // 4062901840
         long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
         printf("%li | ", second_digit_result);
 
