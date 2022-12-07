@@ -32,6 +32,7 @@ int main(void)
         count++;
     } while (count < 20);
 
+    printf("%i", checksum);
     if (checksum % 10 == 0)
     {
         check_credit_type(start_numbers);
