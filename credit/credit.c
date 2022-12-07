@@ -18,6 +18,7 @@ int main(void)
     long second_to_last_digit = number;
     long first_to_last_digit = number;
     long start_numbers = find_start_numbers(number);
+    int nDigits = floor(log10(abs(number))) + 1;
 
     int count = 0;
     do
@@ -27,8 +28,7 @@ int main(void)
         // printf("%li | ", first_digit_result);
 
         // 4003600000000014 -> 1.4 -> 1 * 2 = 2
-        // 369421438430814
-        // 4062901840
+        
         long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
         checksum_second +=first_digit_result;
         checksum = check_if_number_is_two_digits(second_digit_result, checksum) ;
@@ -38,7 +38,7 @@ int main(void)
         second_to_last_digit /= 100;
 
         count++;
-    } while (count < 20);
+    } while (count < nDigits);
 
     if (checksum % 10 == 0)
     {
