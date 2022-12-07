@@ -1,6 +1,5 @@
-#include <cs50.h>
 #include <math.h>
-#include <stdlib.h>
+#include <cs50.h>
 #include <stdio.h>
 
 // American Express StartNumbers (findStartNumbers) with 34 or 37 -> Valid number 371844824216560
