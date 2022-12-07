@@ -1,7 +1,7 @@
 #include <cs50.h>
 #include <stdio.h>
 
-// American Express numbers start with 34 or 37 -> Valid number 37184482421->6<-5->6<-0
+// American Express numbers start with 34 or 37 -> Valid number 371844824216560
 // MasterCard numbers start with 51, 52, 53, 54, or 55
 // Visa numbers start with 4.
 
@@ -23,7 +23,7 @@ int main(void)
 
 
         checksum+= (second_to_last_digit % 100) / 10;
-        second_to_last_digit /= 10;
+        second_to_last_digit /= 100;
 
         printf("%i |", checksum);
         count++;
