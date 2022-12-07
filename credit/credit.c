@@ -19,8 +19,10 @@ int main(void)
     do
     {
 
+
         second_to_last_digit =second_to_last_digit / 10;
-        
+        checksum+= second_to_last_digit;
+
         printf("%li |", second_to_last_digit);
         checksum++;
     } while (checksum <= 10);
