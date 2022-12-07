@@ -23,7 +23,7 @@ int main(void)
     do
     {
         number /= 10;
-        number_of_digits ++;
+        ++number_of_digits;
     } while (number != 0);
 
 
