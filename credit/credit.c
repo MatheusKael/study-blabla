@@ -45,6 +45,10 @@ int main(void)
     {
         check_credit_type(start_numbers, number_of_digits);
     }
+    else
+    {
+        printf("INVALID");
+    }
 }
 
 int check_if_number_is_two_digits(int number, int checksum)
