@@ -25,7 +25,7 @@ int main(void)
         checksum+= ((second_to_last_digit % 100) / 10) * 2;
         second_to_last_digit /= 100;
 
-        printf("%li |", (second_to_last_digit % 100) / 10);
+        printf("%i |", checksum);
         count++;
     } while (count < 20);
 
