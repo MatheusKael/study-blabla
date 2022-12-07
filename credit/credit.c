@@ -37,7 +37,7 @@ int main(void)
     }
     else
     {
-        printf("INVALID");
+        printf("INVALID\n");
     }
 }
 
@@ -62,15 +62,15 @@ void checkCreditCardType(int number)
 {
     if (number < 10)
     {
-        printf("Visa.");
+        printf("VISA");
     }
     else if (number > 10 & number < 50)
     {
-        printf("American Express.");
+        printf("AMEX");
     }
     else
     {
-        printf("MasterCard.");
+        printf("MASTERCARD");
     }
     printf("\n");
 }
