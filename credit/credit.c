@@ -19,13 +19,12 @@ int main(void)
     long first_to_last_digit = number;
     long start_numbers = find_start_numbers(number);
     int number_of_digits = 0;
-    long long n = 0;
 
     do
     {
-        n /= 10;
+        number /= 10;
         number_of_digits ++;
-    } while (n != 0);
+    } while (number != 0);
 
 
 int count = 0;
