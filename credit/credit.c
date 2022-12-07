@@ -9,13 +9,15 @@ int main(void)
 {
     long number = get_long("Number: ");
 
-    long first_digits = number;
+    long start_numbers = number;
 
     do
     {
-        first_digits = first_digits / 10;
+        start_numbers = start_numbers / 10;
 
-    } while (first_digits >= 100);
+    } while (start_numbers >= 100);
 
-    printf("%li\n", first_digits);
+    printf("%li\n", start_numbers);
 }
+
+
