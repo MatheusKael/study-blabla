@@ -5,18 +5,17 @@
 // MasterCard numbers start with 51, 52, 53, 54, or 55
 // Visa numbers start with 4.
 
-
 int main(void)
 {
     long number = get_long("Number: ");
 
+    int first_digits = number;
 
+    do
+    {
+        first_digits = first_digits % 10;
 
-    do {
-    int remainder = number % 10;
+    } while (first_digits < 100);
 
-    } while()
-
-    printf("%i\n", remainder );
-
+    printf("%i\n", first_digits);
 }
