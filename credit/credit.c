@@ -7,7 +7,7 @@
 
 int check_if_number_is_two_digits(int number, int checksum);
 int find_start_numbers(long number);
-void check_credit_type(int number);
+void check_credit_type(int number,  int number_of_digits);
 
 int main(void)
 {
@@ -19,15 +19,18 @@ int main(void)
     long first_to_last_digit = number;
     long start_numbers = find_start_numbers(number);
     int number_of_digits = 0;
+    long n = 0;
 
     do
     {
+        n /= 10;
+        number_of_digits ++;
+    } while (n != 0);
 
-         number/
-    } while
 
-        int count = 0;
+int count = 0;
     do
+
     {
         // 4003600000000014 -> 1.4 -> 4
         long first_digit_result = (first_to_last_digit % 100) % 10;
@@ -44,11 +47,11 @@ int main(void)
         second_to_last_digit /= 100;
 
         count++;
-    } while (count < nDigits);
+    } while (count < number_of_digits);
 
     if (checksum % 10 == 0)
     {
-        check_credit_type(start_numbers);
+        check_credit_type(start_numbers, number_of_digits);
     }
     else
     {
