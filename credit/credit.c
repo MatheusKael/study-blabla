@@ -16,11 +16,13 @@ int main(void)
     int checksum = 0;
     long second_to_last_digit = number;
     long start_numbers = findStartNumbers(number);
-
     do
     {
-        printf("%li", second_to_last_digit % 10);
-    } while (second_to_last_digit >= 10);
+
+        second_to_last_digit =second_to_last_digit % 10;
+        printf("%li", second_to_last_digit);
+        checksum++;
+    } while (checksum <= 15);
 
     checkCreditCardType(start_numbers);
 }
