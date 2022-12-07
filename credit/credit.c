@@ -5,7 +5,7 @@
 // MasterCard StartNumbers with 51, 52, 53, 54, or 55
 // Visa StartNumbers with 4. -> 4003600000000014
 
-int validate_card_number(int initial_checksum, long first_to_last_digit, long second_to_last_digit, int number_of_digits);
+int validate_card_number(int initial_checksum, long number, int number_of_digits);
 int check_if_number_is_two_digits(int number, int checksum);
 int find_start_numbers(long number);
 void check_credit_type(int number, int number_of_digits);
@@ -25,7 +25,9 @@ int main(void)
         ++number_of_digits;
     } while (number != 0);
 
-    int checksum_result = validate_card_number(0, number, number, number_of_digits);
+    int checksum_result = validate_card_number(0, number, number_of_digits);
+
+    printf("%i", checksum_result);
 
     if (checksum_result % 10 == 0)
     {
@@ -37,10 +39,12 @@ int main(void)
     }
 }
 
-int validate_card_number(int initial_checksum, long first_to_last_digit, long second_to_last_digit, int number_of_digits)
+int validate_card_number(int initial_checksum, long number, int number_of_digits)
 {
     int count = 0;
     int checksum = initial_checksum;
+     long first_to_last_digit = number;
+    long second_to_last_digit = number;
     do
     {
         // 4003600000000014 -> 1.4 -> 4
