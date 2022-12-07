@@ -21,11 +21,12 @@ int main(void)
     do
     {
 
+        long first_digit_result =  (second_to_last_digit % 100) % 10;
         long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
 
-        long first_digit_result =  (second_to_last_digit % 100) % 10
 
-        checksum = check_if_result_is_bigger(digitResult, checksum);
+        checksum = check_if_result_is_bigger(first_digit_result, checksum) ;
+        first_digit_result /= 100;
         second_to_last_digit /= 100;
 
         printf("%i |", checksum);
