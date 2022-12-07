@@ -23,6 +23,7 @@ int main(void)
     {
         // 4003600000000014 -> 1.4 -> 4
          long first_digit_result = (first_to_last_digit % 100) % 10;
+        printf("%li | ", first_digit_result);
 
         // 4003600000000014 -> 1.4 -> 1 * 2 = 2
         // 369421438430814
