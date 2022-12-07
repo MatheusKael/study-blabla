@@ -5,8 +5,8 @@
 // MasterCard numbers start with 51, 52, 53, 54, or 55
 // Visa numbers start with 4.
 
+int check_if_result_is_bigger(int number, int checksum);
 int findStartNumbers(long number);
-
 void checkCreditCardType(int number);
 
 int main(void)
@@ -23,16 +23,7 @@ int main(void)
 
         long first_step = ((second_to_last_digit % 100) / 10) * 2;
 
-        if (first_step >= 10)
-        {
-            checksum += first_step / 10;
-            checksum += first_step % 10;
-        }
-        else
-        {
-
-            checksum += first_step;
-        }
+        checksum = check_if_result_is_bigger(first_step, checksum);
         second_to_last_digit /= 100;
 
         printf("%i |", checksum);
@@ -40,6 +31,23 @@ int main(void)
     } while (count < 20);
 
     checkCreditCardType(start_numbers);
+}
+
+int check_if_result_is_bigger(int number, int checksum)
+{
+
+    if (number >= 10)
+    {
+        checksum += number / 10;
+        checksum += number % 10;
+    }
+    else
+    {
+
+        checksum += number;
+    }
+
+    return checksum;
 }
 
 void checkCreditCardType(int number)
