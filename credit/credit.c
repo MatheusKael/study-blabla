@@ -13,19 +13,30 @@ int main(void)
 {
     long number = get_long("Number: ");
 
+    int checksum = 0;
+    long second_to_last_digit = number;
     long start_numbers = findStartNumbers(number);
 
+    do
+    {
+        printf("%li", second_to_last_digit % 10);
+    } while (second_to_last_digit >= 10);
 
     checkCreditCardType(start_numbers);
-
 }
 
-void checkCreditCardType(int number) {
-    if( number < 10) {
+void checkCreditCardType(int number)
+{
+    if (number < 10)
+    {
         printf("Visa.");
-    }  else if ( number > 10 & number < 50 ) {
+    }
+    else if (number > 10 & number < 50)
+    {
         printf("American Express.");
-    } else {
+    }
+    else
+    {
         printf("MasterCard.");
     }
     printf("\n");
