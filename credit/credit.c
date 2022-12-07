@@ -10,7 +10,12 @@ int main(void)
 {
     long number = get_long("Number: ");
 
-    int remainder = number % 30;
+
+
+    do {
+    int remainder = number % 10;
+
+    } while()
 
     printf("%i\n", remainder );
 
