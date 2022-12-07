@@ -23,9 +23,9 @@ int main(void)
 
 
         checksum+= (second_to_last_digit % 100) % 10;
-        second_to_last_digit =second_to_last_digit / 10;
+        second_to_last_digit /= 10;
 
-        printf("%li |", second_to_last_digit);
+        printf("%i |", checksum);
         count++;
     } while (count <= 15);
 
