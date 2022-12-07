@@ -4,7 +4,9 @@
 int main(void)
 {
 
-    int 
+    int number = get_int("Number: ");
+
+    printf("%i\n", number);
 
 
 }
