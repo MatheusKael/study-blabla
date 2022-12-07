@@ -8,7 +8,7 @@
 
 int main(void)
 {
-    int number = get_int("Number: ");
+    long number = get_long("Number: ");
 
     int remainder = number % 10000000;
 
