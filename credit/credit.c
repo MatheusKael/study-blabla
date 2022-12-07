@@ -25,9 +25,9 @@ int main(void)
         checksum+= ((second_to_last_digit % 100) / 10) * 2;
         second_to_last_digit /= 100;
 
-        printf("%li |", ((second_to_last_digit % 100) / 10) * 2);
+        printf("%li |", (second_to_last_digit % 100) / 10);
         count++;
-    } while (count <= 15);
+    } while (count <= 1);
 
     checkCreditCardType(start_numbers);
 }
