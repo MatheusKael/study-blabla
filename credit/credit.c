@@ -27,7 +27,7 @@ int main(void)
 
         printf("%li |", (second_to_last_digit % 100) / 10);
         count++;
-    } while (count <= 1);
+    } while (count <= 15);
 
     checkCreditCardType(start_numbers);
 }
