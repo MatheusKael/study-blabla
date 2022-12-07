@@ -21,9 +21,9 @@ int main(void)
     do
     {
 
-        long first_step = ((second_to_last_digit % 100) / 10) * 2;
+        long digitResult = ((second_to_last_digit % 100) / 10) * 2;
 
-        checksum = check_if_result_is_bigger(first_step, checksum);
+        checksum = check_if_result_is_bigger(digitResult, checksum);
         second_to_last_digit /= 100;
 
         printf("%i |", checksum);
