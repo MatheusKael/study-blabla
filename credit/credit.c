@@ -14,8 +14,7 @@ int main(void)
     long number = get_long("Number: ");
 
     int checksum = 0;
-    long second_to_last_digit = number;
-    long first_to_last_digit = number;
+
     long start_numbers = find_start_numbers(number);
     int number_of_digits = 0;
 
@@ -29,14 +28,7 @@ int main(void)
     int count = 0;
     do
     {
-        // 4003600000000014 -> 1.4 -> 4
-        long first_digit_result = (first_to_last_digit % 100) % 10;
-        // 4003600000000014 -> 1.4 -> 1 * 2 = 2
-        long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
 
-        checksum = check_if_number_is_two_digits(second_digit_result, checksum) + first_digit_result;
-        first_to_last_digit /= 100;
-        second_to_last_digit /= 100;
 
         count++;
     }
@@ -52,7 +44,18 @@ int main(void)
     }
 }
 
-int validate_card_number(int initial_checksum, )
+int validate_card_number(int initial_checksum, long number ) {
+      long second_to_last_digit = number;
+    long first_to_last_digit = number;
+         // 4003600000000014 -> 1.4 -> 4
+        long first_digit_result = (first_to_last_digit % 100) % 10;
+        // 4003600000000014 -> 1.4 -> 1 * 2 = 2
+        long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
+
+        checksum = check_if_number_is_two_digits(second_digit_result, checksum) + first_digit_result;
+        first_to_last_digit /= 100;
+        second_to_last_digit /= 100;
+}
 
 int check_if_number_is_two_digits(int number, int checksum)
 {
