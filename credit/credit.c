@@ -25,7 +25,7 @@ int main(void)
         long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
 
 
-        checksum = check_if_result_is_bigger(first_digit_result, checksum) ;
+        checksum = check_if_result_is_bigger(second_digit_result, checksum) + first_digit_result;
         first_digit_result /= 100;
         second_to_last_digit /= 100;
 
