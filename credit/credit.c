@@ -45,10 +45,6 @@ int main(void)
     {
         check_credit_type(start_numbers, number_of_digits);
     }
-    else
-    {
-        printf("INVALID\n");
-    }
 }
 
 int check_if_number_is_two_digits(int number, int checksum)
@@ -75,14 +71,19 @@ void check_credit_type(int number, int number_of_digits)
     {
         printf("VISA");
     }
-    else if (number > 10 & number < 50)
+    else if (number > 10 & number < 50 & number_of_digits == 15)
     {
         printf("AMEX");
     }
-    else
+    else if (number > 50 & number_of_digits == 16)
     {
         printf("MASTERCARD");
     }
+    else
+    {
+        printf("INVALID");
+    }
+
     printf("\n");
 }
 
