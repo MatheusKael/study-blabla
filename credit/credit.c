@@ -14,6 +14,7 @@ int main(void)
     long number = get_long("Number: ");
 
     int checksum = 0;
+    int checksum_second = 0;
     long second_to_last_digit = number;
     long first_to_last_digit = number;
     long start_numbers = find_start_numbers(number);
@@ -29,9 +30,10 @@ int main(void)
         // 369421438430814
         // 4062901840
         long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
-
+        checksum_second +=first_digit_result;
         checksum = check_if_number_is_two_digits(second_digit_result, checksum) ;
-        printf("%i | ", checksum);
+        printf("checksum %i", checksum);
+        printf("checksum_second %i \n", checksum_second);
         first_to_last_digit /= 100;
         second_to_last_digit /= 100;
 
