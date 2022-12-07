@@ -26,6 +26,7 @@ int main(void)
     }
     while (number != 0);
 
+    // Validate card number.
     int count = 0;
     do
     {
@@ -34,7 +35,9 @@ int main(void)
         // 4003600000000014 -> 1.4 -> 1 * 2 = 2
         long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
 
+        // Sum second_digit_results to first_digit_results
         checksum = check_if_number_is_two_digits(second_digit_result, checksum) + first_digit_result;
+        // 40036000000000.14 -> 40036000000000
         first_to_last_digit /= 100;
         second_to_last_digit /= 100;
 
@@ -52,7 +55,6 @@ int main(void)
     }
 }
 
-// int validate_card_number(ini)
 
 int check_if_number_is_two_digits(int number, int checksum)
 {
