@@ -5,9 +5,9 @@
 // MasterCard StartNumbers with 51, 52, 53, 54, or 55
 // Visa StartNumbers with 4. -> 4003600000000014
 
-int check_if_result_is_bigger(int number, int checksum);
-int findStartNumbers(long number);
-void checkCreditCardType(int number);
+int check_if_number_is_two_digits(int number, int checksum);
+int find_start_numbers(long number);
+void check_credit_type(int number);
 
 int main(void)
 {
@@ -15,7 +15,7 @@ int main(void)
 
     int checksum = 0;
     long second_to_last_digit = number;
-    long start_numbers = findStartNumbers(number);
+    long start_numbers = find_start_numbers(number);
 
     int count = 0;
     do
@@ -24,7 +24,7 @@ int main(void)
         long first_digit_result = (second_to_last_digit % 100) % 10;
         long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
 
-        checksum = check_if_result_is_bigger(second_digit_result, checksum) + first_digit_result;
+        checksum = check_if_number_is_two_digits(second_digit_result, checksum) + first_digit_result;
         first_digit_result /= 100;
         second_to_last_digit /= 100;
 
@@ -33,7 +33,7 @@ int main(void)
 
     if (checksum % 10 == 0)
     {
-        checkCreditCardType(start_numbers);
+        check_credit_type(start_numbers);
     }
     else
     {
@@ -41,7 +41,7 @@ int main(void)
     }
 }
 
-int check_if_result_is_bigger(int number, int checksum)
+int check_if_number_is_two_digits(int number, int checksum)
 {
 
     if (number >= 10)
@@ -58,7 +58,7 @@ int check_if_result_is_bigger(int number, int checksum)
     return checksum;
 }
 
-void checkCreditCardType(int number)
+void check_credit_type(int number)
 {
     if (number < 10)
     {
@@ -75,7 +75,7 @@ void checkCreditCardType(int number)
     printf("\n");
 }
 
-int findStartNumbers(long number)
+int find_start_numbers(long number)
 {
     do
     {
