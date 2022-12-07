@@ -12,6 +12,6 @@ int main(void)
 
 
 
-    printf("%i\n", number);
+    printf("%i\n", number % 10000000);
 
 }
