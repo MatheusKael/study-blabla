@@ -21,8 +21,9 @@ int main(void)
     do
     {
 
-        long digit_result = ((second_to_last_digit % 100) / 10) * 2;
+        long second_digit_result = ((second_to_last_digit % 100) / 10) * 2;
 
+        long first_digit_result =  (second_to_last_digit % 100) % 10
 
         checksum = check_if_result_is_bigger(digitResult, checksum);
         second_to_last_digit /= 100;
