@@ -19,10 +19,10 @@ int main(void)
     do
     {
 
-        second_to_last_digit =second_to_last_digit % 10;
-        printf("%li", second_to_last_digit);
+        second_to_last_digit =second_to_last_digit / 10;
+        printf("%li |", second_to_last_digit);
         checksum++;
-    } while (checksum <= 15);
+    } while (checksum <= 10);
 
     checkCreditCardType(start_numbers);
 }
