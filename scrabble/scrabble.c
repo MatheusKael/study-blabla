@@ -25,9 +25,11 @@ int compute_score(string word)
 {
     // TODO: Compute and return score for string
     int word_length = strlen(word);
-    int POINTS_length = strlen(POINTS);
+    int POINTS_length = strlen((string)POINTS);
+    printf("%s", (string)POINTS);
 
-    for(int i = 0; i < POINTS_length; i++ ){
+    for (int i = 0; i < POINTS_length; i++)
+    {
         printf("%i", i + 97);
     }
 
