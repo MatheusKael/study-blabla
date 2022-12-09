@@ -1,4 +1,5 @@
 #include <string.h>
+#include <math.h>
 #include <cs50.h>
 #include <stdio.h>
 
@@ -40,6 +41,6 @@ int main(void)
     average_number_of_letters = (float)number_of_letters / (float)number_of_words * 100;
 
     index = 0.0588 * (float)average_number_of_letters - 0.296 * (float)average_number_of_sentences - 15.8;
-    printf("grade %i", (int) index);
+    printf("grade round %f not round %f",  round(index), index);
     printf("\n");
 }
