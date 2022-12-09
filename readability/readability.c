@@ -1,5 +1,6 @@
 #include <string.h>
 #include <math.h>
+#include <ctype.h>
 #include <cs50.h>
 #include <stdio.h>
 
@@ -22,7 +23,7 @@ int main(void)
         {
             ++number_of_sentences;
         }
-        else if (s[i] != 32 & s[i] != 44)
+        else if (isalpha(s[i]))
         {
             ++number_of_letters;
         }
