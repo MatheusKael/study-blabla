@@ -39,8 +39,10 @@ int main(void)
     // Adding +1 to numbers of words.
     // Average number of sentences per 100 words.
     average_number_of_sentences = (float)number_of_sentences / (float)number_of_words * 100.0;
+    printf("%f\n", average_number_of_sentences);
     // Average number of letteers per 100 words.
     average_number_of_letters = (float)number_of_letters / (float)number_of_words * 100;
+    printf("%f\n", average_number_of_letters);
 
     index = 0.0588 * (float)average_number_of_letters - 0.296 * (float)average_number_of_sentences - 15.8;
     printf("grade round %f not round %f",  round(index), index);
