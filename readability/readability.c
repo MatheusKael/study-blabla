@@ -4,6 +4,8 @@
 #include <cs50.h>
 #include <stdio.h>
 
+int count_letters(string s);
+
 int main(void)
 {
     int number_of_letters = 0;
@@ -48,4 +50,9 @@ int main(void)
     index = 0.0588 * (float)average_number_of_letters - 0.296 * (float)average_number_of_sentences - 15.8;
     printf("grade %i",  (int) round(index));
     printf("\n");
+}
+
+
+int count_letters(string s) {
+
 }
