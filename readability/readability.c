@@ -20,15 +20,18 @@ int main(void)
             ++number_of_sentences;
         } else if( s[i] != 32) {
             ++number_of_letters;
+        } else if (s[i] == 32 & i != 0) {
+            ++number_of_words;
         }
-
     }
+    // Adding +1 to numbers of words.
+    ++number_of_words;
 
     // Average number of sentences per 100 words.
     average_number_of_sentences = number_of_sentences / number_of_words * 100.0;
     average_number_of_letters = number_of_letters / number_of_words * 100.0;
 
     index = 0.0588 * average_number_of_letters - 0.296 * average_number_of_sentences - 15.8;
-    printf("%i", number_of_sentences);
+    printf("%i", index);
     printf("\n");
 }
