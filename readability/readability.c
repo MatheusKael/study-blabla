@@ -7,9 +7,9 @@ int main(void)
     int number_of_letters =0 ;
     int number_of_sentences= 0;
     int number_of_words = 0;
-    double average_number_of_letters = 0;
-    double average_number_of_sentences = 0;
-    double index;
+    float average_number_of_letters = 0;
+    float average_number_of_sentences = 0;
+    float index;
 
     string s = get_string("");
 
@@ -28,6 +28,7 @@ int main(void)
     // Congratulations! Today is your day. You're off to Great Places! You're off and away!
     // Adding +1 to numbers of words.
     ++number_of_words;
+    printf("%i\n", number_of_letters);
     printf("%i\n", number_of_words);
 
     // Average number of sentences per 100 words.
@@ -35,6 +36,7 @@ int main(void)
     printf("%i\n", number_of_sentences);
     // Average number of letteers per 100 words.
     average_number_of_letters = number_of_letters / number_of_words * 100.0;
+    printf("%f\n", average_number_of_letters);
 
     index = 0.0588 * average_number_of_letters - 0.296 * average_number_of_sentences - 15.8;
     printf("%f", index);
