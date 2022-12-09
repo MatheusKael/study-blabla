@@ -30,9 +30,9 @@ int compute_score(string word)
         printf("%i ", i + 97);
     }
 
-    // for(int i = 0; i < word_length; i++) {
-    //     printf("%c", word[i]);
-    // }
+    for(int i = 0; i < word_length; i++) {
+        printf("%i", word[i]);
+    }
     printf("\n");
     return 1;
 }
