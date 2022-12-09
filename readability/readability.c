@@ -4,6 +4,8 @@
 #include <cs50.h>
 #include <stdio.h>
 
+// input = Congratulations! Today is your day. You're off to Great Places! You're off and away!
+
 int count_letters(string s);
 int count_sentences(string s);
 int count_words(string s);
@@ -15,7 +17,7 @@ int main(void)
     double average_number_of_sentences = 0;
     double index;
 
-    string s = get_string("");
+    string s = get_string("Text: ");
 
     int s_length = strlen(s);
 
@@ -24,26 +26,26 @@ int main(void)
     int number_of_sentences = count_sentences(s);
     int number_of_words = count_words(s);
 
-    printf("%i\n", number_of_words);
-    printf("%i\n", number_of_sentences);
-    printf("%i\n", number_of_letters);
-    // Congratulations! Today is your day. You're off to Great Places! You're off and away!
     // Average number of sentences per 100 words.
     average_number_of_sentences = (float)number_of_sentences / (float)number_of_words * 100.0;
-    printf("%f\n", average_number_of_sentences);
     // Average number of letteers per 100 words.
     average_number_of_letters = (float)number_of_letters / (float)number_of_words * 100;
-    printf("%f\n", average_number_of_letters);
 
     index = 0.0588 * (float)average_number_of_letters - 0.296 * (float)average_number_of_sentences - 15.8;
 
-    int final_result = (int) round(index);
-    if(final_result >= 16) {
-
-    printf("grade 16+");
+    int final_result = (int)round(index);
+    if (final_result >= 16)
+    {
+        printf("Grade 16+");
     }
-
-    printf("grade %i", final_result);
+    else if (final_result < 1)
+    {
+        printf("Before Grade 1");
+    }
+    else
+    {
+        printf("grade %i", final_result);
+    }
 
     printf("\n");
 }
