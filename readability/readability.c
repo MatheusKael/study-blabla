@@ -23,7 +23,7 @@ int main(void)
     int number_of_words = count_words(s);
 
     // Average number of sentences per 100 words.
-    float average_number_of_sentences = (float)number_of_sentences / (float)number_of_words * 100.0;
+    float average_number_of_sentences = (float)number_of_sentences / (float)number_of_words * 100;
     // Average number of letters per 100 words.
     float average_number_of_letters = (float)number_of_letters / (float)number_of_words * 100;
 
