@@ -27,12 +27,13 @@ int compute_score(string word)
     int word_length = strlen(word);
     for (int i = 0; i < 26; i++)
     {
-        printf("%i ", i + 97 == word[i]);
+        printf("%i ", i + 97 );
+     for(int j = 0; j < word_length; j++) {
+        printf("%i", word[j] == i + 97);
+    }
     }
 
-    for(int i = 0; i < word_length; i++) {
-        printf("%i", word[i]);
-    }
+
     printf("\n");
     return 1;
 }
