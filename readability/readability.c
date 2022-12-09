@@ -24,11 +24,16 @@ int main(void)
             ++number_of_words;
         }
     }
+
+    // Congratulations! Today is your day. You're off to Great Places! You're off and away!
     // Adding +1 to numbers of words.
     ++number_of_words;
+    printf("%i", number_of_words);
 
     // Average number of sentences per 100 words.
     average_number_of_sentences = number_of_sentences / number_of_words * 100.0;
+    printf("%i", average_number_of_sentences);
+    // Average number of letteers per 100 words.
     average_number_of_letters = number_of_letters / number_of_words * 100.0;
 
     index = 0.0588 * average_number_of_letters - 0.296 * average_number_of_sentences - 15.8;
