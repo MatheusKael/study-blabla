@@ -18,6 +18,9 @@ int main(void)
     int score1 = compute_score(word1);
     int score2 = compute_score(word2);
 
+    printf("%i\n", score1);
+    printf("%i", score2);
+    printf("\n");
     // TODO: Print the winner
 }
 
@@ -25,15 +28,18 @@ int compute_score(string word)
 {
     // TODO: Compute and return score for string
     int word_length = strlen(word);
+    int score = 0;
     for (int i = 0; i < 26; i++)
     {
-        printf("%i ", i + 97 );
-     for(int j = 0; j < word_length; j++) {
-        printf("%i", word[j] == i + 97);
-    }
+        for (int j = 0; j < word_length; j++)
+        {
+            if (word[j] == i + 97)
+            {
+                ++score;
+            }
+        }
     }
 
 
-    printf("\n");
-    return 1;
+    return score;
 }
