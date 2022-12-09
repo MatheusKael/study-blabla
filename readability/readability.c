@@ -13,10 +13,6 @@ int count_words(string s);
 int main(void)
 {
 
-    double average_number_of_letters = 0;
-    double average_number_of_sentences = 0;
-    double index;
-
     string s = get_string("Text: ");
 
     int s_length = strlen(s);
@@ -27,13 +23,14 @@ int main(void)
     int number_of_words = count_words(s);
 
     // Average number of sentences per 100 words.
-    average_number_of_sentences = (float)number_of_sentences / (float)number_of_words * 100.0;
-    // Average number of letteers per 100 words.
-    average_number_of_letters = (float)number_of_letters / (float)number_of_words * 100;
+    float average_number_of_sentences = (float)number_of_sentences / (float)number_of_words * 100.0;
+    // Average number of letters per 100 words.
+    float average_number_of_letters = (float)number_of_letters / (float)number_of_words * 100;
 
-    index = 0.0588 * (float)average_number_of_letters - 0.296 * (float)average_number_of_sentences - 15.8;
+    float index = 0.0588 * (float)average_number_of_letters - 0.296 * (float)average_number_of_sentences - 15.8;
 
     int final_result = (int)round(index);
+
     if (final_result >= 16)
     {
         printf("Grade 16+");
