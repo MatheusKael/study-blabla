@@ -52,7 +52,7 @@ int compute_score(string word)
 
             if (word[j] == i + 97)
             {
-                ++score;
+                score += POINTS[i];
             }
         }
     }
