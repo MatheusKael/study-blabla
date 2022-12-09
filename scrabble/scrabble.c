@@ -33,13 +33,17 @@ int compute_score(string word)
     {
         for (int j = 0; j < word_length; j++)
         {
+            if (isupper(word[j]))
+            {
+                word[j] = tolower(word[j]);
+            }
+
             if (word[j] == i + 97)
             {
                 ++score;
             }
         }
     }
-
 
     return score;
 }
