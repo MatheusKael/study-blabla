@@ -44,7 +44,7 @@ int main(void)
     }
     else
     {
-        printf("grade %i", final_result);
+        printf("Grade %i", final_result);
     }
 
     printf("\n");
