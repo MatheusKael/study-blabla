@@ -37,6 +37,6 @@ int main(void)
     average_number_of_letters = number_of_letters / number_of_words * 100.0;
 
     index = 0.0588 * average_number_of_letters - 0.296 * average_number_of_sentences - 15.8;
-    printf("%d", index);
+    printf("%f", index);
     printf("\n");
 }
