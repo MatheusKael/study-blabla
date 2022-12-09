@@ -29,6 +29,6 @@ int compute_score(string word)
     for(int i = 0; i < word_length; i++) {
         printf("%c", word[i]);
     }
-
+    printf("\n");
     return 1;
 }
