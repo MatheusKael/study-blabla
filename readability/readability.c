@@ -6,6 +6,8 @@ int main(void)
 {
     int number_of_letters =0 ;
     int number_of_sentences= 0;
+    int average_number_of_letters = 0;
+    int average_number_of_sentences = 0;
     int index;
 
     string s = get_string("");
@@ -18,7 +20,8 @@ int main(void)
         } else if() {}
     }
 
-    index = 0.0588 * number_of_letters - 0.296 * number_of_sentences - 15.8;
+    average_number_of_sentences = number_of_sentences
+    index = 0.0588 * average_number_of_letters - 0.296 * average_number_of_sentences - 15.8;
     printf("%i", number_of_sentences);
     printf("\n");
 }
