@@ -31,12 +31,12 @@ int main(void)
             ++number_of_words;
         }
     }
+    ++number_of_words;
     printf("%i\n", number_of_words);
     printf("%i\n", number_of_sentences);
     printf("%i\n", number_of_letters);
     // Congratulations! Today is your day. You're off to Great Places! You're off and away!
     // Adding +1 to numbers of words.
-    ++number_of_words;
     // Average number of sentences per 100 words.
     average_number_of_sentences = (float)number_of_sentences / (float)number_of_words * 100.0;
     // Average number of letteers per 100 words.
