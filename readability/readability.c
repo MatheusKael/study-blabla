@@ -22,7 +22,7 @@ int main(void)
         {
             ++number_of_sentences;
         }
-        else if (s[i] != 32)
+        else if (s[i] != 32 & s[i] != 44)
         {
             ++number_of_letters;
         }
@@ -31,7 +31,9 @@ int main(void)
             ++number_of_words;
         }
     }
-
+    printf("%i\n", number_of_words);
+    printf("%i\n", number_of_sentences);
+    printf("%i\n", number_of_letters);
     // Congratulations! Today is your day. You're off to Great Places! You're off and away!
     // Adding +1 to numbers of words.
     ++number_of_words;
