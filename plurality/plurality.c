@@ -88,16 +88,14 @@ void print_winner(void)
 
     for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = 0; j < candidate_count - 1; j++)
+        for (int j = 0; j < candidate_count; j++)
         {
             if (candidates[i].votes > candidates[j].votes && strcmp(candidates[i].name, candidates[j].name) != 0)
             {
                 winner[i] = candidates[i];
-            } else if (winner[i].votes == candidates[j].votes && strcmp(winner[i].name, candidates[j].name) != 0) {
-                printf("%s", winner[i].name);
-                ts[i] = candidates[j];
             }
         }
+       
     }
 
     for (int i = 0; i < candidate_count - 1; i++)
