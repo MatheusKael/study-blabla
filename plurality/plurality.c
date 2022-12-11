@@ -89,7 +89,7 @@ void print_winner(void)
 
     for (int i = 0; i < candidate_count; i++)
     {
-        for (int j = 0; j < candidate_count -1; j++)
+        for (int j = 0; j < candidate_count - 1; j++)
         {
             if (candidates[i].votes >= candidates[j].votes && strcmp(candidates[i].name, candidates[j].name) != 0)
             {
@@ -97,16 +97,19 @@ void print_winner(void)
                 winner[i] = candidates[i];
             }
         }
-
     }
 
-    for (int i = 0; i < win -1; i++)
+    for (int i = 0; i < win; i++)
     {
-            // printf("%s %i\n", winner[i].name, winner[i].votes);
-        if (winner[i].votes >= winner[i + 1].votes)
+
+        for (int j = 0; j < win - 1; j++)
         {
-            printf("%s %i\n", winner[i].name, winner[i].votes);
-// [ 2, 1]
+            // printf("%s %i\n", winner[i].name, winner[i].votes);
+            if (winner[i].votes >= winner[j].votes)
+            {
+                printf("%s %i\n", winner[i].name, winner[i].votes);
+                // [ 2, 1]
+            }
         }
     }
     return;
