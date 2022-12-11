@@ -5,7 +5,6 @@ random5000 and random50000, sort1 was the slowest sort algorithm. And with a lis
 sort1 was slower than sort2 and faster than sort3. Given that the lower bound of the bubble sort is omega n,
 then the larger the sorted list, the faster this algorithm will be compared to others
 
-
 sort2 uses: merge sort
 
 How do you know?: sort2 was the faster of than all.
