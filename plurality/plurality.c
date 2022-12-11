@@ -93,12 +93,12 @@ void print_winner(void)
             {
                 winner[i] = candidates[i];
             } else if (winner[i].votes == candidates[j].votes && strcmp(winner[i].name, candidates[j].name) != 0) {
-                winner[i] = candidates[j];
+                winner[j] = candidates[j];
             }
         }
     }
 
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < candidate_count -1; i++)
     {
         if (winner[i].name != NULL)
         {
