@@ -1,11 +1,11 @@
 sort1 uses: bubble sort
 
-How do you know?: 
+How do you know?: the test of the 5000 sorted list, sort1 was faster than sort3 overral
 
-sort2 uses: TODO
+sort2 uses: merge sort
 
 How do you know?: TODO
 
-sort3 uses: TODO
+sort3 uses: selection sort
 
 How do you know?: TODO
