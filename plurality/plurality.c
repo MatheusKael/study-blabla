@@ -94,8 +94,8 @@ void print_winner(void)
             if (candidates[i].votes >= candidates[j].votes && strcmp(candidates[i].name, candidates[j].name) != 0)
             {
                 win++;
+                printf("%s %i\n", winner[j].name, winner[j].votes);
                 printf("%s %i\n", candidates[i].name, candidates[i].votes);
-                printf("%s %i\n", candidates[j].name, candidates[j].votes);
                 winner[i] = candidates[i];
             }
         }
