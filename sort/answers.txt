@@ -8,8 +8,8 @@ then the larger the sorted list, the faster this algorithm will be compared to o
 
 sort2 uses: merge sort
 
-How do you know?:
+How do you know?: sort2 was the faster of than all.
 
 sort3 uses: selection sort
 
-How do you know?: TODO
+How do you know?: 
