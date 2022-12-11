@@ -92,8 +92,8 @@ void print_winner(void)
             if (candidates[i].votes > candidates[j].votes && strcmp(candidates[i].name, candidates[j].name) != 0)
             {
                 winner[i] = candidates[i];
-            } else if (winner[i].votes == candidates[j].votes) {
-                winner[j] = candidates[i];
+            } else if (winner[i].votes == candidates[j].votes && strcmp(candidates[i].name, candidates[j].name) != 0) {
+                winner[j] = candidates[j];
             }
         }
     }
