@@ -106,7 +106,7 @@ void print_winner(void)
 
         for (int j = 0; j < 1; j++)
         {
-            if (winner[i].votes >= winner[j].votes && winner[i].name != NULL)
+            if (winner[i].votes >= bigger && winner[i].name != NULL)
             {
                 printf("%s\n", winner[i].name);
 
