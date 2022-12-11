@@ -101,17 +101,17 @@ void print_winner(void)
         }
     }
 
-    for (int i = 0; i < win ; i++)
+    for (int i = 0; i < win + 1; i++)
     {
 
-        // for (int j = 0; j < 1; j++)
-        // {
-            if (winner[i].name != NULL)
+        for (int j = 0; j < 1; j++)
+        {
+            if (winner[i].votes >= winner[j].votes && winner[i].name != NULL)
             {
                 printf("%s\n", winner[i].name);
 
             }
-        // }
+        }
     }
     return;
 }
