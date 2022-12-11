@@ -12,4 +12,5 @@ How do you know?: sort2 was the faster of than all.
 
 sort3 uses: selection sort
 
-How do you know?: At the random5000 and 
+How do you know?: In the test of random5000 and random50000, sort3 was slower than sort2, but in the test of sorted50000, sorted3
+almost had the same running time as the random50000.
