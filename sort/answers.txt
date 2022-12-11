@@ -1,12 +1,14 @@
 sort1 uses: bubble sort
 
-How do you know?: the test of the 5000 sorted list, sort1 was faster than sort3 overall and was slower than sort2 with really narrow margin,
+How do you know?: the test of the 5000 sorted list, sort1 was faster than sort3 overall and was slower than sort2 with really narrow margin.
+random5000 and random50000, sort1 was the slowest sort algorithm. And with a list of 50000 sorted numbers,
+sort1 was slower than sort2 and faster than sort3. Given that bubble sort lower bound is omega n, more
 
 
 
 sort2 uses: merge sort
 
-How do you know?: TODO
+How do you know?:
 
 sort3 uses: selection sort
 
