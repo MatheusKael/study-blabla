@@ -12,4 +12,4 @@ How do you know?: sort2 was the faster of than all.
 
 sort3 uses: selection sort
 
-How do you know?: 
+How do you know?: At the random5000 and 
