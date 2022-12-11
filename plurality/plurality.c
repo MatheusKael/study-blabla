@@ -95,15 +95,15 @@ void print_winner(void)
                 winner[i] = candidates[i];
             }
         }
-       
+
     }
 
     for (int i = 0; i < candidate_count - 1; i++)
     {
-        if (winner[i].name != NULL)
+            printf("%s %i\n", winner[i].name, winner[i].votes);
+        if (winner[i].votes >  winner[i + 1].votes)
         {
 
-            printf("%s %i\n", winner[i].name, winner[i].votes);
         }
     }
     return;
