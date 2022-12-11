@@ -86,16 +86,16 @@ void print_winner(void)
     candidate winner[candidate_count];
     candidate ts[candidate_count];
     int win = 0;
+    int bigger =0;
 
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count - 1; j++)
         {
-            if (candidates[i].votes >= candidates[j].votes && strcmp(candidates[i].name, candidates[j].name) != 0)
+            if (candidates[i].votes >= candidates[j].votes && strcmp(candidates[i].name, candidates[j].name) != 0 && candidates[i].votes > bigger)
             {
                 win++;
-                printf("%s %i\n", winner[j].name, winner[j].votes);
-                printf("%s %i\n", candidates[i].name, candidates[i].votes);
+                bigger = candidates[i].votes;
                 winner[i] = candidates[i];
             }
         }
