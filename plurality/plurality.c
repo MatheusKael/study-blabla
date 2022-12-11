@@ -104,11 +104,10 @@ void print_winner(void)
 
         for (int j = 0; j < 1; j++)
         {
-            // printf("%s %i\n", winner[i].name, winner[i].votes);
             if (winner[i].votes >= winner[j].votes)
             {
-                printf("%s %i\n", winner[i].name, winner[i].votes);
-                // [ 2, 1]
+                printf("%s\n", winner[i].name);
+                
             }
         }
     }
