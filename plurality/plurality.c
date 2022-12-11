@@ -84,6 +84,7 @@ void print_winner(void)
 {
 
     candidate winner[candidate_count];
+    candidate ts[candidate_count];
 
     for (int i = 0; i < candidate_count; i++)
     {
@@ -92,16 +93,14 @@ void print_winner(void)
             if (candidates[i].votes > candidates[j].votes && strcmp(candidates[i].name, candidates[j].name) != 0)
             {
                 winner[i] = candidates[i];
+            } else if (winner[i].votes == candidates[j].votes && strcmp(winner[i].name, candidates[j].name) != 0) {
+                ts[i] = candidates[j];
             }
         }
     }
 
     for (int i = 0; i < candidate_count - 1; i++)
     {
-        if (winner[i].votes == candidates[i].votes && strcmp(winner[i].name, candidates[j].name) != 0)
-        {
-            winner[j] = candidates[j];
-        }
         if (winner[i].name != NULL)
         {
 
