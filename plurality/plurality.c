@@ -92,7 +92,7 @@ void print_winner(void)
     {
         for (int j = 0; j < candidate_count - 1; j++)
         {
-            if (candidates[i].votes >= candidates[j].votes && strcmp(candidates[i].name, candidates[j].name) != 0 && candidates[i].votes > bigger)
+            if (candidates[i].votes >= candidates[j].votes && strcmp(candidates[i].name, candidates[j].name) != 0 && candidates[i].votes >= bigger)
             {
                 win++;
                 bigger = candidates[i].votes;
