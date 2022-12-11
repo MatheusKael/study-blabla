@@ -1,7 +1,7 @@
 sort1 uses: bubble sort
 
-How do you know?: the test of the 5000 sorted list, sort1 was faster than sort3 overall and was faster than sort2 
-but given that bubble sort in this scenario would have to do better than every other
+How do you know?: the test of the 5000 sorted list, sort1 was faster than sort3 overall and was slower than sort2 with really narrow margin,
+
 
 
 sort2 uses: merge sort
