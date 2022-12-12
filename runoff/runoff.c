@@ -91,7 +91,7 @@ int main(int argc, string argv[])
         // Check if election has been won
         bool won = print_winner();
 
-        printf("%b", won);
+        printf("%i", won);
         if (won)
         {
             break;
