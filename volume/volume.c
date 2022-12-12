@@ -46,7 +46,8 @@ int main(int argc, char *argv[])
     int16_t buffer;
     while (fread(&buffer, sizeof(int16_t), 1, input))
     {
-        printf("%hd", buffer);
+
+        fwrite(&buffer * factor, sizeof(int16_t), 1, output);
     }
 
     // Close files
