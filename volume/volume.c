@@ -44,10 +44,12 @@ int main(int argc, char *argv[])
     // TODO: Read samples from input file and write updated data to output file
 
     int16_t buffer;
+    int16_t new_sample;
+
     while (fread(&buffer, sizeof(int16_t), 1, input))
     {
-        
-        fwrite(&buffer, sizeof(int16_t), 1, output);
+        new_sample = buffer * factor;
+        fwrite(&new_sample, sizeof(int16_t), 1, output);
     }
 
     // Close files
