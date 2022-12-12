@@ -90,6 +90,8 @@ int main(int argc, string argv[])
 
         // Check if election has been won
         bool won = print_winner();
+
+        printf("%b", won);
         if (won)
         {
             break;
@@ -168,10 +170,9 @@ bool print_winner(void)
 
 
     for(int i = 0; i < candidate_count; i++ ) {
-        printf("%i", candidates[i].votes);
-        // if(candidates[i].votes > votes_needed) {
-        //     return true;
-        // }
+        if(candidates[i].votes > votes_needed) {
+            return true;
+        }
     }
 
     return false;
