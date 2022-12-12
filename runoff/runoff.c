@@ -241,7 +241,7 @@ void eliminate(int min)
     }
 
     printf(" \npos %i\n", pos);
-    for (int i = pos -1; i < candidate_count ; i++)
+    for (int i = pos -1; i < candidate_count -1 ; i++)
     {
 
         candidates[i] = candidates[i + 1];
