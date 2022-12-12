@@ -91,7 +91,6 @@ int main(int argc, string argv[])
         // Check if election has been won
         bool won = print_winner();
 
-        printf("%i", won);
         if (won)
         {
             break;
@@ -154,7 +153,8 @@ void tabulate(void)
             int choice = preferences[i][j];
             if (candidates[choice].eliminated == false)
             {
-                candidates[choice].votes++;
+                printf("%i|", ++candidates[choice].votes);
+                ++candidates[choice].votes;
                 break;
             }
         }
@@ -172,7 +172,7 @@ bool print_winner(void)
     {
         if (candidates[i].votes > votes_needed)
         {
-            printf("%s", candidates[i].name);
+            printf("%s\n", candidates[i].name);
             return true;
         }
     }
