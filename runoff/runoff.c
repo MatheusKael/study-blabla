@@ -246,7 +246,7 @@ void eliminate(int min)
 
         candidates[i] = candidates[i + 1];
 
-        printf("%s", candidates[i].name);
+        printf("\nelimination: %s\n", candidates[i].name);
     }
 
     candidate_count--;
