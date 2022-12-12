@@ -154,7 +154,6 @@ void tabulate(void)
             if (candidates[choice].eliminated == false)
             {
                 candidates[choice].votes++;
-                printf("\n%i", candidates[choice].votes);
                 break;
             }
         }
@@ -186,11 +185,10 @@ int find_min(void)
 
     for (int i = 1; i < candidate_count; i++)
     {
-        printf("%i", i);
         if (candidates[i].votes < fewest && candidates[i].eliminated == false)
         {
             fewest = candidates[i].votes;
-            printf("fewest %i", fewest);
+            // printf("fewest %i", fewest);
             return fewest;
         }
         else if (candidates[i].votes == candidates[i + 1].votes && candidates[i].eliminated == false)
@@ -215,7 +213,7 @@ bool is_tie(int min)
 
         if (candidates[i].votes == min)
         {
-            printf("tie %i\n", tie_count);
+            printf("min %i\n", min);
             tie_count++;
         }
     }
