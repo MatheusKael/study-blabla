@@ -153,7 +153,7 @@ void tabulate(void)
             int choice = preferences[i][j];
             if (candidates[choice].eliminated == false)
             {
-                candidates[choice].votes++;
+                ++candidates[choice].votes;
                 printf("%i",candidates[choice].votes);
                 break;
             }
