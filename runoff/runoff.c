@@ -188,6 +188,7 @@ int find_min(void)
 
     for (int i = 1; i < candidate_count ; i++)
     {
+                printf("%i", i);
             if (candidates[i].votes < fewest )
             {
                 fewest = candidates[i].votes;
