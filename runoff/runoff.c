@@ -153,7 +153,7 @@ void tabulate(void)
             int choice = preferences[i][j];
             if (candidates[choice].eliminated == false)
             {
-                ++candidates[choice].votes;
+                candidates[choice].votes++;
                 break;
             }
         }
@@ -232,7 +232,7 @@ void eliminate(int min)
         }
     }
 
-    for (i = pos - 1; i < candidate_count - 1; i++)
+    for (int i = pos - 1; i < candidate_count - 1; i++)
     {
         candidates[i] = candidates[i + 1];
     }
