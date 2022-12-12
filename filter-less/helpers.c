@@ -8,11 +8,12 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            image[height][width].rgbtBlue = 0x80;
+            image[height][width].rgbtBlue = 0x00;
+            image[height][width].rgbtGreen= 0x00;
         }
     }
 
-    return image[height][width];
+    return;
 }
 
 // Convert image to sepia
