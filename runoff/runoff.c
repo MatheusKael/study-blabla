@@ -169,7 +169,7 @@ bool print_winner(void)
 
     for (int i = 0; i < candidate_count; i++)
     {
-        if (candidates[i].votes >= votes_needed)
+        if (candidates[i].votes >= votes_needed && candidates[i].eliminated == false)
         {
             printf("winner %s %i \n", candidates[i].name, candidates[i].votes);
             return true;
@@ -187,13 +187,13 @@ int find_min(void)
     for (int i = 1; i < candidate_count; i++)
     {
         printf("%i", i);
-        if (candidates[i].votes <= fewest)
+        if (candidates[i].votes < fewest && candidates[i].eliminated == false)
         {
             fewest = candidates[i].votes;
             printf("fewest %i", fewest);
             return fewest;
         }
-        else if (candidates[i].votes == candidates[i + 1].votes )
+        else if (candidates[i].votes == candidates[i + 1].votes && candidates[i].eliminated == false)
         {
 
             fewest = candidates[i].votes;
