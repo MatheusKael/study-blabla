@@ -240,18 +240,15 @@ void eliminate(int min)
         }
     }
 
-    printf(" \npos %i\n", pos);
+    candidates[pos].eliminated = true;
     int i;
     for ( i = pos -1; i < candidate_count -1 ; i++)
     {
 
         candidates[i] = candidates[i + 1];
-        candidates[i].eliminated = true;
 
-        printf("\nelimination: %s\n", candidates[i].name);
     }
 
     candidate_count--;
-    printf("passou");
     return;
 }
