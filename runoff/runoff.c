@@ -107,7 +107,7 @@ int main(int argc, string argv[])
             {
                 if (!candidates[i].eliminated)
                 {
-                    printf("tie %s\n", candidates[i].name);
+                    printf("%s\n", candidates[i].name);
                 }
             }
             break;
@@ -150,7 +150,7 @@ void tabulate(void)
         for (int j = 0; j < candidate_count; j++)
         {
             int choice = preferences[i][j];
-            printf("%s %i\n", candidates[choice].name, candidates[choice].eliminated);
+            // printf("%s %i\n", candidates[choice].name, candidates[choice].eliminated);
             if (candidates[choice].eliminated == false)
             {
                 candidates[choice].votes++;
@@ -170,7 +170,7 @@ bool print_winner(void)
     {
         if (candidates[i].votes >= votes_needed && candidates[i].eliminated == false)
         {
-            printf("winner %s %i \n", candidates[i].name, candidates[i].votes);
+            printf("%s\n", candidates[i].name);
             return true;
         }
     }
@@ -218,11 +218,11 @@ bool is_tie(int min)
 
         if (candidates[i].votes == min)
         {
-            printf("min %i\n", min);
+            // printf("min %i\n", min);
             tie_count++;
         }
     }
-    if (tie_count == candidate_count)
+    if (tie_count == candidate_count -1)
     {
         return true;
     }
@@ -244,7 +244,7 @@ void eliminate(int min)
     }
 
     candidates[pos].eliminated = true;
-    
+
 
     return;
 }
