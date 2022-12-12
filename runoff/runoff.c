@@ -189,7 +189,7 @@ int find_min(void)
         if (candidates[i].votes < candidates[i + 1].votes && candidates[i].votes < fewest)
         {
             fewest = candidates[i].votes;
-            printf("%i", fewest);
+            printf("fewest %i", fewest);
             return fewest;
         }
     }
@@ -233,7 +233,7 @@ void eliminate(int min)
         }
     }
 
-    printf("%i", pos);
+    printf("eliminate %i", pos);
     for (int i = pos - 1; i < candidate_count - 1; i++)
     {
 
