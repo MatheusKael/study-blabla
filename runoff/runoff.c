@@ -252,6 +252,5 @@ void eliminate(int min)
         candidates[i] = candidates[i + 1];
     }
 
-    candidate_count--;
     return;
 }
