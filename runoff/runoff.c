@@ -211,6 +211,7 @@ bool is_tie(int min)
 
         if (candidates[i].votes == min)
         {
+            printf("tie %i\n", tie_count);
             tie_count++;
         }
 
@@ -243,6 +244,6 @@ void eliminate(int min)
     }
 
     candidate_count--;
-    // printf("passou");
+    printf("passou");
     return;
 }
