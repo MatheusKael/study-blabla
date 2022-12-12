@@ -222,7 +222,7 @@ bool is_tie(int min)
             tie_count++;
         }
     }
-    if (tie_count == candidate_count -1)
+    if (tie_count == candidate_count - 1)
     {
         return true;
     }
@@ -241,10 +241,8 @@ void eliminate(int min)
         {
             pos = i;
         }
+        candidates[pos].eliminated = true;
     }
-
-    candidates[pos].eliminated = true;
-
 
     return;
 }
