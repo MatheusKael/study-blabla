@@ -244,6 +244,7 @@ void eliminate(int min)
     }
 
     candidates[pos].eliminated = true;
+    printf("%s", candidates[pos].name);
     int i;
     for (i = pos - 1; i < candidate_count - 1; i++)
     {
