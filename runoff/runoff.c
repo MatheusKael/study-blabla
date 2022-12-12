@@ -184,18 +184,20 @@ int find_min(void)
 {
     int fewest = candidates[0].votes;
 
-    for (int i = 1; i < candidate_count ; i++)
+    for (int i = 1; i < candidate_count; i++)
     {
-                printf("%i", i);
-            if (candidates[i].votes <  fewest )
-            {
-                fewest = candidates[i].votes;
-                printf("fewest %i", fewest);
-                return fewest;
-            } else if (candidates[i].votes ==  fewest && candidate_count == 2) {
+        printf("%i", i);
+        if (candidates[i].votes < fewest)
+        {
+            fewest = candidates[i].votes;
+            printf("fewest %i", fewest);
+            return fewest;
+        }
+        else if (candidates[i].votes == fewest && candidate_count == 2)
+        {
 
-                return fewest;
-            }
+            return fewest;
+        }
     }
 
     return 0;
@@ -240,11 +242,10 @@ void eliminate(int min)
 
     candidates[pos].eliminated = true;
     int i;
-    for ( i = pos -1; i < candidate_count -1 ; i++)
+    for (i = pos - 1; i < candidate_count - 1; i++)
     {
 
         candidates[i] = candidates[i + 1];
-
     }
 
     candidate_count--;
