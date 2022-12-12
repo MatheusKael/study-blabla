@@ -218,11 +218,10 @@ bool is_tie(int min)
             printf("tie %i\n", tie_count);
             tie_count++;
         }
-
-        if (tie_count == candidate_count)
-        {
-            return true;
-        }
+    }
+    if (tie_count == candidate_count)
+    {
+        return true;
     }
 
     return false;
