@@ -207,7 +207,11 @@ void eliminate(int min)
 
     for(int i = 0; i < candidate_count; i++) {
         if(candidates[min].votes == candidates[i] ) {
-            
+            for(i=pos-1; i<size-1; i++)
+        {
+            arr[i] = arr[i + 1];
+        }
+
         }
     }
 
