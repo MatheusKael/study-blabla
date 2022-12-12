@@ -182,19 +182,16 @@ bool print_winner(void)
 // Return the minimum number of votes any remaining candidate has
 int find_min(void)
 {
-    int fewest = MAX_VOTERS;
+    int fewest = candidates[0].votes;
 
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 1; i < candidate_count ; i++)
     {
-        for (int j = 0; j < candidate_count ; j++)
-        {
-            if (candidates[i + 1].votes <= candidates[i].votes && candidates[i].votes <= fewest)
+            if ()
             {
                 fewest = candidates[i + 1].votes;
                 printf("fewest %i", fewest);
                 return fewest;
             }
-        }
     }
 
     return 0;
