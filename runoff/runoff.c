@@ -222,7 +222,7 @@ bool is_tie(int min)
             tie_count++;
         }
     }
-    if (tie_count == candidate_count - 1)
+    if (tie_count == candidate_count - 1 ||  tie_count == candidate_count )
     {
         return true;
     }
