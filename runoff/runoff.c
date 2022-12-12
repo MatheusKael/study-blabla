@@ -241,8 +241,8 @@ void eliminate(int min)
         {
             pos = i;
         }
-    }
         candidates[pos].eliminated = true;
+    }
 
     return;
 }
