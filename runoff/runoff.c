@@ -246,6 +246,7 @@ void eliminate(int min)
     {
 
         candidates[i] = candidates[i + 1];
+        candidates[i].eliminated = true;
 
         printf("\nelimination: %s\n", candidates[i].name);
     }
