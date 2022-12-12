@@ -145,22 +145,20 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
 
-    printf("aqui");
     for (int i = 0; i < voter_count; i++)
     {
 
-        for (int j = 0; j < candidate_count - 1; j++)
+        for (int j = 0; j < candidate_count; j++)
         {
             int choice = preferences[i][j];
             if (candidates[choice].eliminated == false)
             {
                 candidates[choice].votes++;
+                printf("\n%i", candidates[choice].votes);
                 break;
             }
         }
     }
-    printf("passou");
-
     return;
 }
 
