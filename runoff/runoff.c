@@ -239,6 +239,6 @@ void eliminate(int min)
         candidates[i] = candidates[i + 1];
     }
 
-    printf("passou");
+    // printf("passou");
     return;
 }
