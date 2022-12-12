@@ -145,6 +145,7 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
 
+    printf("aqui");
     for (int i = 0; i < voter_count; i++)
     {
 
@@ -158,6 +159,7 @@ void tabulate(void)
             }
         }
     }
+    printf("passou");
 
     return;
 }
