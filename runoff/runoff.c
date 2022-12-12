@@ -240,6 +240,7 @@ void eliminate(int min)
         }
     }
 
+    printf(" \npos %i\n", pos);
     for (int i = pos - 1; i < candidate_count - 1; i++)
     {
 
