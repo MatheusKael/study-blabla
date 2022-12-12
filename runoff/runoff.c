@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <string.h>
 
-
 // Max voters and candidates
 #define MAX_VOTERS 100
 #define MAX_CANDIDATES 9
@@ -16,8 +15,7 @@ typedef struct
     string name;
     int votes;
     bool eliminated;
-}
-candidate;
+} candidate;
 
 // Array of candidates
 candidate candidates[MAX_CANDIDATES];
@@ -130,8 +128,10 @@ int main(int argc, string argv[])
 bool vote(int voter, int rank, string name)
 {
 
-    for(int i = 0; i < candidate_count; i++)  {
-        if(strcmp(candidates[i].name, name) == 0) {
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (strcmp(candidates[i].name, name) == 0)
+        {
             preferences[voter][rank] = i;
             return true;
         }
@@ -144,11 +144,17 @@ bool vote(int voter, int rank, string name)
 void tabulate(void)
 {
 
-    for(int i = 0; i < voter_count; i++) {
-        for(int j = 0; j < candidate_count; j ++) {
-            if(preferences[i][0] == candidates[j] &&  candidates[j].eliminated == false) {
-                candidates[j].votes++;
-            } else if(preferences[i][1] == candidates[j] &&  candidates[j].eliminated == false)
+    for (int i = 0; i < voter_count; i++)
+    {
+
+        for (int j = 0; j < candidate_count; j++)
+        {
+            int choice = preferences[i][j];
+            if (candidates[choice].eliminated == false)
+            {
+                candidates[choice].votes++;
+                break;
+            }
         }
     }
 
