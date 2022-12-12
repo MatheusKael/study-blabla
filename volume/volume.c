@@ -39,9 +39,7 @@ int main(int argc, char *argv[])
 
     fread(&header, sizeof(uint8_t), HEADER_SIZE, input );
 
-    for(int i = 0; i < HEADER_SIZE; i++) {
-        printf("%hhu", header[i]);
-    }
+    fwrite(&)
     printf("\n");
 
 
