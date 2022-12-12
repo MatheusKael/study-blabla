@@ -168,9 +168,11 @@ bool print_winner(void)
 {
     int votes_needed = voter_count / 2 + 1;
 
-
-    for(int i = 0; i < candidate_count; i++ ) {
-        if(candidates[i].votes > votes_needed) {
+    for (int i = 0; i < candidate_count; i++)
+    {
+        if (candidates[i].votes > votes_needed)
+        {
+            printf("%s", candidates[i].name);
             return true;
         }
     }
