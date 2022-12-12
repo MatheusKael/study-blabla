@@ -222,7 +222,7 @@ bool is_tie(int min)
             tie_count++;
         }
     }
-    if (tie_count == candidate_count - 1 ||  tie_count == candidate_count )
+    if (tie_count == candidate_count - 1 || tie_count == candidate_count)
     {
         return true;
     }
@@ -233,16 +233,29 @@ bool is_tie(int min)
 // Eliminate the candidate (or candidates) in last place
 void eliminate(int min)
 {
-    int pos[];
+    int pos[candidate_count];
 
     for (int i = 0; i < candidate_count; i++)
     {
         if (candidates[i].votes == min)
         {
-            pos = i;
+            pos[i] = i;
+        }
+        else
+        {
+
+            pos[i] = -1;
         }
     }
-        candidates[pos].eliminated = true;
+
+    for (int i = 0; i < candidate_count; i++)
+    {
+
+        if (pos[i] != -1)
+        {
+            candidates[pos[i]].eliminated = true;
+        }
+    }
 
     return;
 }
