@@ -212,7 +212,7 @@ bool is_tie(int min)
 {
 
     int tie_count = 0;
-
+    int eliminated_count = 0;
     for (int i = 0; i < candidate_count; i++)
     {
 
@@ -221,8 +221,12 @@ bool is_tie(int min)
             // printf("min %i\n", min);
             tie_count++;
         }
+        else if (candidates[i].eliminated == true)
+        {
+            eliminated_count++;
+        }
     }
-    if (tie_count == candidate_count - 1 || tie_count == candidate_count)
+    if (tie_count == candidate_count - eliminated_count || tie_count == candidate_count)
     {
         return true;
     }
