@@ -193,9 +193,10 @@ int find_min(void)
             printf("fewest %i", fewest);
             return fewest;
         }
-        else if (candidates[i].votes == fewest && candidate_count == 2)
+        else if (candidates[i].votes == candidates[i + 1].votes )
         {
 
+            fewest = candidates[i].votes;
             return fewest;
         }
     }
