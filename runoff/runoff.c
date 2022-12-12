@@ -186,13 +186,10 @@ int find_min(void)
 
     for (int i = 1; i < candidate_count; i++)
     {
-        for (int j = 1; i < candidate_count; j++)
+        if (candidates[i].votes < fewest && candidates[i].eliminated == false)
         {
-            if (candidates[i].votes < fewest && candidates[i].eliminated == false)
-            {
-                fewest = candidates[i].votes;
-                // printf("fewest %i", fewest);
-            }
+            fewest = candidates[i].votes;
+            // printf("fewest %i", fewest);
         }
     }
 
@@ -205,7 +202,7 @@ int find_min(void)
         }
     }
 
-    return 0;
+    return fewest;
 }
 
 // Return true if the election is tied between all candidates, false otherwise
