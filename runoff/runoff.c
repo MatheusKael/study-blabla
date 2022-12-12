@@ -154,7 +154,6 @@ void tabulate(void)
             if (candidates[choice].eliminated == false)
             {
                 ++candidates[choice].votes;
-                printf("%i",candidates[choice].votes);
                 break;
             }
         }
@@ -172,7 +171,7 @@ bool print_winner(void)
     {
         if (candidates[i].votes > votes_needed)
         {
-            printf("%s votes: %i\n", candidates[i].name, candidates[i].votes);
+            printf("%s \n", candidates[i].name);
             return true;
         }
     }
