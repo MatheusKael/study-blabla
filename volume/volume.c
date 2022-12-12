@@ -37,7 +37,11 @@ int main(int argc, char *argv[])
 
     uint8_t header[HEADER_SIZE];
 
-    fread(header, sizeof(uint8_t), HEADER_SIZE, input );
+    fread(&header, sizeof(uint8_t), HEADER_SIZE, input );
+
+    for(int i = 0; i < HEADER_SIZE; i++) {
+        printf("%hhu", header[i]);
+    }
 
     // TODO: Read samples from input file and write updated data to output file
 
