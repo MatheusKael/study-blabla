@@ -107,7 +107,7 @@ int main(int argc, string argv[])
             {
                 if (!candidates[i].eliminated)
                 {
-                    printf("%s\n", candidates[i].name);
+                    printf("tie %s\n", candidates[i].name);
                 }
             }
             break;
@@ -171,7 +171,7 @@ bool print_winner(void)
     {
         if (candidates[i].votes >= votes_needed)
         {
-            printf("%s \n", candidates[i].name);
+            printf("winner %s \n", candidates[i].name);
             return true;
         }
     }
