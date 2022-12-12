@@ -244,12 +244,7 @@ void eliminate(int min)
     }
 
     candidates[pos].eliminated = true;
-    int i;
-    for (i = pos - 1; i < candidate_count - 1; i++)
-    {
-
-        candidates[i] = candidates[i + 1];
-    }
+    
 
     return;
 }
