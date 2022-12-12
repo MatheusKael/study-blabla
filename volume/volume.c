@@ -42,6 +42,8 @@ int main(int argc, char *argv[])
     for(int i = 0; i < HEADER_SIZE; i++) {
         printf("%hhu", header[i]);
     }
+    printf("\n");
+
 
     // TODO: Read samples from input file and write updated data to output file
 
