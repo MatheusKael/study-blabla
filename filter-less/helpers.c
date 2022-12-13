@@ -93,5 +93,16 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 // Blur image
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
+
+    RGBTRIPLE second_matrix = malloc(height * sizeof(RGBTRIPLE));
+
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            second_matrix[i][j] = image[i][j];
+        }
+    }
+
     return;
 }
