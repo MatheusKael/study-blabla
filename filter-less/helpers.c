@@ -12,10 +12,6 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            int quotient;
-            int temp;
-            int hexadecimalNumber;
-            int k = 0;
 
             float average = (image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue) / 3.0;
 
@@ -25,7 +21,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
-    return image[height][width];
+    return;
 }
 
 // Convert image to sepia
@@ -108,7 +104,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            grayscale(height, width, copy[height][width]);
+            float average = (image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue) / 3.0;
         }
     }
 
