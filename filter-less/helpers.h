@@ -1,7 +1,5 @@
 #include "bmp.h"
 
-
-
 int lesser(int a, int b);
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width]);
