@@ -1,4 +1,5 @@
 #include "helpers.h"
+#include <stdio.h>
 
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
@@ -9,9 +10,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // Verify if pixel is high, and turn it high too
-            image[i][j].rgbtBlue = 0x20;
-            image[i][j].rgbtGreen= 0x20;
-            image[i][j].rgbtRed= 0x20;
+            printf("%i |",image[i][j].rgbtBlue);
         }
     }
 
