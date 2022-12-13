@@ -10,11 +10,11 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // Verify if pixel is high, and turn it high too
-            long quotient, remainder;
+            double quotient, remainder;
             int hexadecimalnum;
             int k = 0;
 
-            int average = (image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue) / 3;
+            int average = (image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue) / 3.0;
 
             quotient = average;
             while (quotient != 0)
@@ -30,8 +30,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtRed = hexadecimalnum;
             image[i][j].rgbtGreen = hexadecimalnum;
             image[i][j].rgbtBlue = hexadecimalnum;
-            printf("%i", hexadecimalnum);
-        }
+                }
     }
 
     return;
