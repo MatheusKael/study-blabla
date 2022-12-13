@@ -47,7 +47,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 
             if (newRed > 255)
             {
-                if (newGreen < 200)
+                if (newGreen < 100)
                 {
                     newGreen = 255;
                 }
@@ -55,7 +55,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             }
             else if (newGreen > 255)
             {
-                if (newRed < 200)
+                if (newRed < 100)
                 {
                     newRed = 255;
                 }
@@ -63,6 +63,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             }
             else if (newBlue > 255)
             {
+                // printf("%f |", newBlue);
                 newBlue = 255;
             }
 
