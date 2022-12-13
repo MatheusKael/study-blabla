@@ -57,7 +57,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             }
             else if (newBlue > 255)
             {
-                printf("%f |", newBlue);
+                // printf("%f |", newBlue);
                 newBlue = 255;
             }
 
