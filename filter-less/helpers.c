@@ -111,40 +111,46 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             int left_diagonal_sum = 0;
             int right_diagonal_sum = 0;
             int inner_square_sum = 0;
-            left_diagonal_sum += copy[i][j];
-            if (copy[i - 1][j - 1] != NULL)
+            left_diagonal_sum += copy[i][j].rgbtRed;
+            left_diagonal_sum += copy[i][j].rgbtGreen;
+            left_diagonal_sum += copy[i][j].rgbtBlue;
+            if (copy[i - 1][j - 1].rgbtRed != NULL)
             {
-                left_diagonal_sum += copy[i - 1][j - 1];
+                left_diagonal_sum += copy[i - 1][j - 1].rgbtRed;
+                left_diagonal_sum += copy[i - 1][j - 1].rgbtGreen;
+                left_diagonal_sum += copy[i - 1][j - 1].rgbtBlue;
             }
-            if (copy[i + 1][j + 1] != NULL)
+            if (copy[i + 1][j + 1].rgbtRed != NULL)
             {
-                left_diagonal_sum += copy[i + 1][j + 1];
+                left_diagonal_sum += copy[i + 1][j + 1].rgbtRed;
+                left_diagonal_sum += copy[i + 1][j + 1].rgbtGreen;
+                left_diagonal_sum += copy[i + 1][j + 1].rgbtBlue;
             }
-            if (copy[i + 1][j - 1] != NULL)
-            {
-                right_diagonal_sum += copy[i + 1][j - 1];
-            }
-            if (copy[i - 1][j + 1] != NULL)
-            {
-                right_diagonal_sum += copy[i - 1][j + 1];
-            }
-            if (copy[i - 1][j] != NULL)
-            {
-                inner_square_sum += copy[i - 1][j];
-            }
-            if (copy[i][j - 1] != NULL)
-            {
-                inner_square_sum += copy[i][j - 1];
-            }
-            if (copy[i + 1][j] != NULL)
-            {
-                inner_square_sum += copy[i + 1][j];
-            }
+            // if (copy[i + 1][j - 1] != NULL)
+            // {
+            //     right_diagonal_sum += copy[i + 1][j - 1];
+            // }
+            // if (copy[i - 1][j + 1] != NULL)
+            // {
+            //     right_diagonal_sum += copy[i - 1][j + 1];
+            // }
+            // if (copy[i - 1][j] != NULL)
+            // {
+            //     inner_square_sum += copy[i - 1][j];
+            // }
+            // if (copy[i][j - 1] != NULL)
+            // {
+            //     inner_square_sum += copy[i][j - 1];
+            // }
+            // if (copy[i + 1][j] != NULL)
+            // {
+            //     inner_square_sum += copy[i + 1][j];
+            // }
 
-            if (copy[i][j + 1] != NULL)
-            {
-                inner_square_sum += copy[i][j + 1];
-            }
+            // if (copy[i][j + 1] != NULL)
+            // {
+            //     inner_square_sum += copy[i][j + 1];
+            // }
 
             image[i][j] = round((inner_square_sum + right_diagonal_sum + left_diagonal_sum) / 3.0);
         }
