@@ -68,16 +68,18 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
 
-    RGBTRIPLE *tmp = malloc(height * sizeof(RGBTRIPLE));
+    RGBTRIPLE tmp = ;
 
-    for (int i = 0; i < height / 2; i++)
+    for (int i = 0; i < height; i++)
     {
-        tmp = image[i];
-        image[i] = image[ height - i - 1];
-        image[height - i - 1] = tmp;
+        for (int j = 0; j < width/2; j++)
+        {
+            tmp = image[i][j];
+            image[i][j] = image[i][height - i - 1];
+            image[i][height - i - 1] = tmp;
+        }
     }
 
-    free(tmp);
     return;
 }
 
