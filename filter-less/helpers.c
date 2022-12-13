@@ -17,23 +17,12 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
 
             float average = (image[i][j].rgbtRed + image[i][j].rgbtGreen + image[i][j].rgbtBlue) / 3.0;
 
-            quotient = average;
-            while (quotient != 0)
-            {
-                temp = quotient % 16;
-                if (temp < 10)
-                    temp = temp + 48;
-                else
-                    temp = temp + 55;
-                hexadecimalNumber = temp;
-                quotient = quotient / 16;
-            }
 
 
-            printf("%i", hexadecimalNumber);
-            image[i][j].rgbtRed = hexadecimalNumber;
-            image[i][j].rgbtGreen = hexadecimalNumber;
-            image[i][j].rgbtBlue = hexadecimalNumber;
+            // printf("%i", hexadecimalNumber);
+            image[i][j].rgbtRed = (int)average;
+            image[i][j].rgbtGreen = (int)average;
+            image[i][j].rgbtBlue = (int)average;
         }
     }
 
