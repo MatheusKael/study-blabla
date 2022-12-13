@@ -10,6 +10,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // Verify if pixel is high, and turn it high too
+            if(image[i][j].rgbtBlue > 50 && )
             printf("%i |",image[i][j].rgbtBlue);
         }
     }
