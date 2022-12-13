@@ -10,7 +10,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // Verify if pixel is high, and turn it high too
-            double quotient, remainder;
+            long quotient, remainder;
             int hexadecimalnum;
             int k = 0;
 
@@ -30,7 +30,7 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtRed = hexadecimalnum;
             image[i][j].rgbtGreen = hexadecimalnum;
             image[i][j].rgbtBlue = hexadecimalnum;
-                }
+        }
     }
 
     return;
