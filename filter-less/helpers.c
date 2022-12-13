@@ -108,10 +108,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            if (i == j)
-            {
-                left_diagonal_sum += copy[i][j];
-            }
+            
         }
     }
 
