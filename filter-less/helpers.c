@@ -95,7 +95,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 {
 
     RGBTRIPLE copy = malloc(height * sizeof(RGBTRIPLE));
-    int left_diagonal_sum = 0;
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -108,7 +108,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            
+            int left_diagonal_sum = 0;
+            if (copy[i - 1][j - 1] != NULL)
+            {
+                left_diagonal_sum += copy[i - 1][j - 1];
+            }
+            if (copy[i + 1][j + 1] != NULL)
+            {
+                left_diagonal_sum += copy[i + 1][j + 1];
+            }
         }
     }
 
