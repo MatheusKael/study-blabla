@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include <math.h>
 
+
+// check50 cs50/problems/2022/x/filter/less
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
