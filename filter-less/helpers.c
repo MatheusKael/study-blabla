@@ -90,15 +90,9 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
 
-    RGBTRIPLE *copy = malloc(height * sizeof(RGBTRIPLE));
-
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-            copy[i][j] = image[i][j];
-        }
-    }
+    RGBTRIPLE copy[height][width];
+    
+    copy[height][width] = image[height][width];
 
     for (int i = 0; i < height; i++)
     {
