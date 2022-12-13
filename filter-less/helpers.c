@@ -73,7 +73,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     {
         int tmp = image[i];
         image[i] = image[i  +1];
-        image[i + 1] = tmp;
+        image[i + 1] =
     }
 
 
