@@ -57,8 +57,9 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtRed = round(newRed);
             image[i][j].rgbtGreen = round(newGreen);
             image[i][j].rgbtBlue = round(newBlue);
+            printf("%i %i", image[i][j].rgbtRed, image[i][j].rgbtGreen);
         }
-    }
+        printf("\n");    }
 
     return;
 }
