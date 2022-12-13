@@ -45,21 +45,21 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             float newGreen = (.349 * image[i][j].rgbtRed) + (.686 * image[i][j].rgbtGreen) + (.168 * image[i][j].rgbtBlue);
             float newBlue = (.272 * image[i][j].rgbtRed) + (.534 * image[i][j].rgbtGreen) + (.131 * image[i][j].rgbtBlue);
 
-            if (newRed > 255)
-            {
-                printf("%f |", newRed);
-                newRed = 255;
-            }
-            else if (newGreen > 255)
-            {
-                printf("%f |", newGreen);
-                newGreen = 255;
-            }
-            else if (newBlue > 255)
-            {
-                printf("%f |", newBlue);
-                newBlue = 255;
-            }
+            // if (newRed > 255)
+            // {
+            //     printf("%f |", newRed);
+            //     newRed = 255;
+            // }
+            // else if (newGreen > 255)
+            // {
+            //     printf("%f |", newGreen);
+            //     newGreen = 255;
+            // }
+            // else if (newBlue > 255)
+            // {
+            //     printf("%f |", newBlue);
+            //     newBlue = 255;
+            // }
 
             image[i][j].rgbtRed = round(newRed);
             image[i][j].rgbtGreen = round(newGreen);
