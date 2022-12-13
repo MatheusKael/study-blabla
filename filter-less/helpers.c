@@ -74,7 +74,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
     {
 
         int start = 0;
-        int end = height - 1;
+        int end = height * 3 - 1;
 
         while (start < end)
         {
