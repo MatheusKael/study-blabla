@@ -1,7 +1,7 @@
 #include "helpers.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
-
 
 // check50 cs50/problems/2022/x/filter/less
 // Convert image to grayscale
@@ -49,7 +49,7 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
             {
                 newRed = 255;
             }
-            if (round(newGreen) >255 )
+            if (round(newGreen) > 255)
             {
                 newGreen = 255;
             }
@@ -68,16 +68,16 @@ void sepia(int height, int width, RGBTRIPLE image[height][width])
 void reflect(int height, int width, RGBTRIPLE image[height][width])
 {
 
+    RGBTRIPLE tmp = malloc(height * sizeof(RGBTRIPLE));
 
-    for (int i = 0; i < height; i++)
+    for (int i = 0; i < height / 2; i++)
     {
-        int tmp = image[i];
-        image[i] = image[i  +1];
-        image[i + 1] =
+        tmp = image[i];
+        image[i] = image[ height - i - 1];
+        image[height - i - 1] = tmp;
     }
 
-
-
+    free(tmp);
     return;
 }
 
@@ -86,4 +86,3 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 {
     return;
 }
-
