@@ -29,9 +29,10 @@ void grayscale(int height, int width, RGBTRIPLE image[height][width])
                 quotient = quotient / 16;
             }
 
-            image[i][j].rgbtRed = hexadecimalNumber[j];
-            image[i][j].rgbtGreen = hexadecimalNumber[j];
-            image[i][j].rgbtBlue = hexadecimalNumber[j];
+            printf("%s", hexadecimalNumber);
+            image[i][j].rgbtRed = hexadecimalNumber;
+            image[i][j].rgbtGreen = hexadecimalNumber;
+            image[i][j].rgbtBlue = hexadecimalNumber;
         }
     }
 
