@@ -94,7 +94,7 @@ void reflect(int height, int width, RGBTRIPLE image[height][width])
 void blur(int height, int width, RGBTRIPLE image[height][width])
 {
 
-    RGBTRIPLE copy = malloc(height * sizeof(RGBTRIPLE));
+    RGBTRIPLE *copy = malloc(height * sizeof(RGBTRIPLE));
 
     for (int i = 0; i < height; i++)
     {
@@ -109,6 +109,9 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             int left_diagonal_sum = 0;
+            int right_diagonal_sum = 0;
+            int inner_square_sum = 0;
+            left_diagonal_sum += copy[i][j];
             if (copy[i - 1][j - 1] != NULL)
             {
                 left_diagonal_sum += copy[i - 1][j - 1];
@@ -117,6 +120,33 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             {
                 left_diagonal_sum += copy[i + 1][j + 1];
             }
+            if (copy[i + 1][j - 1] != NULL)
+            {
+                right_diagonal_sum += copy[i + 1][j - 1];
+            }
+            if (copy[i - 1][j + 1] != NULL)
+            {
+                right_diagonal_sum += copy[i - 1][j + 1];
+            }
+            if (copy[i - 1][j] != NULL)
+            {
+                inner_square_sum += copy[i - 1][j];
+            }
+            if (copy[i][j - 1] != NULL)
+            {
+                inner_square_sum += copy[i][j - 1];
+            }
+            if (copy[i + 1][j] != NULL)
+            {
+                inner_square_sum += copy[i + 1][j];
+            }
+
+            if (copy[i][j + 1] != NULL)
+            {
+                inner_square_sum += copy[i][j + 1];
+            }
+
+            image[i][j] = round((inner_square_sum + right_diagonal_sum + left_diagonal_sum) / 3.0);
         }
     }
 
