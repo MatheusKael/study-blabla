@@ -24,6 +24,7 @@ int main(void)
     int dead = 0;
     int number_of_years = 0;
 
+    if ( )
     do
     {
         new_born = start_size / 3;
@@ -34,5 +35,6 @@ int main(void)
     } while (start_size < end_size);
 
     // TODO: Print number of years
+
     printf("Years: %i\n", number_of_years);
 }
