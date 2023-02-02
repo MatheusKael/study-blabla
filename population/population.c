@@ -27,8 +27,8 @@ int main(void)
     int number_of_years = 0;
 
     do {
-        new_born = new_born / 3;
-        dead = dead / 4;
+        new_born = start_size / 3;
+        dead = start_size / 4;
 
         start_size = start_size + new_born - dead;
         number_of_years++;
