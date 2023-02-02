@@ -8,7 +8,8 @@ int main(void)
     do
     {
         start_size = get_int("Start size: ");
-    } while (start_size < 9);
+    }
+    while (start_size < 9);
 
     int end_size = 0;
 
@@ -16,7 +17,8 @@ int main(void)
     do
     {
         end_size = get_int("End size: ");
-    } while (end_size < start_size);
+    }
+    while (end_size < start_size);
 
     if (start_size == end_size)
     {
@@ -36,7 +38,8 @@ int main(void)
 
         start_size = start_size + new_born - dead;
         number_of_years++;
-    } while (start_size < end_size);
+    }
+    while (start_size < end_size);
 
     // TODO: Print number of years
 
