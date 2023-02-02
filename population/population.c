@@ -35,5 +35,5 @@ int main(void)
     } while (start_size < end_size);
 
     // TODO: Print number of years
-    printf("Number of years %i", number_of_years);
+    printf("Number of years %i\n", number_of_years);
 }
