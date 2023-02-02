@@ -22,8 +22,8 @@ int main(void)
 
     // TODO: Calculate number of years until we reach threshold
 
-    int new_born= start_size;
-    int dead = start_size;
+    int new_born= 0;
+    int dead = 0;
     int number_of_years = 0;
 
     do {
