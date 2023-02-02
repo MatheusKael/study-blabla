@@ -3,7 +3,7 @@
 
 int main(void)
 {
-    int start_size;
+    int start_size = 0;
     // TODO: Prompt for start size
     do
     {
@@ -11,7 +11,7 @@ int main(void)
     }
     while (start_size < 9);
 
-    int end_size;
+    int end_size = 0;
 
     // TODO: Prompt for end size
     do
