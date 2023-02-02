@@ -1,6 +1,5 @@
 #include <cs50.h>
-#include <stdio.h>
-
+w
 // American Express StartNumbers (findStartNumbers) with 34 or 37 -> Valid number 371844824216560
 // MasterCard StartNumbers with 51, 52, 53, 54, or 55
 // Visa StartNumbers with 4. -> 4003600000000014
