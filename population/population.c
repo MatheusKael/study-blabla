@@ -20,7 +20,7 @@ int main(void)
 
     if (start_size == end_size)
     {
-        printf("Years: 1\n");
+        printf("Years: 0\n");
         return 1;
     }
     // TODO: Calculate number of years until we reach threshold
