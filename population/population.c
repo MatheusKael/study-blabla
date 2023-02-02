@@ -18,13 +18,16 @@ int main(void)
         end_size = get_int("End size: ");
     } while (end_size < start_size);
 
+    if (start_size == end_size)
+    {
+        printf("Years: 1\n");
+    }
     // TODO: Calculate number of years until we reach threshold
 
     int new_born = 0;
     int dead = 0;
     int number_of_years = 0;
 
-    if ( )
     do
     {
         new_born = start_size / 3;
