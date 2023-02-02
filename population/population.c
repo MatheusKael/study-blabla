@@ -8,8 +8,7 @@ int main(void)
     do
     {
         start_size = get_int("Start size: ");
-    }
-    while (start_size < 9);
+    } while (start_size < 9);
 
     int end_size = 0;
 
@@ -17,16 +16,16 @@ int main(void)
     do
     {
         end_size = get_int("End size: ");
-    }
-    while (end_size < start_size);
+    } while (end_size < start_size);
 
     // TODO: Calculate number of years until we reach threshold
 
-    int new_born= 0;
+    int new_born = 0;
     int dead = 0;
     int number_of_years = 0;
 
-    do {
+    do
+    {
         new_born = start_size / 3;
         dead = start_size / 4;
 
@@ -35,5 +34,5 @@ int main(void)
     } while (start_size < end_size);
 
     // TODO: Print number of years
-    printf("Number of years %i\n", number_of_years);
+    printf("Years: %i\n", number_of_years);
 }
