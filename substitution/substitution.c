@@ -18,8 +18,8 @@ int main(int argc, string argv[])
     {
         return 1;
     }
-
-    char te = (int)"a" - 97;
+    char s = "a";
+    char te =  - 97;
 
     printf("%i", te);
 
