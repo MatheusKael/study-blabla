@@ -19,7 +19,7 @@ int main(int argc, string argv[])
         return 1;
     }
     char s = 'a';
-    char te =  - 97;
+    char te = s - 97;
 
     printf("%i", te);
 
@@ -67,4 +67,6 @@ int check_errors(string key)
             }
         }
     }
+
+    return 0;
 }
