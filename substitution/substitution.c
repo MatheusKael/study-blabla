@@ -33,7 +33,6 @@ int main(int argc, string argv[])
     {
         for (int j = 0; j < 26; j++)
         {
-            printf("%c == %c", key[i], key[j]);
             if (key[i] == key[j] && i != j)
             {
                 printf("%c == %c", key[i], key[j]);
