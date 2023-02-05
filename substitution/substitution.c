@@ -18,21 +18,15 @@ int main(int argc, string argv[])
     {
         return 1;
     }
-    char s = 'a';
-    char te = s - 97;
 
-    printf("%i", te);
-
-    // string plaintext = get_string("plaintext: ");
+    string plaintext = get_string("plaintext: ");
 
     for (int i = 0; i < strlen(plaintext); i++)
     {
 
         char ch = plaintext[i];
-        for (int j = 0; j < 26; j++)
-        {
-            
-        }
+        int pos = ch - 97;
+        printf("%c == %c", ch, key[pos]);
     }
 }
 
