@@ -18,7 +18,7 @@ int main(int argc, string argv[])
     {
         return 1;
     }
-    char s = "a";
+    char s = 'a';
     char te =  - 97;
 
     printf("%i", te);
