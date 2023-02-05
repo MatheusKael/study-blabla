@@ -22,7 +22,7 @@ int main(int argc, string argv[])
 
     string plaintext = get_string("plaintext: ");
     int plaintext_len = strlen(plaintext);
-    char *ciphertext = malloc(plaintext_len+ 1 + 1);
+    char *ciphertext = malloc(plaintext_len + 1 + 1);
 
     for (int i = 0; i < plaintext_len; i++)
     {
@@ -33,11 +33,14 @@ int main(int argc, string argv[])
             int pos = ch - 97;
             ciphertext[i] = key[pos];
             ciphertext[i + 1] = '\0';
-        }else {
+        }
+        else
+        {
             ciphertext[i] = key[i];
         }
-        printf("ciphertext: %s\n", ciphertext);
     }
+
+    printf("ciphertext: %s\n", ciphertext);
 }
 
 int check_errors(string key)
