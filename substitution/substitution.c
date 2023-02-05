@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <string.h>
 
@@ -20,16 +21,20 @@ int main(int argc, string argv[])
     }
 
     string plaintext = get_string("plaintext: ");
-    string ciphertext
-    for (int i = 0; i < strlen(plaintext); i++)
+    int plaintext_len = strlen(plaintext);
+    char *ciphertext = malloc(plaintext_len+ 1 + 1);
+
+    for (int i = 0; i < plaintext_len; i++)
     {
 
         char ch = plaintext[i];
         if (islower(ch) != 0)
         {
             int pos = ch - 97;
+            ciphertext[i] = key[pos];
+            ciphertext[i + 1] = '\0';
         }
-        printf("%c == %c", ch, key[pos]);
+        printf("ciphertext: %s\n", ciphertext);
     }
 }
 
