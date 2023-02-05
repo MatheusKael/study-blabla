@@ -28,7 +28,7 @@ int main(int argc, string argv[])
     {
 
         char ch = plaintext[i];
-        if (islower(ch) != 0)
+        if (islower(ch) != 0 && isspace(ch) == 0)
         {
             int pos = ch - 97;
             ciphertext[i] = key[pos];
