@@ -20,12 +20,15 @@ int main(int argc, string argv[])
     }
 
     string plaintext = get_string("plaintext: ");
-
+    string ciphertext
     for (int i = 0; i < strlen(plaintext); i++)
     {
 
         char ch = plaintext[i];
-        int pos = ch - 97;
+        if (islower(ch) != 0)
+        {
+            int pos = ch - 97;
+        }
         printf("%c == %c", ch, key[pos]);
     }
 }
