@@ -35,6 +35,7 @@ int main(int argc, string argv[])
         {
             if (key[i] == key[j] && i != j)
             {
+                printf("%c == %c", key[i], key[j]);
                 return 1;
             }
         }
