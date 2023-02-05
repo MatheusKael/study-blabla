@@ -25,18 +25,15 @@ int main(int argc, string argv[])
 
     // string plaintext = get_string("plaintext: ");
 
-    // for (int i = 0; i < strlen(plaintext); i++)
-    // {
+    for (int i = 0; i < strlen(plaintext); i++)
+    {
 
-    //     for (int  j= 0; j < 26; j++)
-    //     {
-    //         if (tolower(plaintext[i]) == tolower(key[j]) )
-    //         {
-    //             printf("%c == %c \n", key[i], key[j]);
-
-    //         }
-    //     }
-    // }
+        char ch = plaintext[i];
+        for (int j = 0; j < 26; j++)
+        {
+            
+        }
+    }
 }
 
 int check_errors(string key)
