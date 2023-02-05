@@ -3,11 +3,13 @@
 #include <ctype.h>
 #include <string.h>
 
+
+
 int main(int argc, string argv[])
 {
     if (argc > 2 || argc == 1)
     {
-        printf("Key must contain 26 characters.\n");
+        printf("Usage: ./substitution key\n");
         return 1;
     }
     string key = argv[1];
