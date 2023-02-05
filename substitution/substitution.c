@@ -7,7 +7,7 @@ int main(int argc, string argv[])
 {
     if (argc > 2 || argc == 1)
     {
-        printf("Executed without any command-line arguments or with more than one command-line argument");
+        printf("Key must contain 26 characters.\n");
         return 1;
     }
     string key = argv[1];
@@ -15,16 +15,28 @@ int main(int argc, string argv[])
     if (strlen(key) > 26 || strlen(key) < 26)
     {
 
-        printf("Key needs 26 characters!");
+        printf("Key needs 26 characters!\n");
         return 1;
     }
 
     for (int i = 0; i < 26; i++)
     {
-        if (isalpha(key[i]) != 0)
+        if (isalpha(key[i]) == 0)
         {
-            printf("Key contains a not alphabetical character!");
+            printf("Key contains a non alphabetical character!\n");
             return 1;
+        }
+    }
+
+    // not containing each letter exactly once
+    for (int i = 0; i < 26; i++)
+    {
+        for (int j = 0; j < 26; j++)
+        {
+            if (key[i] == key[j] && i != j)
+            {
+                return 1;
+            }
         }
     }
 }
