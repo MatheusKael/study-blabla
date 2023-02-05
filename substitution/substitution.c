@@ -3,7 +3,7 @@
 #include <ctype.h>
 #include <string.h>
 
-
+int check_errors(string key);
 
 int main(int argc, string argv[])
 {
@@ -14,13 +14,23 @@ int main(int argc, string argv[])
     }
     string key = argv[1];
 
+    if(check_errors(key) == 1) {
+        return 1;
+    }
+
+    string plaintext = get_string("plaintext: ");
+
+    
+}
+
+int check_errors(string key)
+{
     if (strlen(key) > 26 || strlen(key) < 26)
     {
 
         printf("Key needs 26 characters!\n");
         return 1;
     }
-
     for (int i = 0; i < 26; i++)
     {
         if (isalpha(key[i]) == 0)
@@ -29,7 +39,6 @@ int main(int argc, string argv[])
             return 1;
         }
     }
-
     // not containing each letter exactly once
     for (int i = 0; i < 26; i++)
     {
