@@ -31,12 +31,18 @@ int main(int argc, string argv[])
         if (islower(ch) != 0)
         {
             int pos = ch - 97;
-            ciphertext[i] = key[pos];
+            ciphertext[i] = tolower(key[pos]);
+            ciphertext[i + 1] = '\0';
+        }
+        else if (isupper(ch) != 0)
+        {
+            int pos = ch - 65;
+            ciphertext[i] = toupper(key[pos]);
             ciphertext[i + 1] = '\0';
         }
         else
         {
-            ciphertext[i] = key[i];
+            ciphertext[i] = plaintext[i];
         }
     }
 
