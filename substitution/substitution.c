@@ -33,9 +33,9 @@ int main(int argc, string argv[])
     {
         for (int j = 0; j < 26; j++)
         {
-            if (key[i] == key[j] && i != j)
+            if (tolower(key[i]) == tolower(key[j]) && i != j)
             {
-                printf("%c == %c", key[i], key[j]);
+                printf("%c == %c \n", key[i], key[j]);
                 return 1;
             }
         }
