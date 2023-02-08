@@ -158,6 +158,8 @@ int check_word(string guess, int wordsize, int status[], string choice)
 
                 score += CLOSE;
                 printf("CLOSE(%c == %c)\n", guess[i], choice[j]);
+            } else {
+                continue;
             }
         }
     }
