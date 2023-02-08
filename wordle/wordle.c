@@ -157,7 +157,6 @@ int check_word(string guess, int wordsize, int status[], string choice)
                 status[i] = CLOSE;
                 score += CLOSE;
                 printf("CLOSE");
-                break;
             } else {
                 status[i] = WRONG;
                 printf("WRONG");
