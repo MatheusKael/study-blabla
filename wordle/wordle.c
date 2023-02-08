@@ -85,7 +85,7 @@ int main(int argc, string argv[])
         // set all elements of status array initially to 0, aka WRONG
         // TODO #4
 
-        for (int j= 0; j < wordsize; j ++)
+        for (int j = 0; j < wordsize; j++)
         {
             status[j] = WRONG;
         }
@@ -146,14 +146,18 @@ int check_word(string guess, int wordsize, int status[], string choice)
     // keep track of the total score by adding each individual letter's score from above
 
     printf("%s", choice);
-    for(int i = 0; i < wordsize; i++)  {
-        for(int j = 0; j < wordsize; j++) {
-            if(choice[i] == guess[j] && i == j) {
+    for (int i = 0; i < wordsize; i++)
+    {
+        for (int j = 0; j < wordsize; j++)
+        {
+            if (choice[i] == guess[j] && i == j)
+            {
                 status[i] = EXACT;
                 score += EXACT;
                 break;
             }
-            if(choice[i] == guess[j] ) {
+            if (choice[i] == guess[j])
+            {
                 status[i] = CLOSE;
 
                 score += CLOSE;
@@ -169,7 +173,21 @@ void print_word(string guess, int wordsize, int status[])
     // print word character-for-character with correct color coding, then reset terminal font to normal
     // TODO #6
 
-    for(int i = 0; i )
+    for (int i = 0; i < wordsize; i++)
+    {
+        if (status[i] == EXACT)
+        {
+            printf(GREEN "%c" RESET, guess[i]);
+        }
+        else if (status[i] == CLOSE)
+        {
+            printf(YELLOW "%c" RESET, guess[i]);
+        }
+        else
+        {
+            printf(RED "%c" RESET, guess[i]);
+        }
+    }
 
     printf("\n");
     return;
