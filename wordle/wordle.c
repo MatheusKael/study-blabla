@@ -160,6 +160,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
                 break;
             } else {
                 status[i] = WRONG;
+                printf("WRONG");
                 break;
             }
         }
