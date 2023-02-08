@@ -79,7 +79,6 @@ int main(int argc, string argv[])
     {
         // obtain user's guess
         string guess = get_guess(wordsize);
-tus, initially set to zero
         int status[wordsize];
         // array to hold guess sta
 
