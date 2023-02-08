@@ -145,7 +145,7 @@ int check_word(string guess, int wordsize, int status[], string choice)
     // if it's in the word, but not the right spot, score CLOSE point (yellow)
     // keep track of the total score by adding each individual letter's score from above
 
-
+    printf("%s", choice);
     for(int i = 0; i < wordsize; i++)  {
         for(int j = 0; j < wordsize; j++) {
             if(choice[i] == guess[j] && i == j) {
