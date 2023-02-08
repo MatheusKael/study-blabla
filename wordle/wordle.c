@@ -153,7 +153,8 @@ int check_word(string guess, int wordsize, int status[], string choice)
                 score += EXACT;
                 printf("EXACT(%c)\n", guess[i]);
                 break;
-            }else if(choice[i] == guess[j] ) {
+            }
+            if(choice[i] == guess[j] ) {
                 status[i] = CLOSE;
 
                 score += CLOSE;
