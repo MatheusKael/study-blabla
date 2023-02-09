@@ -100,7 +100,9 @@ int main(int argc, string argv[])
 bool vote(int rank, string name, int ranks[])
 {
     for(int i = 0; i < candidate_count; i++) {
-        if(strcmp())
+        if(strcmp(name, candidate[i]) == 0) {
+            
+        }
     }
     return false;
 }
