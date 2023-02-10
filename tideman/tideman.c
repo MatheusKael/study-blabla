@@ -126,7 +126,7 @@ void record_preferences(int ranks[])
                 // printf("| i is %i and j is %i", ranks[i], ranks[j]);
                 preferences[ranks[i]][ranks[j]]++;
             }
-            printf("%i", preferences[i][j]);
+            // printf("%i", preferences[i][j]);
         }
 
         printf("\n");
@@ -136,7 +136,7 @@ void record_preferences(int ranks[])
     for (int i = 0; i < candidate_count; i++)
     {
 
-        printf("%i  ", ranks[i]);
+        printf("i is %i, rank %i ", i, ranks[i]);
         for (int j = 0; j < candidate_count; j++)
         {
 
