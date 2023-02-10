@@ -117,12 +117,16 @@ void record_preferences(int ranks[])
     {
         for (int j = 0; j < candidate_count; j++)
         {
-            if(i < j){
+            if (i < j)
+            {
 
+                preferences[i][j]++;
+                printf("%i", preferences[i][j]);
             }
-            preferences[i][j] = ranks[j];
         }
+        printf("\n");
     }
+
     return;
 }
 
@@ -130,9 +134,7 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
-    for(int i =0 ; i < candidates_count; i ++) {
 
-    }
     return;
 }
 
