@@ -127,6 +127,8 @@ void record_preferences(int ranks[])
                 printf("%i", preferences[i][j]);
             }
         }
+
+        printf("\n");
     }
 
     printf("\n");
