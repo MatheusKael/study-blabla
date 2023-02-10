@@ -123,7 +123,7 @@ void record_preferences(int ranks[])
             if (i < j)
             {
 
-                printf("| i is %i and j is %i", i, j);
+                printf("| i is %i rank (%i) and j is %i rank (%i)", i, ranks[i], j, ranks[j]);
                 preferences[ranks[i]][ranks[j]]++;
             }
             // printf("%i", preferences[i][j]);
