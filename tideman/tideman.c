@@ -127,6 +127,9 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
+    for(int i =0 ; i < candidates_count; i ++) {
+        
+    }
     return;
 }
 
