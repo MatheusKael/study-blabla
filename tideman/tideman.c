@@ -164,6 +164,8 @@ void add_pairs(void)
                 }
             }
         }
+
+        printf("%i, %i\n", pairs[i].winner, pairs[i].loser);
     }
     return;
 }
@@ -175,7 +177,6 @@ void sort_pairs(void)
 
     for (int i = 0; i < candidate_count; i++)
     {
-        printf("%i, %i\n--\n", pairs[i].winner, pairs[i].loser);
         for (int j = i + 1; j < candidate_count; j++)
         {
             int first = preferences[pairs[i].winner][pairs[i].loser];
