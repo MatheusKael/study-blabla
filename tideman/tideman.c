@@ -105,8 +105,8 @@ bool vote(int rank, string name, int ranks[])
         if (strcmp(name, candidates[i]) == 0)
         {
             ranks[rank] = i;
-            printf("rank %i\n", rank);
-            printf("i is %i\n", i);
+            // printf("rank %i\n", rank);
+            // printf("i is %i\n", i);
             return true;
         }
     }
@@ -144,10 +144,12 @@ void add_pairs(void)
         for (int j = 0; j < candidate_count; j++)
         {
             // i preferred over j
-            if(i != j ) {
-                
+            if (i != j && i == j - 1)
+            {
+
+                printf("i is %i - j is %i\n", i, j);
+                printf("%i", preferences[i][j]);
             }
-            printf("%i", preferences[i][j]);
         }
         printf("\n");
     }
