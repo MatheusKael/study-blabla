@@ -175,20 +175,21 @@ void sort_pairs(void)
 
     for (int i = 0; i < candidate_count; i++)
     {
-
+        printf("%i, %i\n--\n", pairs[i].winner, pairs[i].loser);
         for (int j = i + 1; j < candidate_count; j++)
         {
             int first = preferences[pairs[i].winner][pairs[i].loser];
             int second = preferences[pairs[i].loser][pairs[i].winner];
-            int firstj= preferences[pairs[j].winner][pairs[j].loser];
+            int firstj = preferences[pairs[j].winner][pairs[j].loser];
             int secondj = preferences[pairs[j].loser][pairs[j].winner];
-            if(first - second > firstj - secondj)  {
+            if (first - second > firstj - secondj)
+            {
                 pair tmp = pairs[j];
                 pairs[j] = pairs[i];
                 pairs[i] = pairs[j];
             }
         }
-            printf("%i, %i\n", pairs[i].winner, pairs[i].loser);
+        printf("%i, %i\n", pairs[i].winner, pairs[i].loser);
     }
     return;
 }
