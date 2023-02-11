@@ -184,18 +184,14 @@ void sort_pairs(void)
 
                 if (preferences[i][j] - preferences[j][i])
                 {
-                    pairs[pair_count].winner = i;
-                    pairs[pair_count].loser = j;
-                    pair_count++;
+
                 }
             }
             else if (i != j && (i == j + (candidate_count - 1) || i == j - (candidate_count - 1)))
             {
                 if (preferences[i][j] > preferences[j][i])
                 {
-                    pairs[pair_count].winner = i;
-                    pairs[pair_count].loser = j;
-                    pair_count++;
+                    
                 }
             }
         }
