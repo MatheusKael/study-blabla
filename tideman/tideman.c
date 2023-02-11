@@ -125,26 +125,10 @@ void record_preferences(int ranks[])
             if (i < j)
             {
 
-                printf("| i is %i rank (%i) and j is %i rank (%i)", i, ranks[i], j, ranks[j]);
                 preferences[ranks[i]][ranks[j]]++;
             }
             // printf("%i", preferences[i][j]);
         }
-
-        printf("\n");
-    }
-
-    printf("\n");
-    for (int i = 0; i < candidate_count; i++)
-    {
-
-        printf("i is %i, rank %i ", i, ranks[i]);
-        for (int j = 0; j < candidate_count; j++)
-        {
-
-            printf("%i", preferences[i][j]);
-        }
-        printf("\n");
     }
 
     return;
@@ -154,7 +138,16 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
+    for (int i = 0; i < candidate_count; i++)
+    {
 
+        for (int j = 0; j < candidate_count; j++)
+        {
+
+            printf("%i", preferences[i][j]);
+        }
+        printf("\n");
+    }
     return;
 }
 
