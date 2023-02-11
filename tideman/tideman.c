@@ -183,11 +183,12 @@ void sort_pairs(void)
             int firstj= preferences[pairs[j].winner][pairs[j].loser];
             int secondj = preferences[pairs[j].loser][pairs[j].winner];
             if(first - second > firstj - secondj)  {
-                int tmp = pairs[j];
+                pair tmp = pairs[j];
                 pairs[j] = pairs[i];
                 pairs[i] = pairs[j];
             }
         }
+            printf("%p", pairs[i]);
     }
     return;
 }
