@@ -218,15 +218,15 @@ void lock_pairs(void)
 void print_winner(void)
 {
     int count_zeros = 0;
-    for (int i = 0; i < candidate_count; i++)
-    {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            if(){
+    // for (int i = 0; i < candidate_count; i++)
+    // {
+    //     for (int j = 0; j < candidate_count; j++)
+    //     {
+    //         if(){
 
-            }
-        }
-    }
+    //         }
+    //     }
+    // }
 
     return;
 }
