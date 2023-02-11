@@ -143,7 +143,7 @@ void add_pairs(void)
 
         for (int j = 0; j < candidate_count; j++)
         {
-
+            // i preferred over j
             printf("%i", preferences[i][j]);
         }
         printf("\n");
