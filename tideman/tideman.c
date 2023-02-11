@@ -206,7 +206,7 @@ void lock_pairs(void)
     for (int i = 0; i < candidate_count; i++)
     {
         for(int j = 0; j < candidate_count; i++) {
-            printf("%i", locked[i][j]);
+            printf("%b", locked[i][j]);
         }
         printf("\n");
     }
