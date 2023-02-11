@@ -164,7 +164,6 @@ void add_pairs(void)
                 }
             }
         }
-        printf("\n");
     }
     return;
 }
