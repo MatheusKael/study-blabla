@@ -151,15 +151,15 @@ void add_pairs(void)
                 printf("%i\n", preferences[i][j]);
                 if (preferences[i][j -1] > preferences[i][j + 1])
                 {
-                    pairs[pair_count].winner = preferences[i][j -1];
-                    pairs[pair_count].loser = preferences[i][j +1];
+                    pairs[pair_count].winner = i;
+                    pairs[pair_count].loser = i + 1;
 
                     printf("%i\n", pairs[pair_count].winner);
                     pair_count++;
 
                 } else if (preferences[i][j +1] > preferences[i][j - 1]){
                     pairs[pair_count].winner = i;
-                    pairs[pair_count].loser = j ;
+                    pairs[pair_count].loser = i - 1;
                     pair_count++;
                 }
             }
