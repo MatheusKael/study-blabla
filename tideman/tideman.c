@@ -179,21 +179,7 @@ void sort_pairs(void)
         for (int j = 0; j < candidate_count; j++)
         {
             // i preferred over j
-            if (i != j && (i == j - 1 || i == j + 1))
-            {
-
-                if (preferences[i][j] - preferences[j][i])
-                {
-
-                }
-            }
-            else if (i != j && (i == j + (candidate_count - 1) || i == j - (candidate_count - 1)))
-            {
-                if (preferences[i][j] > preferences[j][i])
-                {
-                    
-                }
-            }
+            
         }
     }
     return;
