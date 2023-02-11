@@ -176,10 +176,17 @@ void sort_pairs(void)
     for (int i = 0; i < candidate_count; i++)
     {
 
-        for (int j = 0; j < candidate_count; j++)
+        for (int j = i + 1; j < candidate_count; j++)
         {
-            // i preferred over j
-            
+            int first = preferences[pairs[i].winner][pairs[i].loser];
+            int second = preferences[pairs[i].loser][pairs[i].winner];
+            int firstj= preferences[pairs[j].winner][pairs[j].loser];
+            int secondj = preferences[pairs[j].loser][pairs[j].winner];
+            if(first - second > firstj - secondj)  {
+                int tmp = pairs[j];
+                pairs[j] = pairs[i];
+                pairs[i] = pairs[j];
+            }
         }
     }
     return;
