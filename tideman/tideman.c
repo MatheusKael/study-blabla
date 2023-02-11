@@ -138,6 +138,7 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
+    int tmp = 0;
     for (int i = 0; i < candidate_count; i++)
     {
 
@@ -148,6 +149,7 @@ void add_pairs(void)
             {
                 printf("i == %i - j == %i - value == ", i, j);
                 printf("%i\n", preferences[i][j]);
+                tmp = preferences[i][j];
             }
             else if (i != j && (i == j + (candidate_count - 1) || i == j - (candidate_count - 1)))
             {
