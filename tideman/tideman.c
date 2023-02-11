@@ -147,7 +147,7 @@ void add_pairs(void)
             if (i != j && (i == j - 1 || i == j + 1 || i == j + (candidate_count - 1) || i == j - (candidate_count - 1)))
             {
 
-                printf("i == %i - j == %i - value -", i, j);
+                printf("i == %i - j == %i - value == ", i, j);
                 printf("%i\n", preferences[i][j]);
             }
         }
