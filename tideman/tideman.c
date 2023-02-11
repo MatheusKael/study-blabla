@@ -144,11 +144,11 @@ void add_pairs(void)
         for (int j = 0; j < candidate_count; j++)
         {
             // i preferred over j
-            if (i != j && (i == j - 1 || i == j + 1 || i == j + (candidate_count - 1)))
+            if (i != j && (i == j - 1 || i == j + 1 || i == j + (candidate_count - 1) || i == j - (candidate_count - 1)))
             {
 
-                printf("i is %i - j is %i\n", i, j);
-                printf("%i", preferences[i][j]);
+                printf("i == %i - j == %i - value -", i, j);
+                printf("%i\n", preferences[i][j]);
             }
         }
         printf("\n");
