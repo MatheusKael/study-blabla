@@ -149,7 +149,10 @@ void add_pairs(void)
             {
                 printf("i == %i - j == %i - value == ", i, j);
                 printf("%i\n", preferences[i][j]);
-                tmp = preferences[i][j];
+                if (preferences[i][j] > tmp)
+                {
+                    tmp = preferences[i][j];
+                }
             }
             else if (i != j && (i == j + (candidate_count - 1) || i == j - (candidate_count - 1)))
             {
