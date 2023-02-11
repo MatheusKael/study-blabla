@@ -158,12 +158,19 @@ void add_pairs(void)
                     printf("Loser %i\n", pairs[pair_count].loser);
                     pair_count++;
                 }
-                
             }
             else if (i != j && (i == j + (candidate_count - 1) || i == j - (candidate_count - 1)))
             {
-                // printf("i == %i - j == %i - value == ", i, j);
-                // printf("%i\n", preferences[i][j]);
+                if (preferences[i][j] > preferences[j][i])
+                {
+                    pairs[pair_count].winner = i;
+                    pairs[pair_count].loser = j;
+                    printf("i == %i - j == %i - value == ", i, j);
+                    printf("%i\n", preferences[i][j]);
+                    printf("Winner %i\n", pairs[pair_count].winner);
+                    printf("Loser %i\n", pairs[pair_count].loser);
+                    pair_count++;
+                }
             }
         }
         printf("\n");
