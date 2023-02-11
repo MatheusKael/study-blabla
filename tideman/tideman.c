@@ -149,7 +149,7 @@ void add_pairs(void)
             {
                 printf("i == %i - j == %i - value == ", i, j);
                 printf("%i\n", preferences[i][j]);
-                if (preferences[i][j] > preferences[i][j] && i == j - 1)
+                if (preferences[i][j] > preferences[i][j] )
                 {
                     pairs[pair_count].winner = i;
                     pairs[pair_count].loser = i - 1;
