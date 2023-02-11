@@ -173,10 +173,32 @@ void sort_pairs(void)
 {
     // TODO
 
-    for (int i = 0; i < pair_count; i++)
+    for (int i = 0; i < candidate_count; i++)
     {
-        printf("Winner %i\n", pairs[i].winner);
-        printf("Loser %i\n", pairs[i].loser);
+
+        for (int j = 0; j < candidate_count; j++)
+        {
+            // i preferred over j
+            if (i != j && (i == j - 1 || i == j + 1))
+            {
+
+                if (preferences[i][j] - preferences[j][i])
+                {
+                    pairs[pair_count].winner = i;
+                    pairs[pair_count].loser = j;
+                    pair_count++;
+                }
+            }
+            else if (i != j && (i == j + (candidate_count - 1) || i == j - (candidate_count - 1)))
+            {
+                if (preferences[i][j] > preferences[j][i])
+                {
+                    pairs[pair_count].winner = i;
+                    pairs[pair_count].loser = j;
+                    pair_count++;
+                }
+            }
+        }
     }
     return;
 }
