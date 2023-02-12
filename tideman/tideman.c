@@ -202,22 +202,34 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-
-        if (pairs[i].winner == pairs[i - 1].loser && pairs[i].loser == pairs[i - 2].winner)
+        if (!verify_cycle(pairs[i].winner, pairs[i].loser))
         {
-            continue;
+            locked[pairs[i].winner][pairs[i].loser] = true;
         }
-        else if (pairs[pair_count].loser == pairs[1].winner)
-        {
-            continue;
-        }
-
-        locked[pairs[i].winner][pairs[i].loser] = true;
     }
 
     return;
 }
 
+bool verify_cycle(int loser, int winner)
+{
+
+    if (loser == winner)
+    {
+        return true;
+    }
+
+    for (int i = 0; i < pair_count; i++)
+    {
+
+        if (verify_cycle(pairs[i].loser, pairs[i].winner))
+        {
+            return true;
+        }
+    }
+
+    return false;
+}
 
 // Print the winner of the election
 void print_winner(void)
