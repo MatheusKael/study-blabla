@@ -199,7 +199,7 @@ void sort_pairs(void)
 void lock_pairs(void)
 {
     // TODO
-    for (int i = 0; i <= pair_count; i++)
+    for (int i = 0; i < pair_count; i++)
     {
         if (pairs[i].winner == pairs[i - 1].loser && pairs[i].loser == pairs[i - 2].winner)
         {
