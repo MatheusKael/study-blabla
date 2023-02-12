@@ -32,6 +32,7 @@ void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
+bool verify_cycle(int loser, int winner);
 
 int main(int argc, string argv[])
 {
@@ -216,6 +217,7 @@ void lock_pairs(void)
 
     return;
 }
+
 
 // Print the winner of the election
 void print_winner(void)
