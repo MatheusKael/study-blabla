@@ -210,14 +210,14 @@ void lock_pairs(void)
             locked[pairs[i].winner][pairs[i].loser] = true;
         }
     }
-    for (int i = 0; i < candidate_count; i++)
-    {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            printf("%i", locked[i][j]);
-        }
-        printf("\n");
-    }
+    // for (int i = 0; i < candidate_count; i++)
+    // {
+    //     for (int j = 0; j < candidate_count; j++)
+    //     {
+    //         printf("%i", locked[i][j]);
+    //     }
+    //     printf("\n");
+    // }
     return;
 }
 
@@ -236,11 +236,11 @@ void print_winner(void)
             }
             if (candidate_count - 1 == j && count_ones == 0)
             {
-                printf("%s", candidates[i]);
+                printf("%s\n", candidates[i]);
             }
         }
         count_ones = 0;
-        printf("\n");
+        // printf("\n");
     }
 
     return;
