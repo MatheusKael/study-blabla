@@ -223,6 +223,11 @@ void print_winner(void)
         for (int j = 0; j < candidate_count; j++)
         {
            printf("%i", locked[j][i]);
+           if(locked[j][i] == 1) {
+                break;
+           }else if (candidate_count - 1 == j) {
+                
+           }
         }
         printf("\n");
     }
