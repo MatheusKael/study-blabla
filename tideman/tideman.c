@@ -215,14 +215,14 @@ void lock_pairs(void)
              continue;
         }
     }
-    for (int i = 0; i < candidate_count; i++)
-    {
-        for (int j = 0; j < candidate_count; j++)
-        {
-            printf("%i", locked[i][j]);
-        }
-        printf("\n");
-    }
+    // for (int i = 0; i < candidate_count; i++)
+    // {
+    //     for (int j = 0; j < candidate_count; j++)
+    //     {
+    //         printf("%i", locked[i][j]);
+    //     }
+    //     printf("\n");
+    // }
     return;
 }
 
