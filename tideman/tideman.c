@@ -234,7 +234,7 @@ void print_winner(void)
             {
                 count_ones++;
             }
-            if (candidate_count - 1 == j && count_ones == 0)
+            if (candidate_count - 1 == j && count_ones == )
             {
                 printf("%s\n", candidates[i]);
             }
