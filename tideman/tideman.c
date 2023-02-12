@@ -210,7 +210,7 @@ void lock_pairs(void)
         else if (pairs[i].loser == pairs[1].winner && i > 1)
         {
             continue;
-        }if (pairs[pair_count - 1].loser != pairs[1].winner)
+        }else if (pairs[pair_count - 1].loser != pairs[1].winner)
         {
 
             locked[pairs[i].winner][pairs[i].loser] = true;
