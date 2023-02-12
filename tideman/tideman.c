@@ -165,7 +165,7 @@ void add_pairs(void)
             }
         }
 
-        printf("%i, %i\n", pairs[i].winner, pairs[i].loser);
+        // printf("%i, %i\n", pairs[i].winner, pairs[i].loser);
     }
     return;
 }
@@ -190,7 +190,7 @@ void sort_pairs(void)
                 pairs[i] = pairs[j];
             }
         }
-        printf("%i, %i\n", pairs[i].winner, pairs[i].loser);
+        // printf("%i, %i\n", pairs[i].winner, pairs[i].loser);
     }
     return;
 }
@@ -217,16 +217,17 @@ void lock_pairs(void)
 // Print the winner of the election
 void print_winner(void)
 {
-    int count_zeros = 0;
+    int count_ones = 0;
     for (int i = 0; i < candidate_count; i++)
     {
         for (int j = 0; j < candidate_count; j++)
         {
-           printf("%i", locked[j][i]);
+        //    printf("%i", locked[j][i]);
            if(locked[j][i] == 1) {
-                break;
-           }else if (candidate_count - 1 == j) {
-                
+                count_ones++;
+           }
+           if (candidate_count - 1 == j && count_ones == 0) {
+                printf("%s", candidates[i]);
            }
         }
         printf("\n");
