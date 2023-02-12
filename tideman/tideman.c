@@ -202,7 +202,7 @@ void lock_pairs(void)
     for (int i = 0; i < pair_count; i++)
     {
 
-        if (pairs[pair_count- 1].loser = i)
+        if (pairs[pair_count - 1].loser != pairs[1].winner)
         {
 
             locked[pairs[i].winner][pairs[i].loser] = true;
@@ -215,6 +215,8 @@ void lock_pairs(void)
         {
             continue;
         }
+
+        locked[pairs[i].winner][pairs[i].loser] = true;
     }
     for (int i = 0; i < candidate_count; i++)
     {
