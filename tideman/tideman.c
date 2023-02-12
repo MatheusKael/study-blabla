@@ -207,12 +207,12 @@ void lock_pairs(void)
 
             continue;
         }
-        else
-        if (pairs[i].loser == pairs[1].winner && i > 1)
-        {
+        // else
+        // if (pairs[i].loser == pairs[1].winner && i > 1)
+        // {
 
-            continue;
-        }
+        //     continue;
+        // }
 
         locked[pairs[i].winner][pairs[i].loser] = true;
 
