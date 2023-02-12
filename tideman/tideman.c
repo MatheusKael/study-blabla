@@ -175,9 +175,9 @@ void sort_pairs(void)
 {
     // TODO
 
-    for (int i = 0; i < candidate_count; i++)
+    for (int i = 0; i < pair_count; i++)
     {
-        for (int j = i + 1; j < candidate_count; j++)
+        for (int j = i + 1; j < pair_count; j++)
         {
             int first = preferences[pairs[i].winner][pairs[i].loser];
             int second = preferences[pairs[i].loser][pairs[i].winner];
