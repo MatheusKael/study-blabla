@@ -202,18 +202,18 @@ void lock_pairs(void)
     for (int i = 0; i < pair_count; i++)
     {
 
+        if (pairs[i].winner != pairs[i - 1].loser && pairs[i].loser != pairs[i - 2].winner)
+        {
 
-         if (pairs[i].winner == pairs[i - 1].loser && pairs[i].loser == pairs[i - 2].winner)
+            locked[pairs[i].winner][pairs[i].loser] = true;
+        }
+        else if (pairs[i].winner == pairs[i - 1].loser && pairs[i].loser == pairs[i - 2].winner)
         {
             continue;
         }
         else if (pairs[i].loser == pairs[1].winner && i > 1)
         {
             continue;
-        }else if (pairs[pair_count - 1].loser != pairs[1].winner)
-        {
-
-            locked[pairs[i].winner][pairs[i].loser] = true;
         }
 
         // locked[pairs[i].winner][pairs[i].loser] = true;
