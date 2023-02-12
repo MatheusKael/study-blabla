@@ -207,7 +207,7 @@ void lock_pairs(void)
 
             continue;
         }
-        else if (pairs[i].loser == pairs[pair_count - i].winner)
+        else if (pairs[i].loser == pairs[1].winner && i > 1)
         {
 
             continue;
