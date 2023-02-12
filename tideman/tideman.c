@@ -187,7 +187,7 @@ void sort_pairs(void)
             {
                 pair tmp = pairs[j];
                 pairs[j] = pairs[i];
-                pairs[i] = pairs[j];
+                pairs[i] = tmp;
             }
         }
         // printf("%i, %i\n", pairs[i].winner, pairs[i].loser);
