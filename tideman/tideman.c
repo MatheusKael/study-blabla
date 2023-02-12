@@ -183,7 +183,7 @@ void sort_pairs(void)
             int second = preferences[pairs[i].loser][pairs[i].winner];
             int firstj = preferences[pairs[j].winner][pairs[j].loser];
             int secondj = preferences[pairs[j].loser][pairs[j].winner];
-            if (first - second > firstj - secondj)
+            if (first - second < firstj - secondj)
             {
                 pair tmp = pairs[j];
                 pairs[j] = pairs[i];
