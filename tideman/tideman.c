@@ -201,7 +201,7 @@ void lock_pairs(void)
     // TODO
     for (int i = 0; i < pair_count; i++)
     {
-        if (pairs[i - 1].loser != pairs[i].winner )
+        if (pairs[0].loser == pairs[pair_count - 1].winner && i == pair_count - 1 )
         {
             continue;
         }
