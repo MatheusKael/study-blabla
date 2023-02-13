@@ -211,7 +211,7 @@ void lock_pairs(void)
     return;
 }
 
-bool verify_cycle(int loser, int winner)
+bool verify_cycle(int winner, int loser)
 {
 
     if (loser == winner)
