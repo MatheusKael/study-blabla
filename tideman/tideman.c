@@ -27,12 +27,12 @@ int candidate_count;
 
 // Function prototypes
 bool vote(int rank, string name, int ranks[]);
+bool verify_cycle(int loser, int winner);
 void record_preferences(int ranks[]);
 void add_pairs(void);
 void sort_pairs(void);
 void lock_pairs(void);
 void print_winner(void);
-bool verify_cycle(int loser, int winner);
 
 int main(int argc, string argv[])
 {
@@ -221,8 +221,8 @@ bool verify_cycle(int loser, int winner)
 
     for (int i = 0; i < pair_count; i++)
     {
-        // Verify if loser 
-        if (verify_cycle(pairs[i].loser, pairs[i].winner) && locked[loser][winner])
+        // Verify if loser is winner in any other pair.
+        if (verify_cycle(pairs[i].loser, i) && locked[loser][i])
         {
             return true;
         }
