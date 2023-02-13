@@ -222,9 +222,19 @@ bool verify_cycle(int winner, int loser)
     for (int i = 0; i < pair_count; i++)
     {
         // Verify if loser is winner in any other pair.
-        if (locked[loser][i] && i == winner && verify_cycle(winner, i))
+        if (locked[loser][i])
         {
-          return true;
+            if (i == winner)
+            {
+                return true;
+            }
+            else
+            {
+                if (verify_cycle(winner, i))
+                {
+                    return true;
+                }
+            }
         }
     }
 
