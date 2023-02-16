@@ -111,7 +111,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 for (int y = j - 1; y <= j + 1; y++)
                 {
 
-                    if (k < height && y < width)
+                    if (k < height && y < width && y >= 0)
                     {
                         average = average + (image[k][y].rgbtRed + image[k][y].rgbtGreen + image[k][y].rgbtBlue);
                         count_average++;
