@@ -105,18 +105,22 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             int average = 0;
+            int count_average = 0;
             for (int k = i - 1; k <= i + 1; k++)
             {
                 for (int y = j - 1; y <= j + 1; y++)
                 {
 
-                    average += (image[k][y].rgbtRed + image[k][y].rgbtGreen + image[k][y].rgbtBlue);
-
-                    printf(" (%i, %i | %i, %i) ", k, y, i, j);
+                    if (k < height && y < width)
+                    {
+                        average += (image[k][y].rgbtRed + image[k][y].rgbtGreen + image[k][y].rgbtBlue);
+                        count_average++;
+                        printf(" (%i, %i | %i, %i) ", k, y, i, j);
+                    }
                 }
                 printf("\n");
             }
-            copy[i][j] = average /
+            copy[i][j] = average / count_average;
             printf("\n");
             printf("\n");
         }
