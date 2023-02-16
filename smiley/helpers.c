@@ -12,6 +12,7 @@ void colorize(int height, int width, RGBTRIPLE image[height][width])
             printf("%i", image[height][width].rgbtBlue);
             printf("%i", image[height][width].rgbtGreen);
             printf("%i", image[height][width].rgbtRed);
+            
 
 
 
