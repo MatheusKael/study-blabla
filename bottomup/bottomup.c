@@ -68,9 +68,12 @@ int main(int argc, char *argv[])
         // Iterate over pixels in scanline
         for (int j = 0; j < bi.biWidth; j++)
         {
+
+
             // Temporary storage
             RGBTRIPLE triple;
 
+            printf("");
             // Read RGB triple from infile
             fread(&triple, sizeof(RGBTRIPLE), 1, inptr);
 
