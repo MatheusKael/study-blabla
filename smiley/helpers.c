@@ -5,11 +5,15 @@
 void colorize(int height, int width, RGBTRIPLE image[height][width])
 {
 
-    for (int i = 0; i < sizeof(BYTE); i++)
+    for (int i = 0; i < height; i++)
     {
-        for (int j = 0; j < sizeof(BYTE); j++)
+        for (int j = 0; j < ; j++)
         {
             printf("%i", image[height][width].rgbtBlue);
+            printf("%i", image[height][width].rgbtGreen);
+            printf("%i", image[height][width].rgbtRed);
+
+
 
         }
         printf("\n");
