@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
             // Temporary storage
             RGBTRIPLE triple;
 
-            printf("");
+            printf("k");
             // Read RGB triple from infile
             fread(&triple, sizeof(RGBTRIPLE), 1, inptr);
 
