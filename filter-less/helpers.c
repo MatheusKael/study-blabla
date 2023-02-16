@@ -114,13 +114,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                     if (k < height && y < width)
                     {
                         average += (image[k][y].rgbtRed + image[k][y].rgbtGreen + image[k][y].rgbtBlue);
-                        count_average++;
+                        count_average+k+;
                         printf(" (%i, %i | %i, %i) ", k, y, i, j);
                     }
                 }
                 printf("\n");
             }
-            copy[i][j] = average / count_average;
+            // copy[i][j] = average / count_average;
             printf("\n");
             printf("\n");
         }
