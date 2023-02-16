@@ -99,13 +99,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j] = image[i][j];
         }
     }
+    float average = 0;
+    int count_average = 0;
 
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            float average = 0.0;
-            int count_average = 0;
             for (int k = i - 1; k <= i + 1; k++)
             {
                 for (int y = j - 1; y <= j + 1; y++)
