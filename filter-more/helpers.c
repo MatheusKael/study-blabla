@@ -99,7 +99,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE copy[height][width];
 
-    int Gx[][] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
