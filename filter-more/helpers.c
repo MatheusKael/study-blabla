@@ -130,9 +130,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     }
                 }
             }
-            image[i][j].rgbtRed = round(red_sum + resum);
-            image[i][j].rgbtBlue = round(blue_average / count_average);
-            image[i][j].rgbtGreen = round(green_average / count_average);
+            image[i][j].rgbtRed = round(pow(red_sum, 2) + pow(red_sumY, 2));
+            image[i][j].rgbtBlue = round(pow(blue_sum, 2) + pow(blue_sumY, 2));
+            image[i][j].rgbtGreen = round(pow(green_sum, 2) + pow(green_sumY, 2));
         }
     }
 
