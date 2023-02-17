@@ -117,9 +117,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 {
                     if (k < height && y < width && y >= 0 && k >= 0)
                     {
-                        red_sum = red_sum + copy[k][y].rgbtRed;
+                        red_sum = red_sum + copy[k][y].rgbtRed * Gx[k][y];
                         blue_sum = blue_sum + copy[k][y].rgbtBlue;
-                        green_sum = green_sum + copy[k][y].rgbtGreen;
+                        green_sum = green_sum  + copy[k][y].rgbtGreen;
 
                         count_average++;
                     }
