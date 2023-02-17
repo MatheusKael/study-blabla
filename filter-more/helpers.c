@@ -108,12 +108,12 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j] = image[i][j];
         }
     }
-    float green_sum = 0;
-    float blue_sum = 0;
-    float red_sum = 0;
-    float green_sumY = 0;
-    float blue_sumY = 0;
-    float red_sumY = 0;
+    int green_sum = 0;
+    int blue_sum = 0;
+    int red_sum = 0;
+    int green_sumY = 0;
+    int blue_sumY = 0;
+    int red_sumY = 0;
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
