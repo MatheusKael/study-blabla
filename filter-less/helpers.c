@@ -125,7 +125,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                         green_average = green_average + copy[k][y].rgbtGreen;
 
                         count_average++;
-                        // printf(" (%i, %i | %i, %i) ", k, y, i, j);
+                        printf(" (%i, %i | %i, %i) ", k, y, i, j);
                     // }
                 }
                 // printf("\n");
