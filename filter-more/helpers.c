@@ -98,19 +98,28 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     int Gx[] = {{-1 0 1}, {-2 0 2}, {-1 0 1}};
+
+    float green_sum 0;
+    float blue_sum = 0;
+    float red_sum = 0;
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
+            green_sum = 0;
+            blue_sum = 0;
+            red_sum = 0;
             for (int k = i - 1; k <= i + 1 && k < height; k++)
             {
+
+
                 for (int y = j - 1; y <= j + 1 && y < width; y++)
                 {
                     if (k < height && y < width && y >= 0 && k >= 0)
                     {
-                        red_average = red_average + copy[k][y].rgbtRed;
-                        blue_average = blue_average + copy[k][y].rgbtBlue;
-                        green_average = green_average + copy[k][y].rgbtGreen;
+                        red_sum = red_sum + copy[k][y].rgbtRed;
+                        blue_sum = blue_sum + copy[k][y].rgbtBlue;
+                        green_sum = green_sum + copy[k][y].rgbtGreen;
 
                         count_average++;
                     }
