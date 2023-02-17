@@ -102,13 +102,15 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
     RGBTRIPLE zeros[height][width];
 
-
     int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
             copy[i][j] = image[i][j];
+            zeros[i][j].rgbtRed = 0;
+            zeros[i][j].rgbtBlue = 0;
+            zeros[i][j].rgbtGreen = 0;
         }
     }
     int green_sum = 0;
@@ -134,7 +136,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     // if (k < height && y < width)
                     // {
                     // printf("( %i %i | %i %i )", i, j ,k, y);
-                    red_sum = red_sum + (cop[k][y].rgbtRed * Gx[k][y]);
+                    red_sum = red_sum + (copy[k][y].rgbtRed * Gx[k][y]);
                     red_sumY = red_sumY + (copy[k][y].rgbtRed * Gx[y][k]);
                     // printf("(%i)", copy[k][y].rgbtBlue);
                     blue_sum = blue_sum + (copy[k][y].rgbtBlue * Gx[k][y]);
@@ -153,13 +155,20 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int red_value = round(sqrt(pow(red_sum, 2) + pow(red_sumY, 2)));
             int blue_value = round(sqrt(pow(blue_sum, 2) + pow(blue_sumY, 2)));
             int green_value = round(sqrt(pow(green_sum, 2) + pow(green_sumY, 2)));
-            image[i][j].rgbtRed = red_value > 255 ? 255 : red_value;
-            image[i][j].rgbtBlue = blue_value > 255 ? 255 : blue_value;
-            image[i][j].rgbtGreen = green_value > 255 ? 255 : green_value;
+            zeros[i][j].rgbtRed = red_value > 255 ? 255 : red_value;
+            zeros[i][j].rgbtBlue = blue_value > 255 ? 255 : blue_value;
+            zeros[i][j].rgbtGreen = green_value > 255 ? 255 : green_value;
             // printf("\n");
             // printf("\n");
         }
     }
 
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            image[i][j] = zeros[i][j];
+        }
+    }
     return;
 }
