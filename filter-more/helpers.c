@@ -102,12 +102,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-
             for (int k = i - 1; k <= i + 1 && k < height; k++)
             {
                 for (int y = j - 1; y <= j + 1 && y < width; y++)
                 {
-
                     if (k < height && y < width && y >= 0 && k >= 0)
                     {
                         red_average = red_average + copy[k][y].rgbtRed;
