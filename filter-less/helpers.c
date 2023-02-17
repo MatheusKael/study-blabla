@@ -99,14 +99,18 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j] = image[i][j];
         }
     }
-    float average = 0;
+    float green_average = 0;
+    float blue_average = 0;
+    float red_average = 0;
     int count_average = 0;
 
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            average = 0;
+            green_average = 0;
+            blue_average = 0;
+            red_average = 0;
             count_average = 0;
 
             for (int k = i - 1; k <= i + 1 && k < height; k++)
@@ -116,7 +120,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
                     if (k < height && y < width && y >= 0)
                     {
-                        average = average + (copy[k][y].rgbtRed + copy[k][y].rgbtGreen + copy[k][y].rgbtBlue);
+                        red_average = red_average + copy[k][y].rgbtRed;
+                        blue_average = blue_average + copy[k][y].rgbtBlue;
+                        green_average = green_average + copy[k][y].rgbtGreen;
+
                         count_average++;
                         // printf(" (%i, %i | %i, %i) ", k, y, i, j);
                     }
@@ -124,16 +131,15 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
                 // printf("\n");
             }
             printf("%i", count_average);
-            image[i][j].rgbtRed = average / 3;
-            image[i][j].rgbtBlue = average / 3;
-            image[i][j].rgbtGreen = average / 3;
+            image[i][j].rgbtRed = red_average / count_average;
+            image[i][j].rgbtBlue = blue_average / count_average;
+            image[i][j].rgbtGreen = green_average / count_average;
             // printf("\n");
             // printf("\n");
             // printf("\n");
             // printf("\n");
         }
     }
-
 
     return;
 }
