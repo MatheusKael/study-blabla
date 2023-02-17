@@ -133,8 +133,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                     {
                         red_sum = red_sum + (copy[k][y].rgbtRed * Gx[k][y]);
                         red_sumY = red_sumY + (copy[k][y].rgbtRed * Gx[y][k]);
+                        
                         blue_sum = blue_sum + (copy[k][y].rgbtBlue * Gx[k][y]);
                         blue_sumY = blue_sumY + (copy[k][y].rgbtBlue * Gx[y][k]);
+
                         green_sum = green_sum + (copy[k][y].rgbtGreen * Gx[k][y]);
                         green_sumY = green_sumY + (copy[k][y].rgbtGreen * Gx[y][k]);
                     }
