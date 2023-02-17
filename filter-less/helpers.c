@@ -133,5 +133,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
+    image[height][width] = copy[height][width];
+
     return;
 }
