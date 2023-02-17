@@ -97,12 +97,20 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 // Detect edges
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
-    int Gx[] = {{-1 0 1}, {-2 0 2}, {-1 0 1}};
+    RGBTRIPLE copy[height][width];
 
-    float green_sum 0;
+    int Gx[][] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
+    for (int i = 0; i < height; i++)
+    {
+        for (int j = 0; j < width; j++)
+        {
+            copy[i][j] = image[i][j];
+        }
+    }
+    float green_sum = 0;
     float blue_sum = 0;
     float red_sum = 0;
-    float green_sumY 0;
+    float green_sumY = 0;
     float blue_sumY = 0;
     float red_sumY = 0;
     for (int i = 0; i < height; i++)
@@ -124,7 +132,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                         red_sum = red_sum + (copy[k][y].rgbtRed * Gx[k][y]);
                         red_sumY = red_sumY + (copy[k][y].rgbtRed * Gx[y][k]);
                         blue_sum = blue_sum + (copy[k][y].rgbtBlue * Gx[k][y]);
-                        blue_sumY = blue_sumY + (copy[k][y].rgbtBlue * Gx[y][k)];
+                        blue_sumY = blue_sumY + (copy[k][y].rgbtBlue * Gx[y][k]);
                         green_sum = green_sum + (copy[k][y].rgbtGreen * Gx[k][y]);
                         green_sumY = green_sumY + (copy[k][y].rgbtGreen * Gx[y][k]);
                     }
