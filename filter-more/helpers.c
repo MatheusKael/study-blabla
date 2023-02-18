@@ -135,7 +135,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
                 {
                     if (y >= 0 && k >= 0)
                     {
-                    // printf("( %i %i | %i %i )", i, j, k, y);
+                    printf("( %i %i | %i %i )", i, j, k, y);
                     red_sum = red_sum + (copy[k][y].rgbtRed * Gx[k][y]);
                     red_sumY = red_sumY + (copy[k][y].rgbtRed * Gx[y][k]);
                     // printf("(%i)", copy[k][y].rgbtBlue);
@@ -159,7 +159,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             zeros[i][j].rgbtRed = red_value > 255 ? 255 : red_value;
             zeros[i][j].rgbtBlue = blue_value > 255 ? 255 : blue_value;
             zeros[i][j].rgbtGreen = green_value > 255 ? 255 : green_value;
-            // printf("\n");
+            printf("\n");
             // printf("\n");
         }
     }
