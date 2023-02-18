@@ -144,11 +144,11 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
                     green_sum = green_sum + (copy[k][y].rgbtGreen * Gx[k][y]);
                     green_sumY = green_sumY + (copy[k][y].rgbtGreen * Gx[y][k]);
-                    // continue;
+                    continue;
                     }
-                    // image[i][j].rgbtRed = 0;
-                    // image[i][j].rgbtBlue = 0;
-                    // image[i][j].rgbtGreen = 0;
+                    image[i][j].rgbtRed = 0;
+                    image[i][j].rgbtBlue = 0;
+                    image[i][j].rgbtGreen = 0;
                 }
             }
 
