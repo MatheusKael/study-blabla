@@ -129,9 +129,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             green_sumY = 0;
             blue_sumY = 0;
             red_sumY = 0;
-            for (int k = i - 1; k < 3; k++)
+            for (int k = i - 1; k < i + 1; k++)
             {
-                for (int y = j - 1; y < 3; y++)
+                for (int y = j - 1; y < y + 1; y++)
                 {
                     if (y >= 0 && k >= 0)
                     {
