@@ -129,13 +129,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             green_sumY = 0;
             blue_sumY = 0;
             red_sumY = 0;
-            for (int k = i - 1; k < 2 ; k++)
+            for (int k = i - 1; k < 2; k++)
             {
-                for (int y = j - 1; y < 2 ; y++)
+                for (int y = j - 1; y < 2; y++)
                 {
-                    // if (k < height && y < width && k >= 0 && y >= 0)
+                    // if (y == i)
                     // {
-                    printf("( %i %i | %i %i )", i, j ,k, y);
+                    // printf("( %i %i | %i %i )", i, j, k, y);
                     red_sum = red_sum + (copy[k][y].rgbtRed * Gx[k][y]);
                     red_sumY = red_sumY + (copy[k][y].rgbtRed * Gx[y][k]);
                     // printf("(%i)", copy[k][y].rgbtBlue);
@@ -144,13 +144,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
                     green_sum = green_sum + (copy[k][y].rgbtGreen * Gx[k][y]);
                     green_sumY = green_sumY + (copy[k][y].rgbtGreen * Gx[y][k]);
-                    // continue;
+                    continue;
                     // }
                     // image[i][j].rgbtRed = 0;
                     // image[i][j].rgbtBlue = 0;
                     // image[i][j].rgbtGreen = 0;
                 }
-                printf("\n");
+                // printf("\n");
             }
 
             int red_value = round(sqrt(pow(red_sum, 2) + pow(red_sumY, 2)));
@@ -159,7 +159,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             zeros[i][j].rgbtRed = red_value > 255 ? 255 : red_value;
             zeros[i][j].rgbtBlue = blue_value > 255 ? 255 : blue_value;
             zeros[i][j].rgbtGreen = green_value > 255 ? 255 : green_value;
-            printf("\n");
+            // printf("\n");
             // printf("\n");
         }
     }
