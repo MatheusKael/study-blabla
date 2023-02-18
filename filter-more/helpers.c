@@ -97,61 +97,21 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 // Detect edges
 
-void kernelx3(int height, int width, int value, RGBTRIPLE image[height][width])
+void kernelx3(int i, int j, int height, int width, int value, RGBTRIPLE image[height][width])
 {
 
+    RGBTRIPLE kernel[3][3];
+    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-2, 0, 1}};
     for (int k = i - 1; k <= i + 1; k++)
     {
         for (int y = j - 1; y <= j + 1; y++)
         {
             if (y >= 0 && k >= 0)
             {
-                kernel.rgbtRed = copy[k][y].rgbtRed;
-                kernel.rgbtBlue = copy[k][y].rgbtBlue;
-                kernel.rgbtGreen = copy[k][y].rgbtGreen;
+                kernel.rgbtRed = image[k][y].rgbtRed;
+                kernel.rgbtBlue = image[k][y].rgbtBlue;
+                kernel.rgbtGreen = image[k][y].rgbtGreen;
 
-                printf("( %i %i | %i %i )", i, j, k, y);
-                printf(" = ( %i )", Gx[k][y]);
-                red_sum = red_sum + (copy[k][y].rgbtRed * Gx[k][y]);
-                red_sumY = red_sumY + (copy[k][y].rgbtRed * Gx[y][k]);
-                // printf("(%i)", copy[k][y].rgbtBlue);
-
-                blue_sum = blue_sum + (copy[k][y].rgbtBlue * Gx[k][y]);
-                blue_sumY = blue_sumY + (copy[k][y].rgbtBlue * Gx[y][k]);
-
-                green_sum = green_sum + (copy[k][y].rgbtGreen * Gx[k][y]);
-                green_sumY = green_sumY + (copy[k][y].rgbtGreen * Gx[y][k]);
-                continue;
-            }
-            // image[i][j].rgbtRed = 0;
-            // image[i][j].rgbtBlue = 0;
-            // image[i][j].rgbtGreen = 0;
-        }
-        // printf("\n");
-    }
-
-    for (int k = i - 1; k <= i + 1; k++)
-    {
-        for (int y = j - 1; y <= j + 1; y++)
-        {
-            if (y >= 0 && k >= 0)
-            {
-                kernel.rgbtRed = copy[k][y].rgbtRed;
-                kernel.rgbtBlue = copy[k][y].rgbtBlue;
-                kernel.rgbtGreen = copy[k][y].rgbtGreen;
-
-                printf("( %i %i | %i %i )", i, j, k, y);
-                printf(" = ( %i )", Gx[k][y]);
-                red_sum = red_sum + (copy[k][y].rgbtRed * Gx[k][y]);
-                red_sumY = red_sumY + (copy[k][y].rgbtRed * Gx[y][k]);
-                // printf("(%i)", copy[k][y].rgbtBlue);
-
-                blue_sum = blue_sum + (copy[k][y].rgbtBlue * Gx[k][y]);
-                blue_sumY = blue_sumY + (copy[k][y].rgbtBlue * Gx[y][k]);
-
-                green_sum = green_sum + (copy[k][y].rgbtGreen * Gx[k][y]);
-                green_sumY = green_sumY + (copy[k][y].rgbtGreen * Gx[y][k]);
-                continue;
             }
             // image[i][j].rgbtRed = 0;
             // image[i][j].rgbtBlue = 0;
@@ -167,7 +127,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
     RGBTRIPLE zeros[height][width];
 
-    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-2, 0, 1}};
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -178,7 +137,6 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             zeros[i][j].rgbtGreen = 0;
         }
     }
-    RGBTRIPLE kernel[3][3];
     int green_sum = 0;
     int blue_sum = 0;
     int red_sum = 0;
