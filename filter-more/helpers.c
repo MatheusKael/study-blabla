@@ -96,6 +96,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 }
 
 // Detect edges
+
+void 3x3()
+{
+
+}
+
+
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE copy[height][width];
