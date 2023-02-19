@@ -113,7 +113,7 @@ void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width
                 kernel[count_i][count_j].rgbtRed = image[k][y].rgbtRed;
                 kernel[count_i][count_j].rgbtBlue = image[k][y].rgbtBlue;
                 kernel[count_i][count_j].rgbtGreen = image[k][y].rgbtGreen;
-                // printf("%i", sequence[count].rgbtRed);
+                printf("%i", image[k][y].rgbtRed);
             }
             kernel[count_i][count_j].rgbtRed = 0;
             kernel[count_i][count_j].rgbtBlue = 0;
