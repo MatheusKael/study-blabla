@@ -134,8 +134,8 @@ void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width
     {
         for (int col = 0; col < 3; col++)
         {
-            // printf("(%i)", kernel[row][col].rgbtBlue);
-
+            printf(" (%i)-", kernel[row][col].rgbtBlue);
+            printf("(%i) ", Gx[row][col]);
             //             printf("( %i %i | %i %i )", i, j, k, y);
             //             printf(" = ( %i )", Gx[k][y]);
             red_sum = red_sum + (kernel[row][col].rgbtRed * Gx[row][col]);
