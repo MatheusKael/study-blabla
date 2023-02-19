@@ -131,7 +131,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            image[i][j] = convolution(height, width, i, j, copy);
+             convolution(height, width, i, j, copy);
         }
     }
     return;
