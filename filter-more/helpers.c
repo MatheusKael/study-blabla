@@ -133,10 +133,10 @@ RGBTRIPLE kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][
     {
         for (int col = 0; col < 3; col++)
         {
-            printf(" (%i) *", kernel[row][col].rgbtBlue);
+            // printf(" (%i) *", kernel[row][col].rgbtBlue);
             // printf("(%i) ", Gx[row][col]);
             // printf("( %i %i | %i %i )", i, j, row, col);
-            printf(" (%i)", Gx[row][col]);
+            // printf(" (%i)", Gx[row][col]);
             red_sum = red_sum + (kernel[row][col].rgbtRed * Gx[row][col]);
             red_sumY = red_sumY + (kernel[row][col].rgbtRed * Gx[col][row]);
             // printf("(%i)", copy[k][y].rgbtBlue);
@@ -147,7 +147,7 @@ RGBTRIPLE kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][
             green_sum = green_sum + (kernel[row][col].rgbtGreen * Gx[row][col]);
             green_sumY = green_sumY + (kernel[row][col].rgbtGreen * Gx[col][row]);
         }
-        printf("\n");
+        // printf("\n");
     }
 
     int red_value = round(sqrt(pow(red_sum, 2) + pow(red_sumY, 2)));
@@ -165,7 +165,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     RGBTRIPLE copy[height][width];
 
     RGBTRIPLE zeros[height][width];
-
+    grayscale(height, width, image);
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
