@@ -101,7 +101,7 @@ RGBTRIPLE kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][
 {
 
     RGBTRIPLE kernel[3][3];
-    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-2, 0, 1}};
+    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
     for (int k = i - 1, count_i = 0; k <= i + 1; k++, count_i++)
     {
         for (int y = j - 1, count_j = 0; y <= j + 1; y++, count_j++)
@@ -164,7 +164,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE copy[height][width];
 
-    // grayscale(height, width, image);
+    grayscale(height, width, image);
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
