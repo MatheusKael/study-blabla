@@ -108,14 +108,14 @@ void kernelx3(int i, int j, int height, int width, int value, RGBTRIPLE image[he
         {
             if (y >= 0 && k >= 0)
             {
-                kernel.rgbtRed = image[k][y].rgbtRed;
+                kernel[].rgbtRed = image[k][y].rgbtRed;
                 kernel.rgbtBlue = image[k][y].rgbtBlue;
                 kernel.rgbtGreen = image[k][y].rgbtGreen;
 
             }
-            // image[i][j].rgbtRed = 0;
-            // image[i][j].rgbtBlue = 0;
-            // image[i][j].rgbtGreen = 0;
+            kernel[i][j].rgbtRed = 0;
+            kernel[i][j].rgbtBlue = 0;
+            image[i][j].rgbtGreen = 0;
         }
         // printf("\n");
     }
