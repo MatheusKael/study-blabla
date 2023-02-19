@@ -97,11 +97,10 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 // Detect edges
 
-void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width])
+RGBTRIPLE kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width])
 {
 
     RGBTRIPLE kernel[3][3];
-    RGBTRIPLE sequence[9];
     int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-2, 0, 1}};
     for (int k = i - 1, count_i = 0; k <= i + 1; k++, count_i++)
     {
@@ -158,6 +157,7 @@ void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width
     image[i][j].rgbtBlue = blue_value;
     image[i][j].rgbtGreen = green_value;
     // printf("  %i  ", red_value);
+    return image[i][j];
 }
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
@@ -193,7 +193,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             // blue_sumY = 0;
             // red_sumY = 0;
 
-            kernelx3(i, j, height, width, image);
+            image[i][j] = kernelx3(i, j, height, width, copy);
             // for (int k = i - 1; k <= i + 1; k++)
             // {
             //     for (int y = j - 1; y <= j + 1; y++)
