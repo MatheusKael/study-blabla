@@ -153,9 +153,9 @@ RGBTRIPLE kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][
     int red_value = round(sqrt(pow(red_sum, 2) + pow(red_sumY, 2)));
     int blue_value = round(sqrt(pow(blue_sum, 2) + pow(blue_sumY, 2)));
     int green_value = round(sqrt(pow(green_sum, 2) + pow(green_sumY, 2)));
-    image[i][j].rgbtRed = red_value;
-    image[i][j].rgbtBlue = blue_value;
-    image[i][j].rgbtGreen = green_value;
+    image[i][j].rgbtRed = red_value > 255 ? 255 : 0;
+    image[i][j].rgbtBlue = blue_value > 255 ? 255 : 0;
+    image[i][j].rgbtGreen = green_value> 255 ? 255 : 0;
     // printf("  %i  ", red_value);
     return image[i][j];
 }
