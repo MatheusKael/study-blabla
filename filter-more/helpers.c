@@ -135,11 +135,11 @@ RGBTRIPLE kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][
         {
             // printf(" (%i)-", kernel[row][col].rgbtBlue);
             // printf("(%i) ", Gx[row][col]);
-            //             printf("( %i %i | %i %i )", i, j, k, y);
-            //             printf(" = ( %i )", Gx[k][y]);
+            printf("( %i %i | %i %i )", i, j, row, col);
+            printf(" = ( %i )", Gx[row][col]);
             red_sum = red_sum + (kernel[row][col].rgbtRed * Gx[row][col]);
             red_sumY = red_sumY + (kernel[row][col].rgbtRed * Gx[col][row]);
-            //             // printf("(%i)", copy[k][y].rgbtBlue);
+            // printf("(%i)", copy[k][y].rgbtBlue);
 
             blue_sum = blue_sum + (kernel[row][col].rgbtBlue * Gx[row][col]);
             blue_sumY = blue_sumY + (kernel[row][col].rgbtBlue * Gx[col][row]);
