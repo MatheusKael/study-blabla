@@ -101,6 +101,7 @@ void kernelx3(int i, int j, int height, int width, int value, RGBTRIPLE image[he
 {
 
     RGBTRIPLE kernel[3][3];
+    int sequence[9];
     int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-2, 0, 1}};
     for (int k = i - 1; k <= i + 1; k++)
     {
@@ -108,9 +109,10 @@ void kernelx3(int i, int j, int height, int width, int value, RGBTRIPLE image[he
         {
             if (y >= 0 && k >= 0)
             {
-                kernel[].rgbtRed = image[k][y].rgbtRed;
-                kernel.rgbtBlue = image[k][y].rgbtBlue;
-                kernel.rgbtGreen = image[k][y].rgbtGreen;
+                sequence[]
+                // kernel[].rgbtRed = image[k][y].rgbtRed;
+                // kernel.rgbtBlue = image[k][y].rgbtBlue;
+                // kernel.rgbtGreen = image[k][y].rgbtGreen;
 
             }
             kernel[i][j].rgbtRed = 0;
