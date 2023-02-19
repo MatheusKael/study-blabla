@@ -122,15 +122,26 @@ void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width
         }
         // printf("\n");
     }
-    for(int row = 0; row < 3; row++ ) {
-        for(int col = 0; col < 3; col++) {
+    for (int row = 0; row < 3; row++)
+    {
+        for (int col = 0; col < 3; col++)
+        {
             printf("(%i)", kernel[row][col].rgbtBlue);
 
+            //             printf("( %i %i | %i %i )", i, j, k, y);
+            //             printf(" = ( %i )", Gx[k][y]);
+            red_sum = red_sum + (kernel[row][col].rgbtRed * Gx[row][col]);
+            red_sumY = red_sumY + (copy[row][col].rgbtRed * Gx[row][col]);
+            //             // printf("(%i)", copy[k][y].rgbtBlue);
+
+            blue_sum = blue_sum + (copy[row][col].rgbtBlue * Gx[row][col]);
+            blue_sumY = blue_sumY + (copy[row][col].rgbtBlue * Gx[row][col]);
+
+            green_sum = green_sum + (copy[row][col].rgbtGreen * Gx[row][col]);
+            green_sumY = green_sumY + (copy[row][col].rgbtGreen * Gx[row][col]);
         }
         printf("\n");
     }
-
-
 }
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
