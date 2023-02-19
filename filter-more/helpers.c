@@ -154,9 +154,9 @@ void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width
     int red_value = round(sqrt(pow(red_sum, 2) + pow(red_sumY, 2)));
     int blue_value = round(sqrt(pow(blue_sum, 2) + pow(blue_sumY, 2)));
     int green_value = round(sqrt(pow(green_sum, 2) + pow(green_sumY, 2)));
-    image[i][j].rgbtRed = red_value > 255 ? 255 : red_value;
-    image[i][j].rgbtBlue = blue_value > 255 ? 255 : blue_value;
-    image[i][j].rgbtGreen = green_value > 255 ? 255 : green_value;
+    image[i][j].rgbtRed = red_value;
+    image[i][j].rgbtBlue = blue_value;
+    image[i][j].rgbtGreen = green_value;
 }
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
@@ -234,12 +234,12 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         }
     }
 
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
-            image[i][j] = zeros[i][j];
-        }
-    }
+    // for (int i = 0; i < height; i++)
+    // {
+    //     for (int j = 0; j < width; j++)
+    //     {
+    //         image[i][j] = zeros[i][j];
+    //     }
+    // }
     return;
 }
