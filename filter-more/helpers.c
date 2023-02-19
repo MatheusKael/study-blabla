@@ -111,7 +111,9 @@ void kernelx3(int i, int j, int height, int width, int value, RGBTRIPLE image[he
 
             if (y >= 0 && k >= 0)
             {
-                sequence[count] = imag
+                sequence[count].rgbtRed = image[k][y].rgbtRed;
+                sequence[count].rgbtBlue = image[k][y].rgbtBlue;
+                sequence[count].rgbtGreen = image[k][y].rgbtGreen;
                 // kernel[].rgbtRed = image[k][y].rgbtRed;
                 // kernel.rgbtBlue = image[k][y].rgbtBlue;
                 // kernel.rgbtGreen = image[k][y].rgbtGreen;
