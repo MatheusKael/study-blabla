@@ -122,6 +122,14 @@ void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width
         }
         // printf("\n");
     }
+
+    int green_sum = 0;
+    int blue_sum = 0;
+    int red_sum = 0;
+    int green_sumY = 0;
+    int blue_sumY = 0;
+    int red_sumY = 0;
+
     for (int row = 0; row < 3; row++)
     {
         for (int col = 0; col < 3; col++)
