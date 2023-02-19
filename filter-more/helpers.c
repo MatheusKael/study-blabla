@@ -113,7 +113,7 @@ void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width
                 kernel[count_i][count_j].rgbtRed = image[k][y].rgbtRed;
                 kernel[count_i][count_j].rgbtBlue = image[k][y].rgbtBlue;
                 kernel[count_i][count_j].rgbtGreen = image[k][y].rgbtGreen;
-                printf("%i", image[k][y].rgbtRed);
+                // printf("%i", image[k][y].rgbtRed);
                 continue;
             }
             kernel[count_i][count_j].rgbtRed = 0;
@@ -134,21 +134,21 @@ void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width
     {
         for (int col = 0; col < 3; col++)
         {
-            printf("(%i)", kernel[row][col].rgbtBlue);
+            // printf("(%i)", kernel[row][col].rgbtBlue);
 
             //             printf("( %i %i | %i %i )", i, j, k, y);
             //             printf(" = ( %i )", Gx[k][y]);
             red_sum = red_sum + (kernel[row][col].rgbtRed * Gx[row][col]);
-            red_sumY = red_sumY + (copy[row][col].rgbtRed * Gx[row][col]);
+            red_sumY = red_sumY + (kernel[row][col].rgbtRed * Gx[col][row]);
             //             // printf("(%i)", copy[k][y].rgbtBlue);
 
-            blue_sum = blue_sum + (copy[row][col].rgbtBlue * Gx[row][col]);
-            blue_sumY = blue_sumY + (copy[row][col].rgbtBlue * Gx[row][col]);
+            blue_sum = blue_sum + (kernel[row][col].rgbtBlue * Gx[row][col]);
+            blue_sumY = blue_sumY + (kernel[row][col].rgbtBlue * Gx[col][row]);
 
-            green_sum = green_sum + (copy[row][col].rgbtGreen * Gx[row][col]);
-            green_sumY = green_sumY + (copy[row][col].rgbtGreen * Gx[row][col]);
+            green_sum = green_sum + (kernel[row][col].rgbtGreen * Gx[row][col]);
+            green_sumY = green_sumY + (kernel[row][col].rgbtGreen * Gx[col][row]);
         }
-        printf("\n");
+        // printf("\n");
     }
 
     int red_value = round(sqrt(pow(red_sum, 2) + pow(red_sumY, 2)));
@@ -175,22 +175,22 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             zeros[i][j].rgbtGreen = 0;
         }
     }
-    int green_sum = 0;
-    int blue_sum = 0;
-    int red_sum = 0;
-    int green_sumY = 0;
-    int blue_sumY = 0;
-    int red_sumY = 0;
+    // int green_sum = 0;
+    // int blue_sum = 0;
+    // int red_sum = 0;
+    // int green_sumY = 0;
+    // int blue_sumY = 0;
+    // int red_sumY = 0;
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
         {
-            green_sum = 0;
-            blue_sum = 0;
-            red_sum = 0;
-            green_sumY = 0;
-            blue_sumY = 0;
-            red_sumY = 0;
+            // green_sum = 0;
+            // blue_sum = 0;
+            // red_sum = 0;
+            // green_sumY = 0;
+            // blue_sumY = 0;
+            // red_sumY = 0;
 
             kernelx3(i, j, height, width, image);
             // for (int k = i - 1; k <= i + 1; k++)
@@ -223,13 +223,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             //     // printf("\n");
             // }
 
-            int red_value = round(sqrt(pow(red_sum, 2) + pow(red_sumY, 2)));
-            int blue_value = round(sqrt(pow(blue_sum, 2) + pow(blue_sumY, 2)));
-            int green_value = round(sqrt(pow(green_sum, 2) + pow(green_sumY, 2)));
-            image[i][j].rgbtRed = red_value > 255 ? 255 : red_value;
-            image[i][j].rgbtBlue = blue_value > 255 ? 255 : blue_value;
-            image[i][j].rgbtGreen = green_value > 255 ? 255 : green_value;
-            printf("\n");
+            // int red_value = round(sqrt(pow(red_sum, 2) + pow(red_sumY, 2)));
+            // int blue_value = round(sqrt(pow(blue_sum, 2) + pow(blue_sumY, 2)));
+            // int green_value = round(sqrt(pow(green_sum, 2) + pow(green_sumY, 2)));
+            // image[i][j].rgbtRed = red_value > 255 ? 255 : red_value;
+            // image[i][j].rgbtBlue = blue_value > 255 ? 255 : blue_value;
+            // image[i][j].rgbtGreen = green_value > 255 ? 255 : green_value;
+            // printf("\n");
             // printf("\n");
         }
     }
