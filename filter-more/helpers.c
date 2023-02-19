@@ -153,9 +153,9 @@ RGBTRIPLE kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][
     // int red_value = round(sqrt(pow(red_sum, 2) + pow(red_sumY, 2)));
     // int blue_value = round(sqrt(pow(blue_sum, 2) + pow(blue_sumY, 2)));
     // int green_value = round(sqrt(pow(green_sum, 2) + pow(green_sumY, 2)));
-    image[i][j].rgbtRed = red_sumY > 0 ? red_sumY: 0;
-    image[i][j].rgbtBlue = blue_sumY > 0 ? blue_sumY : 0;
-    image[i][j].rgbtGreen = green_sumY> 0 ? green_sumY : 0;
+    image[i][j].rgbtRed = red_sumY > 0 ? 255: 0;
+    image[i][j].rgbtBlue = blue_sumY > 0 ? 255 : 0;
+    image[i][j].rgbtGreen = green_sumY> 0 ? 255 : 0;
     // printf("  %i  ", red_value);
     return image[i][j];
 }
@@ -164,7 +164,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE copy[height][width];
 
-    // grayscale(height, width, image);
+    grayscale(height, width, image);
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
