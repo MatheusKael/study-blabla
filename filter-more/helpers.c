@@ -157,7 +157,7 @@ void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width
     image[i][j].rgbtRed = red_value;
     image[i][j].rgbtBlue = blue_value;
     image[i][j].rgbtGreen = green_value;
-    printf("  %i  ", red_value);
+    // printf("  %i  ", red_value);
 }
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
