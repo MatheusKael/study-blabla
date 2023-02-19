@@ -101,11 +101,11 @@ void kernelx3(int i, int j, int height, int width, int value, RGBTRIPLE image[he
 {
 
     RGBTRIPLE kernel[3][3];
-    int sequence[9];
+    RGBTRIPLE sequence[9];
     int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-2, 0, 1}};
+    int count = 0;
     for (int k = i - 1; k <= i + 1; k++)
     {
-        int count = 0;
         for (int y = j - 1; y <= j + 1; y++)
         {
 
