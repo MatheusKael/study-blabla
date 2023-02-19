@@ -123,8 +123,9 @@ void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width
     }
     for(int row = 0; row < 3; row++ ) {
         for(int col = 0; col < 3; col++) {
-            printf("(%i)", kernel[row][col].rgbtRed);
+            printf("(%i)", kernel[row][col].rgbtBlue);
         }
+        printf("\n");
     }
 
 
