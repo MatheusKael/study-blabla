@@ -103,27 +103,31 @@ void kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width
     RGBTRIPLE kernel[3][3];
     RGBTRIPLE sequence[9];
     int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-2, 0, 1}};
-    for (int k = i - 1, count = 0; k <= i + 1; k++)
+    for (int k = i - 1, count_i = 0; k <= i + 1; k++, count_i++)
     {
-        for (int y = j - 1; y <= j + 1; y++)
+        for (int y = j - 1, count_j = 0; y <= j + 1; y++, count_j++)
         {
 
             if (y >= 0 && k >= 0)
             {
-                sequence[count].rgbtRed = image[k][y].rgbtRed;
-                sequence[count].rgbtBlue = image[k][y].rgbtBlue;
-                sequence[count].rgbtGreen = image[k][y].rgbtGreen;
-                // kernel[].rgbtRed = image[k][y].rgbtRed;
-                // kernel.rgbtBlue = image[k][y].rgbtBlue;
-                // kernel.rgbtGreen = image[k][y].rgbtGreen;
-                printf("%i", sequence[count].rgbtRed);
+                kernel[count_i][count_j].rgbtRed = image[k][y].rgbtRed;
+                kernel[count_i][count_j].rgbtBlue = image[k][y].rgbtBlue;
+                kernel[count_i][count_j].rgbtGreen = image[k][y].rgbtGreen;
+                // printf("%i", sequence[count].rgbtRed);
             }
-            kernel[i][j].rgbtRed = 0;
-            kernel[i][j].rgbtBlue = 0;
-            image[i][j].rgbtGreen = 0;
+            kernel[count_i][count_j].rgbtRed = 0;
+            kernel[count_i][count_j].rgbtBlue = 0;
+            kernel[count_i][count_j].rgbtGreen = 0;
         }
-        printf("\n");
+        // printf("\n");
     }
+    for(int row = 0; row < 3; row++ ) {
+        for(int col = 0; col < 3; col++) {
+            printf("(%i)", kernel[row][col].rgbtRed);
+        }
+    }
+
+
 }
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
