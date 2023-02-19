@@ -102,9 +102,9 @@ void kernelx3(int i, int j, int height, int width, int value, RGBTRIPLE image[he
 
     RGBTRIPLE kernel[3][3];
     int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-2, 0, 1}};
-    for (int k = i - 1; k <= i + 1; k++)
+    for (int k = 0; k < 3; k++)
     {
-        for (int y = j - 1; y <= j + 1; y++)
+        for (int y = 0; y < 3; y++)
         {
             if (y >= 0 && k >= 0)
             {
