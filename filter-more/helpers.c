@@ -97,74 +97,29 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 // Detect edges
 
-RGBTRIPLE kernelx3(int i, int j, int height, int width, RGBTRIPLE image[height][width])
+int convolution(int height, int width, int row, int col, RGBTRIPLE image[height][width])
 {
+    int sum = 0;
 
-    RGBTRIPLE kernel[3][3];
-    int Gx[3][3] = {{-1, 0, 1}, {-2, 0, 2}, {-1, 0, 1}};
-    for (int k = i - 1, count_i = 0; k <= i + 1; k++, count_i++)
+    for (int i = 0; i < 3; i++)
     {
-        for (int y = j - 1, count_j = 0; y <= j + 1; y++, count_j++)
+        for (int j = 0; j < 3; j++)
         {
-
-            if (y >= 0 && k >= 0)
-            {
-                kernel[count_i][count_j].rgbtRed = image[k][y].rgbtRed;
-                kernel[count_i][count_j].rgbtBlue = image[k][y].rgbtBlue;
-                kernel[count_i][count_j].rgbtGreen = image[k][y].rgbtGreen;
-                // printf("%i", image[k][y].rgbtRed);
-                continue;
-            }
-            kernel[count_i][count_j].rgbtRed = 0;
-            kernel[count_i][count_j].rgbtBlue = 0;
-            kernel[count_i][count_j].rgbtGreen = 0;
+            printf("%i", image[row + i][col + j].rgbtRed );
         }
-        // printf("\n");
     }
-
-    int green_sum = 0;
-    int blue_sum = 0;
-    int red_sum = 0;
-    int green_sumY = 0;
-    int blue_sumY = 0;
-    int red_sumY = 0;
-
-    for (int row = 0; row < 3; row++)
-    {
-        for (int col = 0; col < 3; col++)
-        {
-            // printf(" (%i) *", kernel[row][col].rgbtBlue);
-            // printf("(%i) ", Gx[row][col]);
-            // printf("( %i %i | %i %i )", i, j, row, col);
-            // printf(" (%i)", Gx[row][col]);
-            red_sum = red_sum + (kernel[row][col].rgbtRed * Gx[row][col]);
-            red_sumY = red_sumY + (kernel[row][col].rgbtRed * Gx[col][row]);
-            // printf("(%i)", copy[k][y].rgbtBlue);
-
-            blue_sum = blue_sum + (kernel[row][col].rgbtBlue * Gx[row][col]);
-            blue_sumY = blue_sumY + (kernel[row][col].rgbtBlue * Gx[col][row]);
-
-            green_sum = green_sum + (kernel[row][col].rgbtGreen * Gx[row][col]);
-            green_sumY = green_sumY + (kernel[row][col].rgbtGreen * Gx[col][row]);
-        }
-        // printf("\n");
-    }
-
-    // int red_value = round(sqrt(pow(red_sum, 2) + pow(red_sumY, 2)));
-    // int blue_value = round(sqrt(pow(blue_sum, 2) + pow(blue_sumY, 2)));
-    // int green_value = round(sqrt(pow(green_sum, 2) + pow(green_sumY, 2)));
-    image[i][j].rgbtRed = red_sum > 0 ? red_sum : 0;
-    image[i][j].rgbtBlue = blue_sum > 0 ? blue_sum : 0;
-    image[i][j].rgbtGreen = green_sum > 0 ? green_sum : 0;
-    // printf("  %i  ", red_value);
-    return image[i][j];
 }
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
-    RGBTRIPLE copy[height][width];
 
-    grayscale(height, width, image);
+    RGBTRIPLE copy[height][width];
+    int mx[3][3] = {
+        {-1, 0, 1},
+        {-2, 0, 2},
+        {-1, 0, 1}};
+    // grayscale(height, width, image);
+
     for (int i = 0; i < height; i++)
     {
         for (int j = 0; j < width; j++)
@@ -176,7 +131,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            image[i][j] = kernelx3(i, j, height, width, copy);
+            image[i][j] = convolution(height, width, i, j, copy);
         }
     }
     return;
