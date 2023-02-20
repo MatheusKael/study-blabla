@@ -129,7 +129,7 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
             // {
             red_sum = red_sum + image[i + row][j + col].rgbtRed * kernel[i + 1][j + 1];
             green_sum = green_sum + image[i + row][j + col].rgbtGreen * kernel[i + 1][j + 1];
-            blue_sum = blue_sum + image[i + row][j + col].rgbtBlue * kernel[i][j + 1];
+            blue_sum = blue_sum + image[i + row][j + col].rgbtBlue * kernel[i + 1][j + 1];
             //     continue;
             // }
         }
@@ -170,13 +170,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int rgbtBlue = round(sqrt(sumsx.blue_sum * sumsx.blue_sum + sumsy.blue_sum * sumsy.blue_sum));
             int rgbtGreen = round(sqrt(sumsx.green_sum * sumsx.green_sum + sumsy.green_sum * sumsy.green_sum));
 
-            image[i][j].rgbtRed = rgbtRed > 255 ? 255 : rgbtRed;
-            image[i][j].rgbtBlue = rgbtBlue > 255 ? 255 : rgbtBlue;
-            image[i][j].rgbtGreen = rgbtGreen > 255 ? 255 : rgbtGreen;
+            tmp[i][j].rgbtRed = rgbtRed > 255 ? 255 : rgbtRed;
+            tmp[i][j].rgbtBlue = rgbtBlue > 255 ? 255 : rgbtBlue;
+            tmp[i][j].rgbtGreen = rgbtGreen > 255 ? 255 : rgbtGreen;
 
-            // image[i][j].rgbtGreen = tmp[i][j].rgbtGreen;
-            // image[i][j].rgbtBlue = tmp[i][j].rgbtBlue;
-            // image[i][j].rgbtRed = tmp[i][j].rgbtRed;
+            image[i][j].rgbtGreen = tmp[i][j].rgbtGreen;
+            image[i][j].rgbtBlue = tmp[i][j].rgbtBlue;
+            image[i][j].rgbtRed = tmp[i][j].rgbtRed;
         }
     }
     return;
