@@ -97,7 +97,7 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 // Detect edges
 
-int convolution(int height, int width, int row, int col, RGBTRIPLE image[height][width])
+int convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width])
 {
     int red_sum = 0;
     int blue_sum = 0;
@@ -107,16 +107,21 @@ int convolution(int height, int width, int row, int col, RGBTRIPLE image[height]
     {
         for (int j = 0; j < 3; j++)
         {
-            printf("%i", image[row + i][col + j].rgbtRed );
-            red_sum = red_sum + image[row + i][col + j].rgbtRed;
+            // printf("%i", image[row + i][col + j].rgbtRed );
+            red_sum = red_sum + image[row + i][col + j].rgbtRed * kernel[i][j] ;
+            green_sum = green_sum + image[row + i][col + j].rgbtGreen * kernel[i][j] ;
+            Blue_sum = Blue_sum + image[row + i][col + j].rgbtBlue * kernel[i][j] ;
 
         }
-        printf("\n");
+        // printf("\n");
     }
+
+    
+
     return 0;
 }
 
-void edges(int height, int width, RGBTRIPLE image[height][width])
+void edges(int height, int width,RGBTRIPLE image[height][width])
 {
 
     RGBTRIPLE copy[height][width];
@@ -137,7 +142,8 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-             convolution(height, width, i, j, copy);
+             convolution(height, width, i, j,mx, copy);
+             image[i][j] = copy[i][j];
         }
     }
     return;
