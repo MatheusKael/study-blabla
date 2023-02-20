@@ -118,11 +118,7 @@ int convolution(int height, int width, int row, int col, int kernel[3][3], RGBTR
         }
         // printf("\n");
     }
-    image[row][col].rgbtRed = red_sum > 255 ? red_sum : 211;
-    image[row][col].rgbtBlue = blue_sum > 255 ? blue_sum : 211;
-    image[row][col].rgbtGreen = green_sum > 255 ? green_sum : 211;
-
-    return 0;
+    return red_sum, blue_sum;
 }
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
