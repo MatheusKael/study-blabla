@@ -2,13 +2,6 @@
 #include <math.h>
 #include <stdio.h>
 
-struct COLORS {
-    int red_sum;
-    int blue_sum;
-    int green_sum;
-};
-
-
 // Convert image to grayscale
 void grayscale(int height, int width, RGBTRIPLE image[height][width])
 {
@@ -104,7 +97,13 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 // Detect edges
 
-COLORS convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width])
+typedef struct colors {
+    int red_sum;
+    int blue_sum;
+    int green_sum;
+};
+
+colors convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width])
 {
     int red_sum = 0;
     int blue_sum = 0;
