@@ -104,7 +104,7 @@ typedef struct
     float green_sum;
 } colors;
 
-colors convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width])
+void convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width], RGBTRIPLE tmp[height][width])
 {
     float red_sum = 0;
     float blue_sum = 0;
@@ -136,16 +136,18 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
         // printf("\n");
     }
     colors sums;
-    sums.red_sum = red_sum > 255 ? 255 : red_sum;
-    sums.blue_sum = blue_sum > 255 ? 255 : blue_sum;
-    sums.green_sum = green_sum > 255 ? 255 : green_sum;
+    tmp[row][col].red_sum = red_sum > 255 ? 255 : red_sum;
+    tmp[row][col].blue_sum = blue_sum > 255 ? 255 : blue_sum;
+    tmp[row][col].green_sum = green_sum > 255 ? 255 : green_sum;
 
-    return sums;
+    // return sums;
 }
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
     RGBTRIPLE tmp[height][width];
+
+    RGBTRIPLE tmp2[height][width];
 
     int mx[3][3] = {
         {-1, 0, 1},
@@ -162,13 +164,17 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // convolution(height, width, i, j, mx, copy);
-            colors sumsx = convolution(height, width, i, j, mx, tmp);
+              convolution(height, width, i, j, mx, image, tmp);
 
-            colors sumsy = convolution(height, width, i, j, my, tmp);
+             convolution(height, width, i, j, my, image, tmp2);
 
-            image[i][j].rgbtRed = round(sqrt(sumsx.red_sum * sumsx.red_sum + sumsy.red_sum * sumsy.red_sum));
-            image[i][j].rgbtBlue = round(sqrt(sumsx.blue_sum * sumsx.blue_sum + sumsy.blue_sum * sumsy.blue_sum));
-            image[i][j].rgbtGreen = round(sqrt(sumsx.green_sum * sumsx.green_sum + sumsy.green_sum * sumsy.green_sum));
+            // image[i][j].rgbtRed = round(sqrt(sumsx.red_sum * sumsx.red_sum + sumsy.red_sum * sumsy.red_sum));
+            // image[i][j].rgbtBlue = round(sqrt(sumsx.blue_sum * sumsx.blue_sum + sumsy.blue_sum * sumsy.blue_sum));
+            // image[i][j].rgbtGreen = round(sqrt(sumsx.green_sum * sumsx.green_sum + sumsy.green_sum * sumsy.green_sum));
+                image[i][j].rgbtRed = tmp[i][j].;
+                image[i][j].rgbtBlue = tmp[i][j];
+                image[i][j].rgbtGreen = tmp[i][j];
+
         }
     }
     return;
