@@ -104,7 +104,7 @@ typedef struct
     float green_sum;
 } colors;
 
-colors convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width])
+colors convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width], RGBTRIPLE tmp[height][width])
 {
     float red_sum = 0;
     float blue_sum = 0;
@@ -129,7 +129,7 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
             // {
             red_sum = red_sum + image[i + row][j + col].rgbtRed * kernel[i + 1][j + 1];
             green_sum = green_sum + image[i + row][j + col].rgbtGreen * kernel[i + 1][j + 1];
-            blue_sum = blue_sum + image[i + row][j + col].rgbtBlue * kernel[i+ 1][j+ 1];
+            blue_sum = blue_sum + image[i + row][j + col].rgbtBlue * kernel[i + 1][j + 1];
             //     continue;
             // }
         }
@@ -145,7 +145,7 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
-
+    RGBTRIPLE tmp[height][width];
     int mx[3][3] = {
         {-1, 0, 1},
         {-2, 0, 2},
@@ -172,7 +172,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             image[i][j].rgbtRed = rgbtRed > 255 ? 255 : rgbtRed;
             image[i][j].rgbtBlue = rgbtBlue > 255 ? 255 : rgbtBlue;
             image[i][j].rgbtGreen = rgbtGreen > 255 ? 255 : rgbtGreen;
-         }
+        }
     }
     return;
 }
