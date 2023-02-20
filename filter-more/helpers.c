@@ -136,9 +136,9 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
         // printf("\n");
     }
     colors sums;
-    sums.red_sum = red_sum > 255 ? 255 : red_sum;
-    sums.blue_sum = blue_sum > 255 ? 255 : blue_sum;
-    sums.green_sum = green_sum > 255 ? 255 : green_sum;
+    sums.red_sum = red_sum;
+    sums.blue_sum = blue_sum;
+    sums.green_sum = green_sum;
 
     return sums;
 }
@@ -165,10 +165,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
 
             colors sumsy = convolution(height, width, i, j, my, image);
 
-            image[i][j].rgbtRed = round(sqrt(sumsx.red_sum * sumsx.red_sum + sumsy.red_sum * sumsy.red_sum));
-            image[i][j].rgbtBlue = round(sqrt(sumsx.blue_sum * sumsx.blue_sum + sumsy.blue_sum * sumsy.blue_sum));
-            image[i][j].rgbtGreen = round(sqrt(sumsx.green_sum * sumsx.green_sum + sumsy.green_sum * sumsy.green_sum));
-        }
+            int rgbtRed = round(sqrt(sumsx.red_sum * sumsx.red_sum + sumsy.red_sum * sumsy.red_sum));
+            int rgbtBlue = round(sqrt(sumsx.blue_sum * sumsx.blue_sum + sumsy.blue_sum * sumsy.blue_sum));
+            int rgbtGreen = round(sqrt(sumsx.green_sum * sumsx.green_sum + sumsy.green_sum * sumsy.green_sum));
+
+            image[i][j].rgbtRed = rgbtRed > 255 ? 255 : rgbtRed;
+            image[i][j].rgbtBlue = rgbtBlue > 255 ? 255 : rgbtBlue;
+            image[i][j].rgbtGreen = rgbtGreen > 255 ? 255 : rgbtGreen;
+         }
     }
     return;
 }
