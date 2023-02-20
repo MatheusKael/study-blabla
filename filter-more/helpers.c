@@ -126,9 +126,9 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
         // printf("\n");
     }
     colors sums;
-    sums.red_sum = red_sum;
-    sums.blue_sum = blue_sum;
-    sums.green_sum = green_sum;
+    sums.red_sum = red_sum > 255 ? 255 : red_sum;
+    sums.blue_sum = blue_sum > 255 ? 255 : blue_sum;
+    sums.green_sum = green_sum > 255 ? 255 : green_sum;
 
     return sums;
 }
@@ -136,7 +136,6 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
 
-    RGBTRIPLE copy[height][width];
     int mx[3][3] = {
         {-1, 0, 1},
         {-2, 0, 2},
@@ -151,23 +150,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
     {
         for (int j = 0; j < width; j++)
         {
-            copy[i][j] = image[i][j];
-        }
-    }
-    for (int i = 0; i < height; i++)
-    {
-        for (int j = 0; j < width; j++)
-        {
             // convolution(height, width, i, j, mx, copy);
-            colors sumsx = convolution(height, width, i, j, mx, copy);
+            colors sumsx = convolution(height, width, i, j, mx, image);
 
-            colors sumsy = convolution(height, width, i, j, my, copy);
+            colors sumsy = convolution(height, width, i, j, my, image);
 
-            copy[i][j].rgbtRed = sqrt(sumsx.red_sum * sumsx.red_sum + sumsy.red_sum * sumsy.red_sum);
-            copy[i][j].rgbtBlue = sqrt(sumsx.blue_sum * sumsx.blue_sum + sumsy.blue_sum * sumsy.blue_sum);
-            copy[i][j].rgbtGreen = sqrt(sumsx.green_sum * sumsx.green_sum + sumsy.green_sum * sumsy.green_sum);
-
-            image[i][j] = copy[i][j];
+            image[i][j].rgbtRed = sqrt(sumsx.red_sum * sumsx.red_sum + sumsy.red_sum * sumsy.red_sum);
+            image[i][j].rgbtBlue = sqrt(sumsx.blue_sum * sumsx.blue_sum + sumsy.blue_sum * sumsy.blue_sum);
+            image[i][j].rgbtGreen = sqrt(sumsx.green_sum * sumsx.green_sum + sumsy.green_sum * sumsy.green_sum);
         }
     }
     return;
