@@ -97,11 +97,12 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 // Detect edges
 
-typedef struct colors {
+typedef struct
+{
     int red_sum;
     int blue_sum;
     int green_sum;
-};
+} colors;
 
 colors convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width])
 {
@@ -126,6 +127,8 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
     }
     colors sums;
     sums.red_sum = red_sum;
+    sums.blue_sum = blue_sum;
+    sums.green_sum = green_sum;
 
     return sums;
 }
@@ -156,7 +159,14 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // convolution(height, width, i, j, mx, copy);
-            convolution(height, width, i, j, my, copy);
+            colors sumsx = convolution(height, width, i, j, mx, copy);
+
+            colors sumsy = convolution(height, width, i, j, my, copy);
+
+            copy[i][j].rgbtRed = sqrt(sumsx.red_sum * sumsx.red_sum + sumsy.red_sum * sumsy.red_sum);
+            copy[i][j].rgbtBlue = sqrt(sumsx.blue_sum * sumsx.blue_sum + sumsy.blue_sum * sumsy.blue_sum);
+            copy[i][j].rgbtGreen = sqrt(sumsx.green_sum * sumsx.green_sum + sumsy.green_sum * sumsy.green_sum);
+
             image[i][j] = copy[i][j];
         }
     }
