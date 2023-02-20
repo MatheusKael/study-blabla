@@ -110,13 +110,16 @@ int convolution(int height, int width, int row, int col, int kernel[3][3], RGBTR
             // printf("%i", image[row + i][col + j].rgbtRed );
             red_sum = red_sum + image[row + i][col + j].rgbtRed * kernel[i][j] ;
             green_sum = green_sum + image[row + i][col + j].rgbtGreen * kernel[i][j] ;
-            Blue_sum = Blue_sum + image[row + i][col + j].rgbtBlue * kernel[i][j] ;
+            blue_sum = blue_sum + image[row + i][col + j].rgbtBlue * kernel[i][j] ;
 
         }
         // printf("\n");
     }
+            image[row][col].rgbtRed = red_sum > 255 ? red_sum : 0;
+            image[row][col].rgbtBlue = blue_sum > 255 ? blue_sum : 0;
+            image[row][col].rgbtGreen = green_sum > 255 ? green_sum : 0;
 
-    
+
 
     return 0;
 }
@@ -129,7 +132,7 @@ void edges(int height, int width,RGBTRIPLE image[height][width])
         {-1, 0, 1},
         {-2, 0, 2},
         {-1, 0, 1}};
-    // grayscale(height, width, image);
+    grayscale(height, width, image);
 
     for (int i = 0; i < height; i++)
     {
