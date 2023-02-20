@@ -115,11 +115,11 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
         for (int j = -1; j < 2; j++)
         {
 
-            if (i + row < 0 || i + row >= height)
+            if (i + row < 0 || i + row > height -1)
             {
                 continue;
             }
-            if (j + col < 0 || j + col >= width)
+            if (j + col < 0 || j + col > width - 1)
             {
                 continue;
             }
