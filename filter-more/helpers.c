@@ -99,15 +99,21 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 int convolution(int height, int width, int row, int col, RGBTRIPLE image[height][width])
 {
-    int sum = 0;
+    int red_sum = 0;
+    int blue_sum = 0;
+    int green_sum = 0;
 
     for (int i = 0; i < 3; i++)
     {
         for (int j = 0; j < 3; j++)
         {
             printf("%i", image[row + i][col + j].rgbtRed );
+            red_sum = red_sum + image[row + i][col + j].rgbtRed;
+
         }
+        printf("\n");
     }
+    return 0;
 }
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
