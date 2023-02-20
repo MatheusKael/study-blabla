@@ -170,13 +170,13 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             int rgbtBlue = round(sqrt(sumsx.blue_sum * sumsx.blue_sum + sumsy.blue_sum * sumsy.blue_sum));
             int rgbtGreen = round(sqrt(sumsx.green_sum * sumsx.green_sum + sumsy.green_sum * sumsy.green_sum));
 
-            tmp[i][j].rgbtRed = rgbtRed > 255 ? 255 : rgbtRed;
-            tmp[i][j].rgbtBlue = rgbtBlue > 255 ? 255 : rgbtBlue;
-            tmp[i][j].rgbtGreen = rgbtGreen > 255 ? 255 : rgbtGreen;
+            image[i][j].rgbtRed = rgbtRed > 255 ? 255 : rgbtRed;
+            image[i][j].rgbtBlue = rgbtBlue > 255 ? 255 : rgbtBlue;
+            image[i][j].rgbtGreen = rgbtGreen > 255 ? 255 : rgbtGreen;
 
-            image[i][j].rgbtGreen = tmp[i][j].rgbtGreen;
-            image[i][j].rgbtBlue = tmp[i][j].rgbtBlue;
-            image[i][j].rgbtRed = tmp[i][j].rgbtRed;
+            // image[i][j].rgbtGreen = tmp[i][j].rgbtGreen;
+            // image[i][j].rgbtBlue = tmp[i][j].rgbtBlue;
+            // image[i][j].rgbtRed = tmp[i][j].rgbtRed;
         }
     }
     return;
