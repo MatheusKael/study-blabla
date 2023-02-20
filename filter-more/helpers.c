@@ -127,9 +127,9 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
             // printf("%i", image[row + i][col + j].rgbtRed );
             // if (row >= 0 && col >= 0)
             // {
-            red_sum = red_sum + image[row + i][col + j].rgbtRed * kernel[i + 1][j + 1];
-            green_sum = green_sum + image[row + i][col + j].rgbtGreen * kernel[i + 1][j + 1];
-            blue_sum = blue_sum + image[row + i][col + j].rgbtBlue * kernel[i + 1][j + 1];
+            red_sum = red_sum + image[i + row ][j + col].rgbtRed * kernel[i + 1][j + 1];
+            green_sum = green_sum + image[i + row ][j + col ].rgbtGreen * kernel[i + 1][j + 1];
+            blue_sum = blue_sum + image[i + row ][j + col].rgbtBlue * kernel[i + 1][j + 1];
             //     continue;
             // }
         }
