@@ -145,8 +145,8 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
 {
+    RGBTRIPLE tmp[height][width];
 
-    
     int mx[3][3] = {
         {-1, 0, 1},
         {-2, 0, 2},
@@ -162,9 +162,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // convolution(height, width, i, j, mx, copy);
-            colors sumsx = convolution(height, width, i, j, mx, image);
+            colors sumsx = convolution(height, width, i, j, mx, tmp);
 
-            colors sumsy = convolution(height, width, i, j, my, image);
+            colors sumsy = convolution(height, width, i, j, my, tmp);
 
             image[i][j].rgbtRed = round(sqrt(sumsx.red_sum * sumsx.red_sum + sumsy.red_sum * sumsy.red_sum));
             image[i][j].rgbtBlue = round(sqrt(sumsx.blue_sum * sumsx.blue_sum + sumsy.blue_sum * sumsy.blue_sum));
