@@ -133,7 +133,7 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         {-1, 0, 1},
         {-2, 0, 2},
         {-1, 0, 1}};
-    grayscale(height, width, image);
+    // grayscale(height, width, image);
 
     for (int i = 0; i < height; i++)
     {
