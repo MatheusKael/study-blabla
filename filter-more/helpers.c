@@ -104,7 +104,7 @@ typedef struct
     float green_sum;
 } colors;
 
-colors convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width], RGBTRIPLE tmp[height][width])
+void convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width], RGBTRIPLE tmp[height][width])
 {
     float red_sum = 0;
     float blue_sum = 0;
