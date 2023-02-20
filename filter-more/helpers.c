@@ -99,27 +99,27 @@ void blur(int height, int width, RGBTRIPLE image[height][width])
 
 typedef struct
 {
-    int red_sum;
-    int blue_sum;
-    int green_sum;
+    float red_sum;
+    float blue_sum;
+    float green_sum;
 } colors;
 
 colors convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width])
 {
-    int red_sum = 0;
-    int blue_sum = 0;
-    int green_sum = 0;
+    float red_sum = 0;
+    float blue_sum = 0;
+    float green_sum = 0;
 
     for (int i = -1; i < 2; i++)
     {
         for (int j = -1; j < 2; j++)
         {
 
-            if (i + row < 0 || i + row > height - 1)
+            if (i + row < 0 || i + row > height )
             {
                 continue;
             }
-            if (j + col < 0 || j + col > width - 1)
+            if (j + col < 0 || j + col > width)
             {
                 continue;
             }
