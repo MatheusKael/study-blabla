@@ -154,9 +154,9 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
             copy[i][j] = image[i][j];
         }
     }
-    for (int i = 1; i < height -2; i++)
+    for (int i = 0; i < height; i++)
     {
-        for (int j = 1; j < width- 2; j++)
+        for (int j = 0; j < width; j++)
         {
             // convolution(height, width, i, j, mx, copy);
             colors sumsx = convolution(height, width, i, j, mx, copy);
