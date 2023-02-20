@@ -104,9 +104,10 @@ typedef struct
     float green_sum;
 } colors;
 
-colors convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width])
+RGBTRIPLE convolution(int height, int width, int row, int col, int kernel[3][3], RGBTRIPLE image[height][width])
 {
-    
+
+    RGBTRIPLE tmp[height][width];
     float red_sum = 0;
     float blue_sum = 0;
     float green_sum = 0;
@@ -116,7 +117,7 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
         for (int j = -1; j < 2; j++)
         {
 
-            if (i + row < 0 || i + row > height -1)
+            if (i + row < 0 || i + row > height - 1)
             {
                 continue;
             }
@@ -130,18 +131,19 @@ colors convolution(int height, int width, int row, int col, int kernel[3][3], RG
             // {
             red_sum = red_sum + image[i + row][j + col].rgbtRed * kernel[i + 1][j + 1];
             green_sum = green_sum + image[i + row][j + col].rgbtGreen * kernel[i + 1][j + 1];
-            blue_sum = blue_sum + image[i + row][j + col].rgbtBlue * kernel[i+ 1][j+ 1];
+            blue_sum = blue_sum + image[i + row][j + col].rgbtBlue * kernel[i + 1][j + 1];
             //     continue;
             // }
         }
         // printf("\n");
     }
-    colors sums;
-    sums.red_sum = red_sum;
-    sums.blue_sum = blue_sum;
-    sums.green_sum = green_sum;
+    int rgbtBlue = round(sqrt(blue_sum * blue_sum + blue_sum * sumsy.blue_sum));
+    int rgbtGreen = round(sqrt(sumsx.green_sum * sumsx.green_sum + sumsy.green_sum * sumsy.green_sum));
 
-    return sums;
+    tmp[row][col].rgbtRed = rgbtRed > 255 ? 255 : rgbtRed;
+    tmp[row][col].rgbtBlue = rgbtBlue > 255 ? 255 : rgbtBlue;
+    tmp[row][col].rgbtGreen = rgbtGreen > 255 ? 255 : rgbtGreen;
+    return tmp[row][col];
 }
 
 void edges(int height, int width, RGBTRIPLE image[height][width])
@@ -162,18 +164,10 @@ void edges(int height, int width, RGBTRIPLE image[height][width])
         for (int j = 0; j < width; j++)
         {
             // convolution(height, width, i, j, mx, copy);
-            colors sumsx = convolution(height, width, i, j, mx, image);
+            image[i][j] = convolution(height, width, i, j, mx, image);
 
-            colors sumsy = convolution(height, width, i, j, my, image);
-
-            int rgbtRed = round(sqrt(sumsx.red_sum * sumsx.red_sum + sumsy.red_sum * sumsy.red_sum));
-            int rgbtBlue = round(sqrt(sumsx.blue_sum * sumsx.blue_sum + sumsy.blue_sum * sumsy.blue_sum));
-            int rgbtGreen = round(sqrt(sumsx.green_sum * sumsx.green_sum + sumsy.green_sum * sumsy.green_sum));
-
-            image[i][j].rgbtRed = rgbtRed > 255 ? 255 : rgbtRed;
-            image[i][j].rgbtBlue = rgbtBlue > 255 ? 255 : rgbtBlue;
-            image[i][j].rgbtGreen = rgbtGreen > 255 ? 255 : rgbtGreen;
-         }
+            image[i][j] = convolution(height, width, i, j, my, image);
+        }
     }
     return;
 }
