@@ -11,9 +11,14 @@ int main(int argc, char *argv[])
 {
     // Ensure proper usage
     // TODO #1
+    if(argc > 3) {
+        printf("Usage: reverse <input_file> <output_file>\n");
+        return 1;
+    }
 
     // Open input file for reading
     // TODO #2
+    
 
     // Read header
     // TODO #3
