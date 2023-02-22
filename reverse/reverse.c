@@ -20,11 +20,14 @@ int main(int argc, char *argv[])
     // TODO #2
     FILE *input_file = fopen(argv[1], "r");
 
-    if(input_file )
+    if(input_file == NULL) {
+        printf("could not open the file\n");
+    }
 
 
     // Read header
     // TODO #3
+
 
     // Use check_format to ensure WAV format
     // TODO #4
