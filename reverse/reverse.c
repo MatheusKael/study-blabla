@@ -18,7 +18,10 @@ int main(int argc, char *argv[])
 
     // Open input file for reading
     // TODO #2
-    
+    FILE *input_file = fopen(argv[1], "r");
+
+    if(input_file )
+
 
     // Read header
     // TODO #3
