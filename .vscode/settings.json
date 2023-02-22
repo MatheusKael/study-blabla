@@ -5,6 +5,7 @@
         "cs50.h": "c",
         "math.h": "c",
         "ctype.h": "c",
-        "helpers.h": "c"
+        "helpers.h": "c",
+        "wav.h": "c"
     }
 }
