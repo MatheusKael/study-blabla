@@ -7,6 +7,7 @@
 
 int check_format(WAVHEADER header);
 int get_block_size(WAVHEADER header);
+WAVHEADER read_wav_header(FILE *file);
 
 int main(int argc, char *argv[])
 {
@@ -30,7 +31,7 @@ int main(int argc, char *argv[])
 
     FILE *output_file_pointer = fopen(argv[2], "w");
 
-    if(output_file_pointer == NULL)
+    if (output_file_pointer == NULL)
     {
         printf("could not open the file\n");
         return 1;
@@ -38,8 +39,7 @@ int main(int argc, char *argv[])
 
     // Read header
     // TODO #3
-    WAVHEADER header;
-    fread(&header, sizeof(header), 1, input_file_pointer);
+    WAVHEADER header = read_wav_header(input_file_pointer);
 
     fclose(input_file_pointer);
 
@@ -55,7 +55,8 @@ int main(int argc, char *argv[])
 
     // Write header to file
     // TODO #6
-    if(fwrite(&header, sizeof(header), 1, output_file_pointer) != 1) {
+    if (fwrite(&header, sizeof(header), 1, output_file_pointer) != 1)
+    {
         printf("Error writing header to output file\n");
         return 1;
     }
@@ -67,12 +68,31 @@ int main(int argc, char *argv[])
     // TODO #8
 }
 
+WAVHEADER read_wav_header(FILE *file)
+{
+    WAVHEADER header;
 
+    fread(&header.chunkID, sizeof(BYTE), 4, file);
+    fread(&header.chunkSize, sizeof(DWORD), 1, file);
+    fread(&header.format, sizeof(BYTE), 4, file);
+    fread(&header.subchunk1ID, sizeof(BYTE), 4, file);
+    fread(&header.subchunk1Size, sizeof(DWORD), 1, file);
+    fread(&header.audioFormat, sizeof(WORD), 1, file);
+    fread(&header.numChannels, sizeof(WORD), 1, file);
+    fread(&header.sampleRate, sizeof(DWORD), 1, file);
+    fread(&header.byteRate, sizeof(DWORD), 1, file);
+    fread(&header.bitsPerSample, sizeof(WORD), 1, file);
+    fread(&header.subchunk2ID, sizeof(BYTE), 4, file);
+    fread(&header.subchunk2Size, sizeof(DWORD), 1, file);
+
+    return header;
+}
 int check_format(WAVHEADER header)
 {
     // TODO #4
 
-    if(strcmp(header.format, "WAVE") != 0) {
+    if (strcmp(header.format, "WAVE") != 0)
+    {
         printf("wrong file format\n");
         return 1;
     }
