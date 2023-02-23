@@ -34,6 +34,8 @@ int main(int argc, char *argv[])
     // Use check_format to ensure WAV format
     // TODO #4
 
+    c
+
     // Open output file for writing
     // TODO #5
 
@@ -69,6 +71,9 @@ WAVHEADER read_wav_header(FILE *file)
 int check_format(WAVHEADER header)
 {
     // TODO #4
+
+
+
     return 0;
 }
 
