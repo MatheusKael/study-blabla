@@ -29,12 +29,12 @@ int main(int argc, char *argv[])
 
     // Read header
     // TODO #3
-    WAVHEADER header = read_wav_header(&input_file);
+    WAVHEADER header = read_wav_header(input_file);
 
     // Use check_format to ensure WAV format
     // TODO #4
 
-    c
+    check_format(header);
 
     // Open output file for writing
     // TODO #5
@@ -72,6 +72,7 @@ int check_format(WAVHEADER header)
 {
     // TODO #4
 
+    printf("%s", header.format);
 
 
     return 0;
