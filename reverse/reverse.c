@@ -90,13 +90,10 @@ WAVHEADER read_wav_header(FILE *file)
 int check_format(WAVHEADER header)
 {
     // TODO #4
-    char format[5];
 
-    strcpy(format, header.format, 4);
-
-    printf("%s\n", format);
-    if (strcmp((const char*)header.format, "WAVE") != 0)
+    if (strcmp((const char*)header.format, "WAVEfmt") != 0)
     {
+    printf("%s\n", header.format);
         printf("wrong file format\n");
         return 1;
     }
