@@ -50,7 +50,6 @@ int main(int argc, char *argv[])
     // Open output file for writing
     // TODO #5
     DWORD output_file_size = header.subchunk2Size;
-    BYTE *data_buffer = malloc(output_file_size);
 
     // Write header to file
     // TODO #6
