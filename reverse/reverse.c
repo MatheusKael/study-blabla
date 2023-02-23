@@ -1,4 +1,5 @@
 #include <stdint.h>
+#include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -72,8 +73,10 @@ int check_format(WAVHEADER header)
 {
     // TODO #4
 
-    printf("%s", header.format);
-
+    if(strcmp(header.format, "WAVE") != 0) {
+        printf("wrong file format\n");
+        return 1;
+    }
 
     return 0;
 }
