@@ -41,7 +41,6 @@ int main(int argc, char *argv[])
     // TODO #3
     WAVHEADER header = read_wav_header(input_file_pointer);
 
-
     // Use check_format to ensure WAV format
     // TODO #4
 
@@ -70,17 +69,19 @@ int main(int argc, char *argv[])
     // TODO #8
     char *buffer = malloc(block_size * sizeof(char));
 
-    for(int i = 0; i < num_blocks; i++)
+    for (int i = 0; i < num_blocks; i++)
     {
-    fread()
+        fread(buffer, sizeof(char), block_size, input_file_pointer);
 
-    for(int j = 0;j < block_size / 2; j++) {
+        for (int j = 0; j < block_size / 2; j++)
+        {
+            char tmp = buffer[j];
+            buffer[j] = buffer[block_size -j - 1];
+            buffer[block_size - j - 1] = tmp;
+        }
 
+        fwrite(buffer, sizeof(char), block_size, output_file_pointer);
     }
-
-    }
-
-
 }
 
 WAVHEADER read_wav_header(FILE *file)
@@ -106,8 +107,10 @@ int check_format(WAVHEADER header)
 {
     // TODO #4
 
-    for(int i = 0; i < 4; i++) {
-        if(header.format[i] != "WAVE"[i]) {
+    for (int i = 0; i < 4; i++)
+    {
+        if (header.format[i] != "WAVE"[i])
+        {
             printf("wrong format.\n");
             return 1;
         }
@@ -119,7 +122,6 @@ int check_format(WAVHEADER header)
 int get_block_size(WAVHEADER header)
 {
     // TODO #7
-
 
     return header.numChannels * (header.bitsPerSample / 8) * header.sampleRate;
 }
