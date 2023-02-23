@@ -114,5 +114,5 @@ int get_block_size(WAVHEADER header)
     // TODO #7
 
     printf("%i %i\n", header.numChannels, header.bitsPerSample);
-    return header.numChannels * (header.bitsPerSample / 8) ;
+    return header.numChannels * (header.bitsPerSample / 8) * header.sampleRate;
 }
