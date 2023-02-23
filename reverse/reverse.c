@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 
     // Write header to file
     // TODO #6
-    if (fwrite(&header, sizeof(header), 1, output_file_pointer) != 1)
+    if (fwrite(&header, sizeof(WAVHEADER), 1, output_file_pointer) != 1)
     {
         printf("Error writing header to output file\n");
         return 1;
