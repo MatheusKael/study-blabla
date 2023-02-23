@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
     // TODO #3
     WAVHEADER header;
 
-    fread(&header, sizeof(header), 1, input_file_pointer);
+    fread(&header, sizeof(WAVHEADER), 1, input_file_pointer);
 
     // Use check_format to ensure WAV format
     // TODO #4
@@ -113,5 +113,6 @@ int get_block_size(WAVHEADER header)
 {
     // TODO #7
 
+    printf("%i %i\n", header.numChannels, header.bitsPerSample);
     return header.numChannels * (header.bitsPerSample / 8) ;
 }
