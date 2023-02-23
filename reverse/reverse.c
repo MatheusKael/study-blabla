@@ -91,8 +91,9 @@ int check_format(WAVHEADER header)
 {
     // TODO #4
     // printf("%s", header.format);
-    if (strcmp(header.format, "WAVE") != 0)
+    if (strcmp((const char*)header.format, "WAVE") != 0)
     {
+        printf("%s\n", header.format);
         printf("wrong file format\n");
         return 1;
     }
