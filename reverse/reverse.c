@@ -7,7 +7,6 @@
 
 int check_format(WAVHEADER header);
 int get_block_size(WAVHEADER header);
-WAVHEADER read_wav_header(FILE *file);
 
 int main(int argc, char *argv[])
 {
@@ -92,25 +91,7 @@ int main(int argc, char *argv[])
     fclose(input_file_pointer);
 }
 
-WAVHEADER read_wav_header(FILE *file)
-{
-    WAVHEADER header;
 
-    fread(&header.chunkID, sizeof(BYTE), 4, file);
-    fread(&header.chunkSize, sizeof(DWORD), 1, file);
-    fread(&header.format, sizeof(BYTE), 4, file);
-    fread(&header.subchunk1ID, sizeof(BYTE), 4, file);
-    fread(&header.subchunk1Size, sizeof(DWORD), 1, file);
-    fread(&header.audioFormat, sizeof(WORD), 1, file);
-    fread(&header.numChannels, sizeof(WORD), 1, file);
-    fread(&header.sampleRate, sizeof(DWORD), 1, file);
-    fread(&header.byteRate, sizeof(DWORD), 1, file);
-    fread(&header.bitsPerSample, sizeof(WORD), 1, file);
-    fread(&header.subchunk2ID, sizeof(BYTE), 4, file);
-    fread(&header.subchunk2Size, sizeof(DWORD), 1, file);
-
-    return header;
-}
 int check_format(WAVHEADER header)
 {
     // TODO #4
