@@ -43,15 +43,6 @@ int main(int argc, char *argv[])
 
     fclose(input_file_pointer);
 
-    input_file_pointer = fopen(argv[1], "r");
-
-    if (input_file_pointer == NULL)
-    {
-        printf("could not open the file\n");
-        return 1;
-    }
-
-
     // Use check_format to ensure WAV format
     // TODO #4
 
