@@ -49,7 +49,8 @@ int main(int argc, char *argv[])
 int read_wav_header(FILE* file) {
     WAVHEADER header;
 
-    fread(&header.chunkID, sizeof(BYTE),  )
+    fread(&header.chunkID, sizeof(BYTE), 4, file );
+    fread(&header.chunkSize, sizeof(DWORD), 4, file );
 
 }
 int check_format(WAVHEADER header)
