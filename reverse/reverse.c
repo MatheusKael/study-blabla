@@ -39,9 +39,9 @@ int main(int argc, char *argv[])
 
     // Read header
     // TODO #3
-    WAVHEADER header ;
+    WAVHEADER header;
 
-    fread(&header, sizeof(header),1, input_file_pointer);
+    fread(&header, sizeof(header), 1, input_file_pointer);
 
     // Use check_format to ensure WAV format
     // TODO #4
@@ -116,11 +116,12 @@ int check_format(WAVHEADER header)
     // TODO #4
     char format[5];
 
-    strncpy(format, (const char*)header.format, 4);
+    strncpy(format, (const char *)header.format, 4);
 
     format[4] = '\0';
 
-    if(strcmp(format, "WAVE") !=0) {
+    if (strcmp(format, "WAVE") != 0)
+    {
         printf("wrong format.\n");
         return 1;
     }
