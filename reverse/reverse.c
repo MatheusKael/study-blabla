@@ -6,6 +6,7 @@
 
 int check_format(WAVHEADER header);
 int get_block_size(WAVHEADER header);
+int read_wav_header(FILE* file);
 
 int main(int argc, char *argv[])
 {
@@ -27,7 +28,7 @@ int main(int argc, char *argv[])
 
     // Read header
     // TODO #3
-    printf("%i", input_file);
+
 
     // Use check_format to ensure WAV format
     // TODO #4
@@ -45,6 +46,12 @@ int main(int argc, char *argv[])
     // TODO #8
 }
 
+int read_wav_header(FILE* file) {
+    WAVHEADER header;
+
+    fread(&header.chunkID, sizeof(BYTE),  )
+
+}
 int check_format(WAVHEADER header)
 {
     // TODO #4
