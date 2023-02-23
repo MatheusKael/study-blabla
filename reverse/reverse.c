@@ -71,22 +71,19 @@ int main(int argc, char *argv[])
     // TODO #8
     char *buffer = malloc(block_size * sizeof(char));
 
-    fread(buffer, sizeof(char), block_size, input_file_pointer);
+    fread(buffer, block_size, 1, input_file_pointer);
 
-    for (int j = 0; j < block_size / 2; j+=2)
+    for (int j = 0; j < block_size / 2; j += 2)
     {
         char tmp = buffer[j];
         buffer[j] = buffer[block_size - j - 2];
         buffer[block_size - j - 2] = tmp;
-        tmp = buffer[j+ 1];
-        buffer[j + 1] = buffer[block_size - j -1];
+        tmp = buffer[j + 1];
+        buffer[j + 1] = buffer[block_size - j - 1];
         buffer[block_size - j - 1] = tmp;
-
-
-
     }
 
-    fwrite(buffer, sizeof(char), block_size, output_file_pointer);
+    fwrite(buffer, block_size, 1, output_file_pointer);
 
     free(buffer);
     fclose(output_file_pointer);
