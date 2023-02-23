@@ -6,13 +6,14 @@
 
 int check_format(WAVHEADER header);
 int get_block_size(WAVHEADER header);
-int read_wav_header(FILE* file);
+WAVHEADER read_wav_header(FILE *file);
 
 int main(int argc, char *argv[])
 {
     // Ensure proper usage
     // TODO #1
-    if(argc > 3) {
+    if (argc > 3)
+    {
         printf("Usage: reverse <input_file> <output_file>\n");
         return 1;
     }
@@ -21,14 +22,14 @@ int main(int argc, char *argv[])
     // TODO #2
     FILE *input_file = fopen(argv[1], "r");
 
-    if(input_file == NULL) {
+    if (input_file == NULL)
+    {
         printf("could not open the file\n");
     }
 
-
     // Read header
     // TODO #3
-
+    WAVHEADER header = read_wav_header(&input_file);
 
     // Use check_format to ensure WAV format
     // TODO #4
@@ -46,12 +47,24 @@ int main(int argc, char *argv[])
     // TODO #8
 }
 
-int read_wav_header(FILE* file) {
+WAVHEADER read_wav_header(FILE *file)
+{
     WAVHEADER header;
 
-    fread(&header.chunkID, sizeof(BYTE), 4, file );
-    fread(&header.chunkSize, sizeof(DWORD), 4, file );
+    fread(&header.chunkID, sizeof(BYTE), 4, file);
+    fread(&header.chunkSize, sizeof(DWORD), 1, file);
+    fread(&header.format, sizeof(BYTE), 4, file);
+    fread(&header.subchunk1ID, sizeof(BYTE), 4, file);
+    fread(&header.subchunk1Size, sizeof(DWORD), 1, file);
+    fread(&header.audioFormat, sizeof(WORD), 1, file);
+    fread(&header.numChannels, sizeof(WORD), 1, file);
+    fread(&header.sampleRate, sizeof(DWORD), 1, file);
+    fread(&header.byteRate, sizeof(DWORD), 1, file);
+    fread(&header.bitsPerSample, sizeof(WORD), 1, file);
+    fread(&header.subchunk2ID, sizeof(BYTE), 4, file);
+    fread(&header.subchunk2Size, sizeof(DWORD), 1, file);
 
+    return header;
 }
 int check_format(WAVHEADER header)
 {
