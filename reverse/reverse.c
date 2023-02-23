@@ -90,7 +90,7 @@ WAVHEADER read_wav_header(FILE *file)
 int check_format(WAVHEADER header)
 {
     // TODO #4
-
+    // printf("%s", header.format);
     if (strcmp(header.format, "WAVE") != 0)
     {
         printf("wrong file format\n");
