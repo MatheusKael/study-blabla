@@ -64,8 +64,23 @@ int main(int argc, char *argv[])
     // TODO #7
     int block_size = get_block_size(header);
 
+    int num_blocks = header.subchunk2Size / block_size;
+
     // Write reversed audio to file
     // TODO #8
+    char *buffer = malloc(block_size * sizeof(char));
+
+    for(int i = 0; i < num_blocks; i++)
+    {
+    fread()
+
+    for(int j = 0;j < block_size / 2; j++) {
+
+    }
+
+    }
+
+
 }
 
 WAVHEADER read_wav_header(FILE *file)
@@ -106,5 +121,5 @@ int get_block_size(WAVHEADER header)
     // TODO #7
 
 
-    return header.numChannels * header.bitsPerSample / 8;
+    return header.numChannels * (header.bitsPerSample / 8) * header.sampleRate;
 }
