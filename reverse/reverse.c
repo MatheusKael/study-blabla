@@ -41,7 +41,8 @@ int main(int argc, char *argv[])
     // TODO #3
     WAVHEADER header = read_wav_header(input_file_pointer);
 
-    fclose(input_file_pointer);
+
+    rewind(input_file_pointer);
 
     // Use check_format to ensure WAV format
     // TODO #4
