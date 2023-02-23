@@ -76,12 +76,16 @@ int main(int argc, char *argv[])
         for (int j = 0; j < block_size / 2; j++)
         {
             char tmp = buffer[j];
-            buffer[j] = buffer[block_size -j - 1];
+            buffer[j] = buffer[block_size - j - 1];
             buffer[block_size - j - 1] = tmp;
         }
 
         fwrite(buffer, sizeof(char), block_size, output_file_pointer);
     }
+
+    free(buffer);
+    fclose(output_file_pointer);
+    fclose(input_file_pointer);
 }
 
 WAVHEADER read_wav_header(FILE *file)
