@@ -69,13 +69,13 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
-    char *buffer = malloc(block_size / 2* sizeof(char));
+    char *buffer = malloc(block_size* sizeof(char));
 
     for (int i = 0; i < num_blocks; i++)
     {
         fread(buffer, sizeof(char), block_size, input_file_pointer);
 
-        for (int j = 0; j < block_size / 2; j++)
+        for (int j = 0; j < block_size ; j++)
         {
             char tmp = buffer[j];
             buffer[j] = buffer[block_size - j - 1];
