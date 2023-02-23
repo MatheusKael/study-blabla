@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 
     // fclose(input_file_pointer);
 
-    rewind(input_file_pointer);
+    rewind(header);
     // Use check_format to ensure WAV format
     // TODO #4
 
