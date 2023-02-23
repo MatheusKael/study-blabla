@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 
     // Read header
     // TODO #3
-    
+    printf("%i", input_file);
 
     // Use check_format to ensure WAV format
     // TODO #4
