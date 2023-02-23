@@ -41,7 +41,6 @@ int main(int argc, char *argv[])
     // TODO #3
     WAVHEADER header = read_wav_header(input_file_pointer);
 
-
     rewind(input_file_pointer);
 
     // Use check_format to ensure WAV format
@@ -91,9 +90,9 @@ WAVHEADER read_wav_header(FILE *file)
 int check_format(WAVHEADER header)
 {
     // TODO #4
-    if (strcmp((const char*)header.format, "WAVE") != 0)
+    printf("%s\n", header.format);
+    if (strcmp((const char *)header.format, "WAVE") != 0)
     {
-        printf("%s\n", header.format);
         printf("wrong file format\n");
         return 1;
     }
