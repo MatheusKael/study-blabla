@@ -41,9 +41,17 @@ int main(int argc, char *argv[])
     // TODO #3
     WAVHEADER header = read_wav_header(input_file_pointer);
 
-    // fclose(input_file_pointer);
+    fclose(input_file_pointer);
 
-    rewind(header);
+    input_file_pointer = fopen(argv[1], "r");
+
+    if (input_file_pointer == NULL)
+    {
+        printf("could not open the file\n");
+        return 1;
+    }
+
+
     // Use check_format to ensure WAV format
     // TODO #4
 
