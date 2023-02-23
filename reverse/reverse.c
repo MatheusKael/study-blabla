@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
     // TODO #7
     int block_size = get_block_size(header);
 
-    printf("%i", block_size);
+    printf("%i\n", block_size);
 
     int num_blocks = output_file_size / block_size;
 
@@ -75,7 +75,7 @@ int main(int argc, char *argv[])
     {
         fread(buffer, sizeof(char), block_size, input_file_pointer);
 
-        for (int j = 0; j < block_size ; j++)
+        for (int j = 0; j < block_size / 2; j++)
         {
             char tmp = buffer[j];
             buffer[j] = buffer[block_size - j - 1];
@@ -113,5 +113,4 @@ int get_block_size(WAVHEADER header)
 {
     // TODO #7
 
-    return header.numChannels * (header.bitsPerSample / 8) / 4;
-}
+    return header.byteRate /4 ;
