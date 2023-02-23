@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
 
     // Open input file for reading
     // TODO #2
-    FILE *input_file = fopen(argv[1], "r");
+    FILE *input_file_pointer = fopen(argv[1], "r");
 
     if (input_file == NULL)
     {
@@ -30,7 +30,8 @@ int main(int argc, char *argv[])
 
     // Read header
     // TODO #3
-    WAVHEADER header = read_wav_header(input_file);
+    WAVHEADER header;
+    fread(&header, sizeof(header), 1, input_file_pointer);
 
     fclose(input_file);
 
