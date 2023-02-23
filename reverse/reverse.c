@@ -112,14 +112,15 @@ WAVHEADER read_wav_header(FILE *file)
 int check_format(WAVHEADER header)
 {
     // TODO #4
+    char format[5];
 
-    for (int i = 0; i < 4; i++)
-    {
-        if (header.format[i] != "WAVE"[i])
-        {
-            printf("wrong format.\n");
-            return 1;
-        }
+    strncpy(format, (const char*)header.format, 4);
+
+    format[4] = '\0';
+
+    if(strcmp(format, "WAVE") !=0) {
+        printf("wrong format.\n");
+        return 1;
     }
 
     return 0;
