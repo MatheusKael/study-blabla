@@ -63,11 +63,13 @@ int main(int argc, char *argv[])
     // TODO #7
     int block_size = get_block_size(header);
 
-    printf("%i\n", block_size);
 
     fseek(input_file_pointer, 0, SEEK_END);
     long input_file_size = ftell(input_file_pointer);
+    fseek(input_file_pointer, 0, SEEK_END);
+
     int num_blocks = input_file_size / block_size;
+    printf("%i, %i\n", block_size, num_blocks);
 
     // Write reversed audio to file
     // TODO #8
