@@ -39,6 +39,12 @@ int main(int argc, char *argv[])
 
     int block_size = get_block_size(header);
 
+    fseek(input_file_pointer, 0, SEEK_END);
+
+    long input_file_size = ftell(input_file_pointer);
+    
+
+
     fclose(output_file_pointer);
     fclose(input_file_pointer);
 }
