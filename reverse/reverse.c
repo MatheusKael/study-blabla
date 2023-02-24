@@ -36,8 +36,8 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-
     int block_size = get_block_size(header);
+    long header_size = header.subchunk1Size;
 
     fseek(input_file_pointer, 0, SEEK_END);
 
@@ -45,11 +45,22 @@ int main(int argc, char *argv[])
 
     fseek(input_file_pointer, 1, SEEK_SET);
 
-    int *buffer = malloc(input_file_size - )
+    int *buffer = malloc(input_file_size - header_size);
 
+    if (buffer == NULL)
+    {
+        printf("Error alocating memory to buffer\n");
+        return 1;
+    }
+
+    fread(buffer, input_file_size - header_size, 1, input_file_pointer);
+
+    fwrite(buffer, input_file_size - header_size, 1, output_file_pointer);
 
     fclose(output_file_pointer);
     fclose(input_file_pointer);
+
+    free(buffer);
 }
 
 int check_format(WAVHEADER header)
