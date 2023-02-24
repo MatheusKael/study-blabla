@@ -53,8 +53,9 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-
+    fseek(input_file_pointer, 0, SEEK_END);
     fread(buffer, input_file_size - header_size, 1, input_file_pointer);
+    fseek(input_file_pointer, 1, SEEK_SET);
 
     fwrite(buffer, input_file_size - header_size, 1, output_file_pointer);
 
