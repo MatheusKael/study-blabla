@@ -55,12 +55,12 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    fread(buffer, sizeof(WORD), num_samples, input_file_pointer);
+    fread(buffer, sizeof(WORD), audio_size / block_size, input_file_pointer);
 
-    for (int i = 0; i < audio_size / 2; i++)
+    for (int i = 0; i < audio_size / block_size / 2; i++)
     {
         short tmp = buffer[i];
-        buffer[i] = buffer[audio_size - i - 1];
+        buffer[i] = buffer[audio_size /  - i - 1];
         buffer[audio_size- i - 1] = tmp;
     }
 
