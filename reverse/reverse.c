@@ -43,8 +43,6 @@ int main(int argc, char *argv[])
 
     long pos_input_pointer = ftell(input_file_pointer);
 
-    fseek(input_file_pointer, 0, SEEK_SET);
-
     // int num_samples = header.subchunk2Size / (header.bitsPerSample / 8);
 
      char *buffer = (char *)malloc(2 * sizeof(char));
@@ -66,7 +64,6 @@ int main(int argc, char *argv[])
 
 
         fseek(input_file_pointer, -4 , SEEK_CUR);
-        pos_input_pointer -= -4;
     }
     // fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
 
