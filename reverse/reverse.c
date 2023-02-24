@@ -57,13 +57,7 @@ int main(int argc, char *argv[])
 
     fread(buffer, sizeof(short), num_samples, input_file_pointer);
 
-    // for (int i = 0; i < num_samples / 2; i++)
-    // {
-    //     short tmp = buffer[i];
-    //     buffer[i] = buffer[num_samples - i - 1];
-    //     buffer[num_samples - i - 1] = tmp;
-    // }
-    for (int i = num_samples/ 2; i < num_samples; i++)
+    for (int i = 0; i < num_samples / 2; i++)
     {
         short tmp = buffer[i];
         buffer[i] = buffer[num_samples - i - 1];
