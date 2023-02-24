@@ -53,6 +53,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+
     fread(buffer, input_file_size - header_size, 1, input_file_pointer);
 
     fwrite(buffer, input_file_size - header_size, 1, output_file_pointer);
