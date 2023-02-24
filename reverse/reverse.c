@@ -37,13 +37,11 @@ int main(int argc, char *argv[])
     }
 
     int block_size = get_block_size(header);
-    long header_size = header.subchunk1Size + 36;
+    int header_size = 44 ;
 
-    fseek(input_file_pointer, 0, SEEK_END);
+    long audio_size = header.subchunk2Size;
 
-    long audio_size = ftell(input_file_pointer) - sizeof(header_size);
-
-    fseek(input_file_pointer, header_size, SEEK_SET);
+    printf("%i", header_size);
 
     int num_samples = (audio_size) / block_size;
 
