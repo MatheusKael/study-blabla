@@ -41,9 +41,9 @@ int main(int argc, char *argv[])
 
     fseek(input_file_pointer, 0, SEEK_END);
 
-    long audio_size = ftell(input_file_pointer);
+    long pos_input_pointer = ftell(input_file_pointer);
 
-    fseek(input_file_pointer, header_size, SEEK_SET);
+    fseek(input_file_pointer, 0, SEEK_SET);
 
     // int num_samples = header.subchunk2Size / (header.bitsPerSample / 8);
 
@@ -55,14 +55,18 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    fread(buffer, sizeof(char), num_samples, input_file_pointer);
+    // fread(buffer, sizeof(char), num_samples, input_file_pointer);
 
     int num_channels = header.numChannels;
 
-    for (int i = 0; i < ; i++)
+    for (int i = 0; i < pos_input_pointer - header_size; i+= 2)
     {
+        fseek(input_file_pointer, header_size +  1, SEEK_SET);
+        fread(buffer, 2, 1, input_file_pointer);
+        fseek(output_file_pointer, -(i + 2), SEEK_END);
+        fwrite(buffer, 2, 1, output_file_pointer);
     }
-    fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
+    // fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
 
     fclose(output_file_pointer);
     fclose(input_file_pointer);
