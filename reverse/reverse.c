@@ -78,16 +78,20 @@ int main(int argc, char *argv[])
     {
         fread(buffer, sizeof(char), block_size, input_file_pointer);
 
-        for (int j = 0; j < block_size / 2; j++)
+        for (int j = 0; j < block_size / 2; j+= 2)
         {
-            char tmp = buffer[j];
+            // char tmp = buffer[j];
             // buffer[j] = buffer[block_size - j - 2];
             // buffer[block_size - j - 2] = tmp;
             // tmp = buffer[j + 1];
-            buffer[j] = buffer[block_size - j - 1];
-            buffer[block_size - j - 1] = tmp;
+            // buffer[j] = buffer[block_size - j - 1];
+            // buffer[block_size - j - 1] = tmp;
+
+            uint16_t tmp = htole16(*(uint16_t *)(buffer + j));
+            *(uint16_t *)(buffer + j) = htole16(*(uint16_t *)(buffer + block_size - j - 2));
+            *(uint16_t *)(buffer + block_size - j - 2) = tmp;
         }
-        fwrite(buffer, sizeof(char), block_size,  output_file_pointer);
+        fwrite(buffer, sizeof(char), block_size, output_file_pointer);
     }
 
     free(buffer);
@@ -117,5 +121,5 @@ int get_block_size(WAVHEADER header)
 {
     // TODO #7
 
-    return header.numChannels * (header.bitsPerSample / 8) * header.sampleRate ;
+    return header.numChannels * (header.bitsPerSample / 8) * header.sampleRate;
 }
