@@ -39,11 +39,12 @@ int main(int argc, char *argv[])
     }
 
     int block_size = get_block_size(header);
+    int bytes_per_samples
     long audio_size = header.subchunk2Size / (header.bitsPerSample / 8);
 
     printf("%i", header_size);
 
-    int num_samples = audio_size / block_size;
+    int num_samples = header.numChannels * ( - header_size);
 
     short *buffer = malloc(num_samples * sizeof(short));
 
