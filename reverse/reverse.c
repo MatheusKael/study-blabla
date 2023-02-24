@@ -41,35 +41,35 @@ int main(int argc, char *argv[])
 
     fseek(input_file_pointer, 0, SEEK_END);
 
-    long pos_input_pointer = ftell(input_file_pointer);
+    long audio_size = ftell(input_file_pointer) ;
 
-    // int num_samples = header.subchunk2Size / (header.bitsPerSample / 8);
+    fseek(input_file_pointer, header_size, SEEK_SET);
 
-    // if (buffer == NULL)
-    // {
-    //     printf("Error alocating memory to buffer\n");
-    //     return 1;
-    // }
+    int num_samples = header.subchunk2Size / (header.bitsPerSample / 8);
 
-    // fread(buffer, sizeof(char), num_samples, input_file_pointer);
+    short *buffer = (short*)malloc(num_samples * sizeof(short));
 
-    int num_channels = header.numChannels;
-
-    while (pos_input_pointer < header_size)
+    if (buffer == NULL)
     {
-        char buffer[4];
-        fread(buffer, 4, 1, input_file_pointer);
-        fwrite(buffer, 4, 1, output_file_pointer);
-
-        fseek(input_file_pointer, -4, SEEK_CUR);
+        printf("Error alocating memory to buffer\n");
+        return 1;
     }
-    // fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
 
-    // free(buffer);
+    fread(buffer, sizeof(short), num_samples, input_file_pointer);
+
+    for(int i = 0; i < num_samples/ 2; i++)  {
+        short tmp = buffer[i];
+        buffer[i] = buffer[num_samples - i - 1];
+        buffer[num_samples - i - 1] = tmp;
+    }
+
+
+    fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
+
     fclose(output_file_pointer);
     fclose(input_file_pointer);
 
-    return 0;
+    free(buffer);
 }
 
 int check_format(WAVHEADER header)
