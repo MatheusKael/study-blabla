@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 
     // Open output file for writing
     // TODO #5
-    int output_file_size = header.subchunk1Size;
+    int input_file_size = header.subchunk2Size;
 
     // Write header to file
     // TODO #6
@@ -64,9 +64,9 @@ int main(int argc, char *argv[])
     int block_size = get_block_size(header);
 
 
-    fseek(input_file_pointer, 0, SEEK_END);
-    long input_file_size = ftell(input_file_pointer);
-    fseek(input_file_pointer, 0, SEEK_END);
+    // fseek(input_file_pointer, 0, SEEK_END);
+    // long input_file_size = ftell(input_file_pointer);
+    // fseek(input_file_pointer, 0, SEEK_END);
 
     int num_blocks = input_file_size / block_size;
     printf("%i, %i\n", block_size, num_blocks);
