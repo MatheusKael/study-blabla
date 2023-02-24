@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     }
 
     int block_size = get_block_size(header);
-    long header_size = header.subchunk1Size;
+    long header_size = header.subchunk1Size + 36;
 
     fseek(input_file_pointer, 0, SEEK_END);
 
