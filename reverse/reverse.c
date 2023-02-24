@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 
     fseek(input_file_pointer, 0, SEEK_END);
     long input_file_size = ftell(input_file_pointer);
-    fseek(input_file_pointer, sizeof(WAVHEADER), SEEK_END);
+    fseek(input_file_pointer, sizeof(WAVHEADER), SEEK_SET);
 
     int num_blocks = input_file_size / block_size;
     printf("%i, %i\n", block_size, num_blocks);
