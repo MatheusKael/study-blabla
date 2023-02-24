@@ -45,7 +45,7 @@ int main(int argc, char *argv[])
 
     fseek(input_file_pointer, header_size, SEEK_SET);
 
-    int num_samples = header.subchunk2Size / 2;
+    int num_samples = header.subchunk2Size;
 
     short *buffer = (short*)malloc(num_samples * sizeof(short));
 
