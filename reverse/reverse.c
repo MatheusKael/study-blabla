@@ -59,7 +59,7 @@ int main(int argc, char *argv[])
 
     int num_channels = header.numChannels;
 
-    for (int i = 0; i < pos_input_pointer - header_size; i+= 2)
+    for (int i = 0; i < header_size; i+=)
     {
         fseek(input_file_pointer, header_size +  1, SEEK_SET);
         fread(buffer, 2, 1, input_file_pointer);
@@ -68,10 +68,12 @@ int main(int argc, char *argv[])
     }
     // fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
 
+    free(buffer);
     fclose(output_file_pointer);
     fclose(input_file_pointer);
 
-    free(buffer);
+
+    return 0;
 }
 
 int check_format(WAVHEADER header)
