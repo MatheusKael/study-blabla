@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     // Open input file for reading
     // TODO #2
-    FILE *input_file_pointer = fopen(argv[1], "r");
+    FILE *input_file_pointer = fopen(argv[1], "rb");
 
     if (input_file_pointer == NULL)
     {
@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    FILE *output_file_pointer = fopen(argv[2], "w");
+    FILE *output_file_pointer = fopen(argv[2], "wb");
 
     if (output_file_pointer == NULL)
     {
