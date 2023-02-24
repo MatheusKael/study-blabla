@@ -45,9 +45,9 @@ int main(int argc, char *argv[])
 
     fseek(input_file_pointer, header_size, SEEK_SET);
 
-    int num_samples = header.subchunk2Size / (header.bitsPerSample / 8);
+    // int num_samples = header.subchunk2Size / (header.bitsPerSample / 8);
 
-    WORD *buffer = (WORD *)malloc(num_samples * sizeof(WORD));
+     char *buffer = (char *)malloc(2 * sizeof(char));
 
     if (buffer == NULL)
     {
@@ -55,23 +55,13 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    fread(buffer, sizeof(WORD), num_samples, input_file_pointer);
+    fread(buffer, sizeof(char), num_samples, input_file_pointer);
 
     int num_channels = header.numChannels;
 
-    for (int i = 0; i < num_channels; i++)
+    for (int i = 0; i < ; i++)
     {
-        for (int j = 0; j < num_samples / num_channels; j++)
-        {
-            int index1 = i * (num_samples / num_channels) + j;
-            int index2 = i * (num_samples / num_channels) + num_samples / num_channels + j- 1;
-
-            WORD tmp = buffer[index1];
-            buffer[index1] = buffer[index2];
-            buffer[index2] = tmp;
-        }
     }
-
     fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
 
     fclose(output_file_pointer);
