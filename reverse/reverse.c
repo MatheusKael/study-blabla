@@ -68,7 +68,7 @@ int main(int argc, char *argv[])
     fseek(input_file_pointer, sizeof(WAVHEADER), SEEK_SET);
 
     int num_blocks = input_file_size / block_size;
-    printf("%i\n", header.audioFormat);
+    printf("%i\n", block_size);
 
     // Write reversed audio to file
     // TODO #8
@@ -117,5 +117,5 @@ int get_block_size(WAVHEADER header)
 {
     // TODO #7
 
-    return header.numChannels * (header.bitsPerSample / 8) * header.sampleRate ;
+    return header.blockAlign;
 }
