@@ -64,7 +64,7 @@ int main(int argc, char *argv[])
         buffer[audio_size / block_size - i - 1] = tmp;
     }
 
-    fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
+    fwrite(buffer, sizeof(short), audio_size/block_size, output_file_pointer);
 
     fclose(output_file_pointer);
     fclose(input_file_pointer);
