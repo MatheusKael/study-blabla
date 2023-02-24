@@ -57,14 +57,19 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    fread(buffer, sizeof(short), num_samples, input_file_pointer);
+    // fread(buffer, sizeof(short), num_samples, input_file_pointer);
 
     for (long i = num_samples; i>= 0; i--)
     {
-        fseek(input_file_pointer, header_size + 1 * sample_size, SEEK_SET )
+        fseek(input_file_pointer, sample_size, SEEK_SET);
+        fread(buffer, sizeof(short), sample_size, input_file_pointer);
+
+        fseek(output_file_pointer, header_size + (num_samples - i- 1) * sample_size, SEEK_SET);
+
+
+        fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
     }
 
-    fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
 
     fclose(output_file_pointer);
     fclose(input_file_pointer);
