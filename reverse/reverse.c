@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
 
     long input_file_size = ftell(input_file_pointer);
 
-    fseek(input_file_pointer, 1, SEEK_SET);
+    fseek(input_file_pointer, header_size, SEEK_SET);
 
     int *buffer = malloc(input_file_size - header_size);
 
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
 
     fseek(input_file_pointer, 0, SEEK_END);
     fread(buffer, input_file_size - header_size, 1, input_file_pointer);
-    fseek(input_file_pointer, 1, SEEK_SET);
+    fseek(input_file_pointer, input_file_size - header_size, SEEK_SET);
 
     fwrite(buffer, input_file_size - header_size, 1, output_file_pointer);
 
