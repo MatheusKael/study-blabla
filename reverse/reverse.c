@@ -42,9 +42,13 @@ int main(int argc, char *argv[])
     int bytes_per_sample = (header.bitsPerSample / 8);
     long audio_size = header.subchunk2Size / bytes_per_sample;
 
-    printf("%i", header_size);
+    fseek(input_file_pointer, 0, SEEK_END);
+    long file_size = ftell(input_file_pointer);
+    fseek(input_file_pointer, header_size, SEEK_SET);
+    printf("%li", file_size);
 
-    int num_samples = header.numChannels * ( - header_size);
+
+    int num_samples = header.numChannels * (file_size - header_size)/ bytes_per_sample;
 
     short *buffer = malloc(num_samples * sizeof(short));
 
