@@ -57,11 +57,11 @@ int main(int argc, char *argv[])
 
     fread(buffer, sizeof(short), audio_size / block_size, input_file_pointer);
 
-    for (int i = 0; i < audio_size / block_size / 2; i++)
+    for (int i = 0; i < num_samples/ 2; i++)
     {
         short tmp = buffer[i];
-        buffer[i] = buffer[audio_size / block_size  - i - 1];
-        buffer[audio_size / block_size - i - 1] = tmp;
+        buffer[i] = buffer[num_samples  - i - 1];
+        buffer[num_samples - i - 1] = tmp;
     }
 
     fwrite(buffer, sizeof(short), audio_size/block_size, output_file_pointer);
