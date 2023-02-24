@@ -45,32 +45,29 @@ int main(int argc, char *argv[])
 
     // int num_samples = header.subchunk2Size / (header.bitsPerSample / 8);
 
-     char *buffer = (char *)malloc(2 * sizeof(char));
-
-    if (buffer == NULL)
-    {
-        printf("Error alocating memory to buffer\n");
-        return 1;
-    }
+    // if (buffer == NULL)
+    // {
+    //     printf("Error alocating memory to buffer\n");
+    //     return 1;
+    // }
 
     // fread(buffer, sizeof(char), num_samples, input_file_pointer);
 
     int num_channels = header.numChannels;
 
-    while(pos_input_pointer < header_size)
+    while (pos_input_pointer < header_size)
     {
+        char buffer[4];
         fread(buffer, 4, 1, input_file_pointer);
         fwrite(buffer, 4, 1, output_file_pointer);
 
-
-        fseek(input_file_pointer, -4 , SEEK_CUR);
+        fseek(input_file_pointer, -4, SEEK_CUR);
     }
     // fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
 
-    free(buffer);
+    // free(buffer);
     fclose(output_file_pointer);
     fclose(input_file_pointer);
-
 
     return 0;
 }
