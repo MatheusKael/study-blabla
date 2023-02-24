@@ -94,5 +94,6 @@ int get_block_size(WAVHEADER header)
 {
     // TODO #7
 
+    // BlockAlign  == NumChannels * BitsPerSample/8
     return header.blockAlign;
 }
