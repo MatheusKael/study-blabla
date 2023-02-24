@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
     }
 
     int block_size = get_block_size(header);
-    int header_size = 44 ;
+    int header_size = 44;
 
     long audio_size = header.subchunk2Size;
 
