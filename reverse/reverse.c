@@ -2,7 +2,7 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <endian.h>
 #include "wav.h"
 
 int check_format(WAVHEADER header);
