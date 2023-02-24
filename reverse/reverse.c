@@ -59,12 +59,12 @@ int main(int argc, char *argv[])
 
     int num_channels = header.numChannels;
 
-    for (int i = 0; i < header_size; i+=)
+    while(input_file_pointer < header_size)
     {
-        fseek(input_file_pointer, header_size +  1, SEEK_SET);
         fread(buffer, 2, 1, input_file_pointer);
-        fseek(output_file_pointer, -(i + 2), SEEK_END);
         fwrite(buffer, 2, 1, output_file_pointer);
+        fseek(input_file_pointer, header_size +  1, SEEK_SET);
+        fseek(output_file_pointer, -(i + 2), SEEK_END);
     }
     // fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
 
