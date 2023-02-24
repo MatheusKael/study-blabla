@@ -26,24 +26,24 @@ int main(int argc, char *argv[])
     }
 
     WAVHEADER header;
+    int header_size = sizeof(WAVHEADER);
 
-    fread(&header, sizeof(WAVHEADER), 1, input_file_pointer);
+
+    fread(&header, header_size, 1, input_file_pointer);
     check_format(header);
 
-    if (fwrite(&header, sizeof(WAVHEADER), 1, output_file_pointer) != 1)
+    if (fwrite(&header, header_size, 1, output_file_pointer) != 1)
     {
         printf("Error writing header to output file\n");
         return 1;
     }
 
     int block_size = get_block_size(header);
-    int header_size = 44;
-
-    long audio_size = header.subchunk2Size;
+    long audio_size = header.subchunk2Size / (header.bitsPerSample / 8);
 
     printf("%i", header_size);
 
-    int num_samples = (audio_size) / block_size;
+    int num_samples = audio_size / block_size;
 
     short *buffer = malloc(num_samples * sizeof(short));
 
