@@ -41,13 +41,15 @@ int main(int argc, char *argv[])
 
     fseek(input_file_pointer, 0, SEEK_END);
 
-    long audio_size = ftell(input_file_pointer) ;
+    long audio_size = ftell(input_file_pointer);
 
     fseek(input_file_pointer, header_size, SEEK_SET);
 
-    int num_samples = header.subchunk2Size / (header.bitsPerSample / 8);
+    int sample_size = (header.bitsPerSample / 8);
 
-    short *buffer = (short*)malloc(num_samples * sizeof(short));
+    int num_samples = header.subchunk2Size / sample_size;
+
+    short *buffer = (short *)malloc(sample_size * sizeof(short));
 
     if (buffer == NULL)
     {
@@ -57,12 +59,10 @@ int main(int argc, char *argv[])
 
     fread(buffer, sizeof(short), num_samples, input_file_pointer);
 
-    for(int i = 0; i < num_samples/ 2; i++)  {
-        short tmp = buffer[i];
-        buffer[i] = buffer[num_samples - i - 1];
-        buffer[num_samples - i - 1] = tmp;
+    for (long i = num_samples; i>= 0; i--)
+    {
+        fseek(input_file_pointer, header_size + 1 * sample_size, SEEK_SET )
     }
-
 
     fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
 
