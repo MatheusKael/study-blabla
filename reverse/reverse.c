@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 
     int num_samples = (audio_size) / block_size;
 
-    short *buffer = malloc(audio_size );
+    short *buffer = malloc(num_samples * sizeof(short));
 
     if (buffer == NULL)
     {
@@ -55,16 +55,15 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    fread(buffer, sizeof(short), audio_size / block_size, input_file_pointer);
+    fread(buffer, sizeof(short), num_samples, input_file_pointer);
 
-    for (int i = 0; i < num_samples/ 2; i++)
+    for (int i = 0; i < num_samples / 2; i++)
     {
         short tmp = buffer[i];
-        buffer[i] = buffer[num_samples  - i - 1];
+        buffer[i] = buffer[num_samples - i - 1];
         buffer[num_samples - i - 1] = tmp;
     }
-
-    fwrite(buffer, sizeof(short), audio_size/block_size, output_file_pointer);
+    fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
 
     fclose(output_file_pointer);
     fclose(input_file_pointer);
