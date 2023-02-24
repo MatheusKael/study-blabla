@@ -69,19 +69,19 @@ int main(int argc, char *argv[])
 
     // Write reversed audio to file
     // TODO #8
-    char *buffer = malloc(block_size * sizeof(char));
+    char *buffer = malloc(block_size);
 
     for (int i = 0; i < num_blocks; i++)
     {
         fread(buffer, block_size, 1, input_file_pointer);
 
-        for (int j = 0; j < block_size / 2; j ++)
+        for (int j = 0; j < block_size / 2; j++)
         {
             char tmp = buffer[j];
             // buffer[j] = buffer[block_size - j - 2];
             // buffer[block_size - j - 2] = tmp;
             // tmp = buffer[j + 1];
-            buffer[j + 1] = buffer[block_size - j - 1];
+            buffer[j] = buffer[block_size - j - 1];
             buffer[block_size - j - 1] = tmp;
         }
         fwrite(buffer, block_size, 1, output_file_pointer);
@@ -114,6 +114,5 @@ int get_block_size(WAVHEADER header)
 {
     // TODO #7
 
-    printf("%i %i\n", header.numChannels, header.bitsPerSample);
-    return header.numChannels * (header.bitsPerSample / 8) * header.sampleRate/ 4;
+    return header.numChannels * (header.bitsPerSample / 8) * header.sampleRate;
 }
