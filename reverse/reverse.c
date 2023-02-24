@@ -42,7 +42,10 @@ int main(int argc, char *argv[])
     fseek(input_file_pointer, 0, SEEK_END);
 
     long input_file_size = ftell(input_file_pointer);
-    
+
+    fseek(input_file_pointer, 1, SEEK_SET);
+
+    int *buffer = malloc(input_file_size - )
 
 
     fclose(output_file_pointer);
