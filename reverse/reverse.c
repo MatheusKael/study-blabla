@@ -10,64 +10,35 @@ int get_block_size(WAVHEADER header);
 
 int main(int argc, char *argv[])
 {
-    // Ensure proper usage
-    // TODO #1
     if (argc > 3)
     {
         printf("Usage: reverse <input_file> <output_file>\n");
         return 1;
     }
 
-    // Open input file for reading
-    // TODO #2
     FILE *input_file_pointer = fopen(argv[1], "rb");
-
-    if (input_file_pointer == NULL)
-    {
-        printf("could not open the file\n");
-        return 1;
-    }
-
     FILE *output_file_pointer = fopen(argv[2], "wb");
 
-    if (output_file_pointer == NULL)
+    if (input_file_pointer == NULL && output_file_pointer == NULL)
     {
         printf("could not open the file\n");
         return 1;
     }
 
-    // Read header
-    // TODO #3
     WAVHEADER header;
 
     fread(&header, sizeof(WAVHEADER), 1, input_file_pointer);
-
-    // Use check_format to ensure WAV format
-    // TODO #4
-
     check_format(header);
 
-    // Open output file for writing
-    // TODO #5
-    // int input_file_size = header.subchunk2Size;
-
-    // Write header to file
-    // TODO #6
     if (fwrite(&header, sizeof(WAVHEADER), 1, output_file_pointer) != 1)
     {
         printf("Error writing header to output file\n");
         return 1;
     }
 
-    // Use get_block_size to calculate size of block
-    // TODO #7
 
     int block_size = get_block_size(header);
 
-    // Write reversed audio to file
-    // TODO #8
-
-    
     fclose(output_file_pointer);
     fclose(input_file_pointer);
 }
