@@ -63,8 +63,8 @@ int main(int argc, char *argv[])
     for (int i = 0; i < num_samples / 2; i++)
     {
         short tmp = buffer[i];
-        buffer[i] = buffer[num_samples - i - 1];
-        buffer[num_samples - i - 1] = tmp;
+        buffer[i] = buffer[num_samples/ 2 +i];
+        buffer[num_samples / 2 + i] = tmp;
     }
     fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
 
