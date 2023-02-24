@@ -51,10 +51,6 @@ int main(int argc, char *argv[])
     // TODO #5
     int output_file_size = header.subchunk1Size;
 
-    fseek(input_file_pointer, 0, SEEK_END);
-    long input_file_size = ftell(input_file_pointer);
-    fseek(input_file_pointer, sizeof(WAVHEADER), SEEK_SET);
-
     // Write header to file
     // TODO #6
     if (fwrite(&header, sizeof(WAVHEADER), 1, output_file_pointer) != 1)
@@ -69,6 +65,8 @@ int main(int argc, char *argv[])
 
     printf("%i\n", block_size);
 
+    fseek(input_file_pointer, 0, SEEK_END);
+    long input_file_size = ftell(input_file_pointer);
     int num_blocks = input_file_size / block_size;
 
     // Write reversed audio to file
