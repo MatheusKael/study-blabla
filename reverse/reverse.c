@@ -10,7 +10,7 @@ int get_block_size(WAVHEADER header);
 
 int main(int argc, char *argv[])
 {
-    if (argc > 3)
+    if (argc > 3 || argc == 1)
     {
         printf("Usage: reverse <input_file> <output_file>\n");
         return 1;
