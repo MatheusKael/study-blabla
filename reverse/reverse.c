@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
     fread(buffer, block_size, 1, input_file_pointer);
 
-    for (int j = 0; j < block_size / 2; j += 2)
+    for (int j = 0; j < block_size/ 2 ; j += 2)
     {
         char tmp = buffer[j];
         buffer[j] = buffer[block_size - j - 2];
