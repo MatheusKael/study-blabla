@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 
     // Open output file for writing
     // TODO #5
-    int output_file_pointer = heander.subChunk1Size;
+    int output_file_size = header.subchunk1Size;
     fseek(input_file_pointer, 0, SEEK_END);
     long input_file_size = ftell(input_file_pointer);
     fseek(input_file_pointer, sizeof(WAVHEADER), SEEK_SET);
