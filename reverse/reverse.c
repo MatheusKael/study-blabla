@@ -39,8 +39,8 @@ int main(int argc, char *argv[])
     }
 
     int block_size = get_block_size(header);
-    int bytes_per_samples
-    long audio_size = header.subchunk2Size / (header.bitsPerSample / 8);
+    int bytes_per_sample = (header.bitsPerSample / 8);
+    long audio_size = header.subchunk2Size / bytes_per_sample;
 
     printf("%i", header_size);
 
