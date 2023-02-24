@@ -82,10 +82,10 @@ int main(int argc, char *argv[])
         for (int j = 0; j < block_size / 2; j++)
         {
             char tmp = buffer[j];
-            // buffer[j] = buffer[block_size - j - 2];
-            // buffer[block_size - j - 2] = tmp;
-            // tmp = buffer[j + 1];
-            buffer[j] = buffer[block_size - j - 1];
+            buffer[j] = buffer[block_size - j - 2];
+            buffer[block_size - j - 2] = tmp;
+            tmp = buffer[j + 1];
+            buffer[j + 1] = buffer[block_size - j - 1];
             buffer[block_size - j - 1] = tmp;
         }
         fwrite(buffer, block_size, 1, output_file_pointer);
