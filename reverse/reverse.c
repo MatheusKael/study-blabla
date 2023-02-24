@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
 
     // Open output file for writing
     // TODO #5
-    int input_file_size = header.subchunk2Size;
+    // int input_file_size = header.subchunk2Size;
 
     // Write header to file
     // TODO #6
@@ -63,10 +63,9 @@ int main(int argc, char *argv[])
     // TODO #7
     int block_size = get_block_size(header);
 
-
-    // fseek(input_file_pointer, 0, SEEK_END);
-    // long input_file_size = ftell(input_file_pointer);
-    // fseek(input_file_pointer, 0, SEEK_END);
+    fseek(input_file_pointer, 0, SEEK_END);
+    long input_file_size = ftell(input_file_pointer);
+    fseek(input_file_pointer, sizeof(WAVHEADER), SEEK_END);
 
     int num_blocks = input_file_size / block_size;
     printf("%i, %i\n", block_size, num_blocks);
@@ -82,10 +81,10 @@ int main(int argc, char *argv[])
         for (int j = 0; j < block_size / 2; j++)
         {
             char tmp = buffer[j];
-            buffer[j] = buffer[block_size - j - 2];
-            buffer[block_size - j - 2] = tmp;
-            tmp = buffer[j + 1];
-            buffer[j + 1] = buffer[block_size - j - 1];
+            // buffer[j] = buffer[block_size - j - 2];
+            // buffer[block_size - j - 2] = tmp;
+            // tmp = buffer[j + 1];
+            buffer[j] = buffer[block_size - j - 1];
             buffer[block_size - j - 1] = tmp;
         }
         fwrite(buffer, block_size, 1, output_file_pointer);
