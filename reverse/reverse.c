@@ -41,13 +41,13 @@ int main(int argc, char *argv[])
 
     fseek(input_file_pointer, 0, SEEK_END);
 
-    long audio_size = ftell(input_file_pointer) - header_size;
+    long audio_size = ftell(input_file_pointer) - sizeof(header_size);
 
     fseek(input_file_pointer, header_size, SEEK_SET);
 
     int num_samples = (audio_size) / block_size;
 
-    WORD *buffer = (WORD *)malloc(audio_size * sizeof(WORD));
+    short *buffer = malloc(audio_size );
 
     if (buffer == NULL)
     {
@@ -55,13 +55,13 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    fread(buffer, sizeof(WORD), audio_size / block_size, input_file_pointer);
+    fread(buffer, sizeof(short), audio_size / block_size, input_file_pointer);
 
     for (int i = 0; i < audio_size / block_size / 2; i++)
     {
         short tmp = buffer[i];
-        buffer[i] = buffer[audio_size /  - i - 1];
-        buffer[audio_size- i - 1] = tmp;
+        buffer[i] = buffer[audio_size / block_size  - i - 1];
+        buffer[audio_size / block_size - i - 1] = tmp;
     }
 
     fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
