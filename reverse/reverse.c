@@ -61,36 +61,13 @@ int main(int argc, char *argv[])
 
     // Use get_block_size to calculate size of block
     // TODO #7
+
     int block_size = get_block_size(header);
-
-    fseek(input_file_pointer, 0, SEEK_END);
-    long input_file_size = ftell(input_file_pointer);
-    fseek(input_file_pointer, sizeof(WAVHEADER), SEEK_SET);
-
-    int num_blocks = input_file_size / block_size;
-    printf("%i\n", block_size);
 
     // Write reversed audio to file
     // TODO #8
-    char *buffer = malloc(block_size * sizeof(char));
 
-    for (int i = 0; i < num_blocks; i++)
-    {
-        fread(buffer, sizeof(char), block_size, input_file_pointer);
-
-        for (int j = 0; j < block_size / 2; j++)
-        {
-            char tmp = buffer[j];
-            // buffer[j] = buffer[block_size - j - 2];
-            // buffer[block_size - j - 2] = tmp;
-            // tmp = buffer[j + 1];
-            buffer[j] = buffer[block_size - j - 1];
-            buffer[block_size - j - 1] = tmp;
-        }
-        fwrite(buffer, sizeof(char), block_size,  output_file_pointer);
-    }
-
-    free(buffer);
+    
     fclose(output_file_pointer);
     fclose(input_file_pointer);
 }
