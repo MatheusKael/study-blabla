@@ -28,7 +28,6 @@ int main(int argc, char *argv[])
     WAVHEADER header;
     int header_size = sizeof(WAVHEADER);
 
-
     fread(&header, header_size, 1, input_file_pointer);
     check_format(header);
 
@@ -42,15 +41,11 @@ int main(int argc, char *argv[])
     int bytes_per_sample = (header.bitsPerSample / 8);
     long audio_size = header.subchunk2Size / bytes_per_sample;
 
-    fseek(input_file_pointer, 0, SEEK_END);
-    long file_size = ftell(input_file_pointer);
     fseek(input_file_pointer, header_size, SEEK_SET);
-    printf("%li", file_size);
 
+    int num_samples = audio_size / header.numChannels;
 
-    int num_samples = header.numChannels * (file_size - header_size)/ bytes_per_sample;
-
-    short *buffer = malloc(num_samples * sizeof(short));
+    short *buffer = malloc(audio_size * sizeof(short));
 
     if (buffer == NULL)
     {
@@ -58,15 +53,18 @@ int main(int argc, char *argv[])
         return 1;
     }
 
-    fread(buffer, sizeof(short), num_samples, input_file_pointer);
-
+    fread(buffer, bytes_per_sample, audio_size, input_file_pointer);
     for (int i = 0; i < num_samples / 2; i++)
     {
-        short tmp = buffer[i];
-        buffer[i] = buffer[num_samples/ 2 +i];
-        buffer[num_samples / 2 + i] = tmp;
+        for (int j = 0; j < header.numChannels; j++)
+        {
+            short tmp = buffer[i * header.numChannels + j];
+            buffer[i * header.numChannels + j] = buffer[(num_samples - i - 1) * header.numChannels + j];
+            buffer[(num_samples - i - 1) * header.numChannels + j] = tmp;
+        }
     }
-    fwrite(buffer, sizeof(short), num_samples, output_file_pointer);
+
+    fwrite(buffer, bytes_per_sample, audio_size, output_file_pointer);
 
     fclose(output_file_pointer);
     fclose(input_file_pointer);
