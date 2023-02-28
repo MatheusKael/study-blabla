@@ -11,7 +11,7 @@ node;
 
 int main (int argc, char *argv[]) {
 
-    node *list = null;
+    node *list = NULL;
 
     for(int i = 1; i < argc; i++) {
         int number = atoi(argv[i]);
@@ -33,7 +33,13 @@ int main (int argc, char *argv[]) {
     }
 
 
-    
+// Free list;
+    ptr = list;
+    while(ptr != NULL) {
+        node *next = ptr -> next;
+        free(ptr);
+        ptr = next;
+    }
 
 
 
