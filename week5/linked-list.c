@@ -19,7 +19,14 @@ int main (int argc, char *argv[]) {
         if(n == NULL) {
             return 1;
         }
+
+        n -> number =number;
+        n -> next = NULL;
+        n -> next = list;
+        list = n;
     }
+
+    
 
 
 }
