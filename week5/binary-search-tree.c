@@ -1,4 +1,4 @@
-
+#include <cs50.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,6 +12,7 @@ typedef struct node
 
 void free_tree(node *root);
 void print_tree(node *root);
+bool search(node *tree, int number);
 
 int main(void)
 {
@@ -71,5 +72,34 @@ void free_tree(node *root)
     free(root);
 }
 
+void print_tree(node *root)
+{
+    if (root == NULL)
+    {
+        return;
+    }
 
-void 
+    print_tree(root->left);
+    printf("%i\n", root->number);
+    print_tree(root->right);
+}
+
+bool search(node *tree, int number)
+{
+    if (tree == NULL)
+    {
+        return false;
+    }
+    else if (number < tree->number)
+    {
+        return search(tree->left, number);
+    }
+    else if (number > tree->number)
+    {
+        return search(tree->right, number);
+    }
+    else if (number == tree->number)
+    {
+        return true;
+    }
+}
