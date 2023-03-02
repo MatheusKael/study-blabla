@@ -110,6 +110,8 @@ int main(int argc, char *argv[])
 // TODO: Complete the check function, return true if found, false if not found
 bool check(char* word)
 {
+
+    printf("%s", word);
     return false;
 }
 
