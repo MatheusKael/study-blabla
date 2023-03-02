@@ -91,10 +91,7 @@ int main(int argc, char *argv[])
 
     if (check(get_string("Check word: ")))
     {
-
-
         printf("Found!\n");
-
     }
     else
     {
