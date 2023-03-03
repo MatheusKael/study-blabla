@@ -111,12 +111,13 @@ int main(int argc, char *argv[])
 bool check(char* word)
 {
 
-    if(*root -> is_word) {
-
+    while( node != NULL) {
+        printf("%c", )
     }
 
 
     return false;
+
 }
 
 // Unload trie from memory
