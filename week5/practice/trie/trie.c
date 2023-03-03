@@ -117,6 +117,7 @@ bool check(char* word)
         if(cursor -> children[isupper(word[i]) != 0 ? word[i]  - 65 : word[i] - 97] -> is_word == true) {
             return true;
         }
+        cursor = cursor -> children;
     }
 
 
