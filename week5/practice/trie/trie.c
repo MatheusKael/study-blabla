@@ -111,8 +111,9 @@ int main(int argc, char *argv[])
 bool check(char* word)
 {
 
-    while( node != NULL) {
-        printf("%c", )
+    int word_len = strlen(word);
+    for(int i = 0; i < word_len; i++) {
+        printf("%c", root -> children[word[i]]);
     }
 
 
