@@ -112,7 +112,7 @@ bool check(char* word)
 {
 
     if(*root -> is_word) {
-        
+
     }
 
 
