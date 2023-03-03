@@ -111,16 +111,16 @@ bool check(char *word)
 {
     node *cursor = root;
 
-
     int word_len = strlen(word);
     for (int i = 0; i < word_len; i++)
     {
-        if(cursor -> is_word == true) {
+        if (cursor->is_word == true)
+        {
             return true;
+        } else if (cursor->children[word[i] - 'a'] != NULL)
+        {
+            cursor =  cursor -> children[word[i] - 'a'];
         }
-        
-
-
     }
 
     return false;
