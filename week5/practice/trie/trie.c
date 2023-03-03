@@ -114,7 +114,7 @@ bool check(char* word)
 
     int word_len = strlen(word);
     for(int i = 0; i < word_len; i++) {
-        if(cursor -> children[word[i] - 96] -> is_word == true) {
+        if(cursor -> children[isupper(word[i]) != 0 ? word[i]  - 65 : word[i] - 97] -> is_word == true) {
             return true;
         }
     }
