@@ -15,8 +15,7 @@ typedef struct node
 {
     bool is_word;
     struct node *children[SIZE_OF_ALPHABET];
-}
-node;
+} node;
 
 // Function prototypes
 bool check(char *word);
@@ -108,21 +107,23 @@ int main(int argc, char *argv[])
 }
 
 // TODO: Complete the check function, return true if found, false if not found
-bool check(char* word)
+bool check(char *word)
 {
-        node *cursor = root;
+    node *cursor = root;
+
 
     int word_len = strlen(word);
-    for(int i = 0; i < word_len; i++) {
-        if(cursor -> children[isupper(word[i]) != 0 ? word[i]  - 65 : word[i] - 97] -> is_word == true) {
+    for (int i = 0; i < word_len; i++)
+    {
+        if(cursor -> is_word == true) {
             return true;
         }
-        cursor = cursor -> children;
+        
+
+
     }
 
-
     return false;
-
 }
 
 // Unload trie from memory
@@ -135,7 +136,7 @@ bool unload(void)
     return true;
 }
 
-void unloader(node* current)
+void unloader(node *current)
 {
 
     // Iterate over all the children to see if they point to anything and go
