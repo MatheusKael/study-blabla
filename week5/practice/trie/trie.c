@@ -115,17 +115,17 @@ bool check(char *word)
 
     for (int i = 0; i < word_len; i++)
     {
-        if (cursor->children[isupper(word[i]) != 0 ? word[i] - 'a' : word[i] - 'A'] != NULL)
+        char c = tolower(word[i]);
+
+         if (cursor->children[c - 'a'] != NULL)
         {
-            cursor = cursor->children[isupper(word[i]) != 0 ? word[i] - 'a' : word[i] - 'A'];
-        }
-        else
-        {
+            cursor =  cursor -> children[c - 'a'];
+        } else {
             return false;
         }
     }
 
-    return cursor->is_word;
+    return cursor -> is_word;
 }
 
 // Unload trie from memory
