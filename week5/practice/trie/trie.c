@@ -113,7 +113,7 @@ bool check(char* word)
 
     int word_len = strlen(word);
     for(int i = 0; i < word_len; i++) {
-        printf("%c", root -> children[word[i]]);
+        printf("%c", root -> children[i]);
     }
 
 
