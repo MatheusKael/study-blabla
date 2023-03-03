@@ -112,18 +112,18 @@ bool check(char *word)
     node *cursor = root;
 
     int word_len = strlen(word);
+    word
     for (int i = 0; i < word_len; i++)
     {
-        if (cursor->is_word == true)
-        {
-            return true;
-        } else if (cursor->children[word[i] - 'a'] != NULL)
+         if (cursor->children[word[i] - 'a'] != NULL)
         {
             cursor =  cursor -> children[word[i] - 'a'];
+        } else {
+            return false;
         }
     }
 
-    return false;
+    return cursor -> is_word;
 }
 
 // Unload trie from memory
