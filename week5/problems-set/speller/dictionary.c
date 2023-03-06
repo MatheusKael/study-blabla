@@ -40,7 +40,7 @@ bool load(const char *dictionary)
 {
     // TODO
 
-    printf("%c", dictionary);
+    printf("%s", dictionary);
 
     return false;
 }
