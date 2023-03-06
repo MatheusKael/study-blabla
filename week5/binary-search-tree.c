@@ -57,6 +57,7 @@ int main(void)
     tree->right = n;
 
     print_tree(tree);
+./speller texts/lalaland.txt
 
     free_tree(tree);
 }
