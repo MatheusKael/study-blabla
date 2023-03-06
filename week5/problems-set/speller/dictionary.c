@@ -1,7 +1,7 @@
 // Implements a dictionary's functionality
 
 
-// #include <stdio.h>
+#include <stdio.h>
 #include <ctype.h>
 #include <stdbool.h>
 
@@ -40,7 +40,7 @@ bool load(const char *dictionary)
 {
     // TODO
 
-    // printf("%s", dictionary);
+    printf("%s", dictionary);
 
     return false;
 }
