@@ -1,5 +1,7 @@
 // Implements a dictionary's functionality
 
+
+#include <stdio.h>
 #include <ctype.h>
 #include <stdbool.h>
 
@@ -37,6 +39,9 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
+
+    printf("%c", dictionary);
+
     return false;
 }
 
