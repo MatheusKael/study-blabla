@@ -1,7 +1,7 @@
 // Implements a dictionary's functionality
 
-
 #include <stdio.h>
+#include <stdlib.h>
 #include <ctype.h>
 #include <stdbool.h>
 
@@ -12,8 +12,7 @@ typedef struct node
 {
     char word[LENGTH + 1];
     struct node *next;
-}
-node;
+} node;
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
@@ -39,7 +38,15 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
+    
+    FILE *dic_dir = fopen(dictionary, "r");
 
+    if (dic_dir == NULL)
+    {
+
+        printf("dic_dir not found!");
+        return false;
+    }
     printf("%s\n", dictionary);
 
     return false;
