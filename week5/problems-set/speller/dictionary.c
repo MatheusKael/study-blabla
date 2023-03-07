@@ -59,6 +59,7 @@ bool load(const char *dictionary)
     {
 
         printf("dic_dir not found!");
+        fclose(dic_dir);
         return false;
     }
 
@@ -67,26 +68,42 @@ bool load(const char *dictionary)
     fseek(dic_dir, 0, SEEK_SET);
 
     dictionary_data = malloc(dictionary_length);
+    if(dictionary_data == NULL) {
+
+        printf("Error allocating dictionary data!\n");
+        fclose(dic_dir);
+        return false;
+    }
 
     fread(dictionary_data, 1, dictionary_length, dic_dir);
 
-    printf("%s", dictionary_data);
 
-    // printf("%s\n", dictionary);
+    // printf("%s", dictionary_data);
 
-    return false;
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
 unsigned int size(void)
 {
     // TODO
-    return 0;
+    int count = 0;
+
+    for(int i = 0; i < dictionary_length; i++) {
+        if(dictionary_data[i] == '\n') {
+            count++;
+        }
+    }
+    printf("%i", count);
+    return count;
 }
 
 // Unloads dictionary from memory, returning true if successful, else false
 bool unload(void)
 {
     // TODO
-    return false;
+
+    free(dictionary_data);
+
+    return true;
 }
