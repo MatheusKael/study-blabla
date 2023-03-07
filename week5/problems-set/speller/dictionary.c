@@ -38,6 +38,11 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
+
+    char *dictionary_path = malloc(sizeof(dictionary) + 2);
+    dictionary_path[0] = '.';
+    dictionary_path[1] = '/';
+    
     // dictionary output -> dictionaries/large
     FILE *dic_dir = fopen(dictionary, "r");
 
