@@ -61,9 +61,7 @@ bool load(const char *dictionary)
 
     char data[sizeof(dic_dir)];
 
-    while (fread(&data, sizeof(char), 1, dic_dir))
-    {
-    }
+    fread(&data, sizeof(char),sizeof(dic_dir) , dic_dir);
 
     printf("%s", data);
 
