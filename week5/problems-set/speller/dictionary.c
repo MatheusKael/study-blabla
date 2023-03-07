@@ -59,11 +59,10 @@ bool load(const char *dictionary)
         return false;
     }
 
-    uint8_t data[sizeof(dic_dir)];
+    char data[sizeof(dic_dir)];
 
-    char c;
-    fread(&c, sizeof(char), 1, dic_dir);
-    printf("%c", c);
+    fread(&data, sizeof(char),sizeof(dic_dir) , dic_dir);
+    printf("%s", data);
 
     // printf("%s\n", dictionary);
 
