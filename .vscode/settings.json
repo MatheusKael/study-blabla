@@ -6,6 +6,7 @@
         "math.h": "c",
         "ctype.h": "c",
         "helpers.h": "c",
-        "wav.h": "c"
+        "wav.h": "c",
+        "dictionary.h": "c"
     }
 }
