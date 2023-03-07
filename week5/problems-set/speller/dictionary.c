@@ -43,6 +43,7 @@ bool load(const char *dictionary)
     char *dictionary_path = malloc(sizeof(dictionary) + 2);
     dictionary_path[0] = '.';
     dictionary_path[1] = '/';
+
     for(int i = 0; i < strlen(dictionary); i++) {
         dictionary_path[i+2] = dictionary[i];
     }
@@ -57,9 +58,7 @@ bool load(const char *dictionary)
         return false;
     }
 
-    for(int i = 0; i < 4; i++) {
-        printf("%i", dic_dir[i]);
-    }
+
 
     // printf("%s\n", dictionary);
 
