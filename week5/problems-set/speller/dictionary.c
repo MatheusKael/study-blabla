@@ -15,6 +15,9 @@ typedef struct node
     struct node *next;
 } node;
 
+char *dictionary_data;
+int dictionary_length;
+
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
 
@@ -60,14 +63,14 @@ bool load(const char *dictionary)
     }
 
     fseek(dic_dir, 0, SEEK_END);
-    int file_size = ftell(dic_dir);
+    dictionary_length = ftell(dic_dir);
     fseek(dic_dir, 0, SEEK_SET);
 
-    char *data = malloc(file_size);
+    dictionary_data = malloc(dictionary_length);
 
-    fread(data, 1, file_size, dic_dir);
+    fread(dictionary_data, 1, dictionary_length, dic_dir);
 
-    printf("%s", data);
+    printf("%s", dictionary_data);
 
     // printf("%s\n", dictionary);
 
