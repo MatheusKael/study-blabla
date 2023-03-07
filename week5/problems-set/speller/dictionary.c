@@ -47,13 +47,17 @@ bool load(const char *dictionary)
     dictionary_path[0] = '.';
     dictionary_path[1] = '/';
 
-    for (int i = 0; i < strlen(dictionary); i++)
+    int dictionary_str_len = strlen(dictionary);
+
+    for (int i = 0; i < dictionary_str_len; i++)
     {
         dictionary_path[i + 2] = dictionary[i];
     }
     printf("%s\n", dictionary_path);
     // dictionary output -> dictionaries/large
     FILE *dic_dir = fopen(dictionary_path, "rb");
+
+    free(dictionary_path);
 
     if (dic_dir == NULL)
     {
@@ -77,7 +81,7 @@ bool load(const char *dictionary)
     }
 
     fread(dictionary_data, 1, dictionary_length, dic_dir);
-
+    fclose(dic_dir);
 
     // printf("%s", dictionary_data);
 
