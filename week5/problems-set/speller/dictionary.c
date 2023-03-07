@@ -48,7 +48,7 @@ bool load(const char *dictionary)
     }
     printf("%s\n", dictionary_path);
     // dictionary output -> dictionaries/large
-    FILE *dic_dir = fopen(dictionary_path, "r");
+    FILE *dic_dir = fopen(dictionary_path, "rb");
 
     if (dic_dir == NULL)
     {
@@ -57,8 +57,11 @@ bool load(const char *dictionary)
         return false;
     }
 
+    for(int i = 0; i < 4; i++) {
+        printf("%i", dic_dir[i]);
+    }
 
-    printf("%s\n", dictionary);
+    // printf("%s\n", dictionary);
 
     return false;
 }
