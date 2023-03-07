@@ -66,6 +66,7 @@ bool load(const char *dictionary)
 
     fread(&data, sizeof(char), file_size, dic_dir);
 
+    
     printf("%s", data);
 
     // printf("%s\n", dictionary);
