@@ -56,6 +56,8 @@ bool load(const char *dictionary)
         printf("dic_dir not found!");
         return false;
     }
+
+
     printf("%s\n", dictionary);
 
     return false;
