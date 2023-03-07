@@ -72,6 +72,7 @@ bool load(const char *dictionary)
 
         printf("Error allocating dictionary data!\n");
         fclose(dic_dir);
+        free(dictionary_data);
         return false;
     }
 
