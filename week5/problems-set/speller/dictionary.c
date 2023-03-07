@@ -59,9 +59,12 @@ bool load(const char *dictionary)
         return false;
     }
 
-    char data[sizeof(dic_dir)];
+    fseek(dic_dir, 0, SEEK_END);
+    int file_size = ftell(dic_dir);
+    fseek(dic_dir, 0, SEEK_SET);
+    char data[file_size];
 
-    fread(&data, sizeof(char),sizeof(dic_dir) , dic_dir);
+    fread(&data, sizeof(char), file_size, dic_dir);
 
     printf("%s", data);
 
