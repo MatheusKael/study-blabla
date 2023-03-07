@@ -44,8 +44,9 @@ bool load(const char *dictionary)
     dictionary_path[0] = '.';
     dictionary_path[1] = '/';
 
-    for(int i = 0; i < strlen(dictionary); i++) {
-        dictionary_path[i+2] = dictionary[i];
+    for (int i = 0; i < strlen(dictionary); i++)
+    {
+        dictionary_path[i + 2] = dictionary[i];
     }
     printf("%s\n", dictionary_path);
     // dictionary output -> dictionaries/large
@@ -61,10 +62,8 @@ bool load(const char *dictionary)
     // uint8_t data[sizeof(dic_dir)];
 
     char c;
-    while(fread(&c, sizeof(char),1 , dic_dir)) {
-        printf("%c", c);
-    }
-
+    fread(&c, sizeof(char), 1, dic_dir);
+    printf("%c", c);
 
     // printf("%s\n", dictionary);
 
