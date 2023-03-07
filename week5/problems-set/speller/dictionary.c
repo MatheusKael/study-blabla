@@ -42,7 +42,7 @@ bool load(const char *dictionary)
     char *dictionary_path = malloc(sizeof(dictionary) + 2);
     dictionary_path[0] = '.';
     dictionary_path[1] = '/';
-
+    printf("%s", dictionary_path);
     // dictionary output -> dictionaries/large
     FILE *dic_dir = fopen(dictionary, "r");
 
