@@ -59,7 +59,7 @@ bool load(const char *dictionary)
         return false;
     }
 
-    // uint8_t data[sizeof(dic_dir)];
+    uint8_t data[sizeof(dic_dir)];
 
     char c;
     fread(&c, sizeof(char), 1, dic_dir);
