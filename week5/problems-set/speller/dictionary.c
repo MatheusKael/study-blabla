@@ -1,6 +1,7 @@
 // Implements a dictionary's functionality
 
 #include <stdio.h>
+#include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdbool.h>
@@ -42,9 +43,12 @@ bool load(const char *dictionary)
     char *dictionary_path = malloc(sizeof(dictionary) + 2);
     dictionary_path[0] = '.';
     dictionary_path[1] = '/';
-    printf("%s", dictionary_path);
+    for(int i = 0; i < strlen(dictionary); i++) {
+        dictionary_path[i+2] = dictionary[i];
+    }
+    printf("%s\n", dictionary_path);
     // dictionary output -> dictionaries/large
-    FILE *dic_dir = fopen(dictionary, "r");
+    FILE *dic_dir = fopen(dictionary_path, "r");
 
     if (dic_dir == NULL)
     {
