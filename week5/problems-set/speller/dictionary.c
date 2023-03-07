@@ -38,7 +38,7 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    
+    // dictionary output -> dictionaries/large
     FILE *dic_dir = fopen(dictionary, "r");
 
     if (dic_dir == NULL)
