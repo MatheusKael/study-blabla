@@ -35,11 +35,13 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    for(int i = 0; word[i] != '\0'; i++) {
-        table[i] = hash[i] * 31 + word[i];
+    unsigned int hash = 0;
+    for (int i = 0; word[i] != '\0'; i++)
+    {
+        hash = hash * 31 + word[i];
     }
 
-    
+    return hash;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
@@ -76,7 +78,8 @@ bool load(const char *dictionary)
     fseek(dic_dir, 0, SEEK_SET);
 
     dictionary_data = malloc(dictionary_length);
-    if(dictionary_data == NULL) {
+    if (dictionary_data == NULL)
+    {
 
         printf("Error allocating dictionary data!\n");
         fclose(dic_dir);
@@ -98,8 +101,10 @@ unsigned int size(void)
     // TODO
     int count = 0;
 
-    for(int i = 0; i < dictionary_length; i++) {
-        if(dictionary_data[i] == '\n') {
+    for (int i = 0; i < dictionary_length; i++)
+    {
+        if (dictionary_data[i] == '\n')
+        {
             count++;
         }
     }
