@@ -35,7 +35,11 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    return toupper(word[0]) - 'A';
+    for(int i = 0; word[i] != '\0'; i++) {
+        table[i] = hash[i] * 31 + word[i];
+    }
+
+    
 }
 
 // Loads dictionary into memory, returning true if successful, else false
