@@ -36,11 +36,11 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int halval = 0;
-    const unsigned char *p = (const unsigned char *) word;
+    const unsigned char *p = (const unsigned char *)word;
 
-
-    while(*p != '\0') {
-        halval += *p;
+    while (*p != '\0')
+    {
+        halval = (halval  * 31 + *p) %  N;
         ++p;
     }
 
@@ -51,16 +51,9 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    char program_path[30];
     char full_path[100] = "./";
-    printf("%s", dictionary);
-    strncpy(program_path, dictionary, 29);
-    program_path[29] = '\0';
-
-    strcat(full_path, program_path);
-
-    printf("%s", full_path);
-    FILE *dic_dir = fopen(program_path, "rb");
+    strcat(full_path, dictionary);
+    FILE *dic_dir = fopen(full_path, "rb");
 
     if (dic_dir == NULL)
     {
