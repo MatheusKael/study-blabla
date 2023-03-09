@@ -94,13 +94,11 @@ bool load(const char *dictionary)
         if (table[index] == NULL)
         {
             table[index] = new_node;
-            free(new_node);
         }
         else
         {
             new_node->next = table[index];
             table[index] = new_node;
-            free(new_node);
         }
 
         printf("|%s|", table[index]->word);
