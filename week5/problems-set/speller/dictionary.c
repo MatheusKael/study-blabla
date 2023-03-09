@@ -51,8 +51,8 @@ bool load(const char *dictionary)
     char program_path[30];
     char full_path[100] = "./";
 
-    strncpy(program_path, dictionary, 30);
-
+    strncpy(program_path, dictionary, 29);
+    program_path[29] = '\0';
 
     strcat(full_path, program_path);
 
