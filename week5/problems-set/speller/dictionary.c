@@ -73,29 +73,18 @@ bool load(const char *dictionary)
         return false;
     }
 
-    fseek(dic_dir, 0, SEEK_END);
-    dictionary_length = ftell(dic_dir);
-    fseek(dic_dir, 0, SEEK_SET);
-
-    dictionary_data = malloc(dictionary_length);
-    if (dictionary_data == NULL)
-    {
-
-        printf("Error allocating dictionary data!\n");
-        fclose(dic_dir);
-        free(dictionary_data);
-        return false;
+    for(int i = 0; i < N; i++) {
+        table[i] = NULL;
     }
 
-    fread(dictionary_data, 1, dictionary_length, dic_dir);
-    fclose(dic_dir);
 
-    for(int i = 0; i < dictionary_length; i++) {
-        printf("%c", dictionary_data[i]);
-    }
-    // printf("%s", dictionary_data);
+    char word[LENGTH + 1];
+    while(fscanf(dic_dir, "%s", word) != EOF) {
 
-    return true;
+        printf("|%s|", word);
+     }
+
+   return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
