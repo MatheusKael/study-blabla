@@ -81,6 +81,23 @@ bool load(const char *dictionary)
     char word[LENGTH + 1];
     while(fscanf(dic_dir, "%s", word) != EOF) {
 
+        unsigned int hash = hash(word);
+
+
+        node *new_node = malloc(sizeof(node));
+
+        if(new_node == NULL) {
+            printf("Error allocating memory for new_node!");
+            fclose(dic_dir);
+            free(new_node);
+            return false;
+        }
+        new_node
+        strcpy(new_node -> word, word);
+        new_node -> next = NULL;
+
+        
+
         printf("|%s|", word);
      }
 
