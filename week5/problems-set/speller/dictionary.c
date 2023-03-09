@@ -78,6 +78,7 @@ bool load(const char *dictionary)
     fseek(dic_dir, 0, SEEK_SET);
 
     dictionary_data = malloc(dictionary_length);
+    unsigned int hash = hash()
     if (dictionary_data == NULL)
     {
 
