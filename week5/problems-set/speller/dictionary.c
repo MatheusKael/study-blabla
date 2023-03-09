@@ -36,9 +36,15 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
     unsigned int halval = 0;
-    
+    const unsigned char *p = (const unsigned char *) word;
 
-    return hash;
+
+    while(*p != '\0') {
+        halval += *p;
+        ++p;
+    }
+
+    return halval;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
