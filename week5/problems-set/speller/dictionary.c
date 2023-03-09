@@ -50,6 +50,7 @@ bool load(const char *dictionary)
     // TODO
     char program_path[30];
     strncpy(program_path, dictionary, 30);
+
     strcat("./", program_path);
 
     printf("%s", program_path);
