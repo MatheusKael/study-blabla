@@ -91,7 +91,6 @@ bool load(const char *dictionary)
             free(new_node);
             return false;
         }
-        new_node
         strcpy(new_node -> word, word);
         new_node -> next = NULL;
 
