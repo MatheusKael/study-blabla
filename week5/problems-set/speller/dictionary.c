@@ -48,65 +48,58 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-
-    char *dictionary_path = malloc(sizeof(dictionary) + sizeof(char) * 2);
-    dictionary_path[0] = '.';
-    dictionary_path[1] = '/';
-
-    int dictionary_str_len = strlen(dictionary);
-
-    for (int i = 0; i < dictionary_str_len; i++)
-    {
-        dictionary_path[i + 2] = dictionary[i];
-    }
-    printf("%s\n", dictionary_path);
-    // dictionary output -> dictionaries/large
-    FILE *dic_dir = fopen(dictionary_path, "rb");
+    strcat("./", dictionary);
+    
+    printf("%s", dictionary);
+    FILE *dic_dir = fopen(dictionary, "rb");
 
     if (dic_dir == NULL)
     {
 
         printf("dic_dir not found!");
-        free(dictionary_path);
         fclose(dic_dir);
         return false;
     }
 
-    free(dictionary_path);
 
-    for(int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++)
+    {
         table[i] = NULL;
     }
 
-
     char word[LENGTH + 1];
-    while(fscanf(dic_dir, "%s", word) != EOF) {
+    while (fscanf(dic_dir, "%s", word) != EOF)
+    {
 
         unsigned int index = hash(word);
 
         node *new_node = malloc(sizeof(node));
 
-        if(new_node == NULL) {
+        if (new_node == NULL)
+        {
             printf("Error allocating memory for new_node!");
             fclose(dic_dir);
             free(new_node);
             return false;
         }
-        strcpy(new_node -> word, word);
-        new_node -> next = NULL;
+        strcpy(new_node->word, word);
+        new_node->next = NULL;
 
-        if(table[index] == NULL) {
+        if (table[index] == NULL)
+        {
             table[index] = new_node;
-        } else {
-            new_node-> next = table[index];
+        }
+        else
+        {
+            new_node->next = table[index];
             table[index] = new_node;
         }
 
-        printf("|%s|", table[index] -> word);
+        printf("|%s|", table[index]->word);
         free(new_node);
-        }
+    }
 
-   return true;
+    return true;
 }
 
 // Returns number of words in dictionary if loaded, else 0 if not yet loaded
