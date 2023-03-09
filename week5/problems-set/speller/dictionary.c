@@ -49,7 +49,7 @@ bool load(const char *dictionary)
 {
     // TODO
 
-    char *dictionary_path = malloc(sizeof(dictionary) + 2);
+    char *dictionary_path = malloc(sizeof(dictionary) + sizeof(char) * 2);
     dictionary_path[0] = '.';
     dictionary_path[1] = '/';
 
@@ -102,7 +102,8 @@ bool load(const char *dictionary)
         }
 
         printf("|%s|", table[index] -> word);
-     }
+        free(new_node);
+        }
 
    return true;
 }
