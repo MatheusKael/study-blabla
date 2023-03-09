@@ -49,9 +49,12 @@ bool load(const char *dictionary)
 {
     // TODO
     char program_path[30];
+    char full_path[100] = "./";
+
     strncpy(program_path, dictionary, 30);
 
-    strcat("./", program_path);
+
+    strcat(full_path, program_path);
 
     printf("%s", program_path);
     FILE *dic_dir = fopen(dictionary, "rb");
