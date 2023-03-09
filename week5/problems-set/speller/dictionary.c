@@ -35,11 +35,8 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    unsigned int hash = 0;
-    for (int i = 0; word[i] != '\0'; i++)
-    {
-        hash = hash * 31 + word[i];
-    }
+    unsigned int halval = 0;
+    
 
     return hash;
 }
