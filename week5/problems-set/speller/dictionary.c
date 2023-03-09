@@ -84,7 +84,6 @@ bool load(const char *dictionary)
         {
             printf("Error allocating memory for new_node!");
             fclose(dic_dir);
-            free(new_node);
             return false;
         }
         strcpy(new_node->word, word);
@@ -102,7 +101,6 @@ bool load(const char *dictionary)
 
         printf("|%s|", table[index]->word);
     }
-    free(new_node);
 
     fclose(dic_dir);
     return true;
