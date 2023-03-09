@@ -50,7 +50,7 @@ bool load(const char *dictionary)
     // TODO
     char program_path[30];
     char full_path[100] = "./";
-    printf("%s",dictionary);
+    printf("%s", dictionary);
     strncpy(program_path, dictionary, 29);
     program_path[29] = '\0';
 
@@ -66,7 +66,6 @@ bool load(const char *dictionary)
         fclose(dic_dir);
         return false;
     }
-
 
     for (int i = 0; i < N; i++)
     {
@@ -102,9 +101,10 @@ bool load(const char *dictionary)
         }
 
         printf("|%s|", table[index]->word);
-        free(new_node);
     }
+    free(new_node);
 
+    fclose(dic_dir);
     return true;
 }
 
