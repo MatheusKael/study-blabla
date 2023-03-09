@@ -78,7 +78,6 @@ bool load(const char *dictionary)
     fseek(dic_dir, 0, SEEK_SET);
 
     dictionary_data = malloc(dictionary_length);
-    unsigned int hash = hash()
     if (dictionary_data == NULL)
     {
 
@@ -86,6 +85,9 @@ bool load(const char *dictionary)
         fclose(dic_dir);
         free(dictionary_data);
         return false;
+    }
+    for(int i = 0; i < dictionary_length; i++) {
+        printf("%s", dic_dir[i]);
     }
 
     fread(dictionary_data, 1, dictionary_length, dic_dir);
