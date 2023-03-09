@@ -83,7 +83,6 @@ bool load(const char *dictionary)
 
         unsigned int hash = hash(word);
 
-
         node *new_node = malloc(sizeof(node));
 
         if(new_node == NULL) {
@@ -96,9 +95,14 @@ bool load(const char *dictionary)
         strcpy(new_node -> word, word);
         new_node -> next = NULL;
 
-        
+        if(table[hash] == NULL) {
+            table[hash] = new_node;
+        } else {
+            new_node-> next = table[hash];
+            table[hash] = new_node;
+        }
 
-        printf("|%s|", word);
+        printf("|%s|", table[hash] -> word);
      }
 
    return true;
