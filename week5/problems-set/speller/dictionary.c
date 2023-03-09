@@ -57,7 +57,7 @@ bool load(const char *dictionary)
     strcat(full_path, program_path);
 
     printf("%s", program_path);
-    FILE *dic_dir = fopen(dictionary, "rb");
+    FILE *dic_dir = fopen(program_path, "rb");
 
     if (dic_dir == NULL)
     {
@@ -94,11 +94,13 @@ bool load(const char *dictionary)
         if (table[index] == NULL)
         {
             table[index] = new_node;
+            free(new_node);
         }
         else
         {
             new_node->next = table[index];
             table[index] = new_node;
+            free(new_node);
         }
 
         printf("|%s|", table[index]->word);
