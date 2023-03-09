@@ -86,13 +86,13 @@ bool load(const char *dictionary)
         free(dictionary_data);
         return false;
     }
-    for(int i = 0; i < dictionary_length; i++) {
-        printf("%s", dic_dir[i]);
-    }
 
     fread(dictionary_data, 1, dictionary_length, dic_dir);
     fclose(dic_dir);
 
+    for(int i = 0; i < dictionary_length; i++) {
+        printf("%c", dictionary_data[i]);
+    }
     // printf("%s", dictionary_data);
 
     return true;
