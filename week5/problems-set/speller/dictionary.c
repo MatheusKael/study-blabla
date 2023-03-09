@@ -48,9 +48,11 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    strcat("./", dictionary);
-    
-    printf("%s", dictionary);
+    char program_path[30];
+    strncpy(program_path, dictionary, 30);
+    strcat("./", program_path);
+
+    printf("%s", program_path);
     FILE *dic_dir = fopen(dictionary, "rb");
 
     if (dic_dir == NULL)
