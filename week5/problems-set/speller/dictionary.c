@@ -63,15 +63,16 @@ bool load(const char *dictionary)
     // dictionary output -> dictionaries/large
     FILE *dic_dir = fopen(dictionary_path, "rb");
 
-    free(dictionary_path);
-
     if (dic_dir == NULL)
     {
 
         printf("dic_dir not found!");
+        free(dictionary_path);
         fclose(dic_dir);
         return false;
     }
+
+    free(dictionary_path);
 
     for(int i = 0; i < N; i++) {
         table[i] = NULL;
