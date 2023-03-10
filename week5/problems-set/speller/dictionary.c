@@ -31,11 +31,15 @@ bool check(const char *word)
     // TODO
 
     unsigned int index = hash(word);
-
-    node *ptr = table;
-    while(table[index] == NULL)
+    for (int i = 0; i < N; i++)
     {
-        return false;
+
+        node *ptr = table[i];
+        while (ptr[index] == NULL)
+        {
+
+            if(strcmp(ptr[index]-> word, word))
+        }
     }
 
     return true;
