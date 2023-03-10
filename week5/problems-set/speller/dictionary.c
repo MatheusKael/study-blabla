@@ -113,14 +113,6 @@ unsigned int size(void)
     // TODO
     int count = 0;
 
-    for (int i = 0; i < dictionary_length; i++)
-    {
-        if (dictionary_data[i] == '\n')
-        {
-            count++;
-        }
-    }
-    printf("%i", count);
     return count;
 }
 
