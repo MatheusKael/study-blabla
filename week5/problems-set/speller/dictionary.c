@@ -16,6 +16,7 @@ typedef struct node
 } node;
 
 bool is_loaded = false;
+char full_path[100] = "./";
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
@@ -58,7 +59,6 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    char full_path[100] = "./";
     strcat(full_path, dictionary);
     FILE *dic_dir = fopen(full_path, "rb");
 
