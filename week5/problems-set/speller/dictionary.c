@@ -130,8 +130,14 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
+    node ptr = table;
 
-    
+    while(ptr != NULL) {
+        node next = ptr -> next;
+        free(ptr);
+        ptr = next;
+    }
+
 
     return true;
 }
