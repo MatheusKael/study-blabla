@@ -60,7 +60,7 @@ unsigned int hash(const char *word)
     for (int i = 0; i < word_size; i++)
     {
 
-        value = value + word[i] * primes[i % 15] % N;
+        value = value * primes[i % 15] + word[i] % N;
     }
 
     return value;
