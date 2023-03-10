@@ -22,7 +22,7 @@ char full_path[100] = "./";
 
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 286123;
+const unsigned int N = 143061;
 
 // Hash table
 node *table[N];
