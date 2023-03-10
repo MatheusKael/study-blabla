@@ -20,7 +20,6 @@ bool is_loaded = false;
 int count;
 char full_path[100] = "./";
 
-int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47};
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 286123;
@@ -39,7 +38,7 @@ bool check(const char *word)
     while (ptr != NULL)
     {
 
-        if (strcasecmp(ptr->word, word) == 0)
+        if (strcmp(ptr->word, word) == 0)
         {
             return true;
         }
