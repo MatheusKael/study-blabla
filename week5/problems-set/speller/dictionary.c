@@ -16,6 +16,7 @@ typedef struct node
 } node;
 
 bool is_loaded = false ;
+int count;
 char full_path[100] = "./";
 
 // TODO: Choose number of buckets in hash table
@@ -76,9 +77,10 @@ bool load(const char *dictionary)
     }
 
     char word[LENGTH + 1];
+    count = 0;
     while (fscanf(dic_dir, "%s", word) != EOF)
     {
-
+        count++;
         unsigned int index = hash(word);
 
         node *new_node = malloc(sizeof(node));
@@ -116,22 +118,7 @@ unsigned int size(void)
     {
         return 0;
     }
-    int count = 0;
-    FILE *dic_dir = fopen(full_path, "rb");
 
-    if (dic_dir == NULL)
-    {
-
-        printf("dic_dir not found!");
-        fclose(dic_dir);
-        return false;
-    }
-
-    char word[LENGTH + 1];
-    while (fscanf(dic_dir, "%s", word) != EOF)
-    {
-    count++;
-    }
     return count;
 }
 
