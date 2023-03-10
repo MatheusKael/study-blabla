@@ -122,6 +122,7 @@ unsigned int size(void)
 
     while (fscanf(dic_dir, "%s", word) != EOF)
     {
+        printf("%s", word);
         count++;
     }
 
