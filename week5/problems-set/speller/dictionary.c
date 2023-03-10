@@ -32,18 +32,16 @@ bool check(const char *word)
     // TODO
 
     unsigned int index = hash(word);
-    for (int i = 0; i < N; i++)
+
+    node *ptr = table[index];
+    while (ptr != NULL)
     {
 
-        node *ptr = table[i];
-        while (ptr != NULL)
+        if (strcasecmp(ptr->word, word) == 0)
         {
-
-            if(strcasecmp(ptr-> word, word) == 0) {
-                return true;
-            }
-            ptr = ptr -> next;
+            return true;
         }
+        ptr = ptr->next;
     }
 
     return false;
@@ -57,7 +55,8 @@ unsigned int hash(const char *word)
     unsigned int value = 0;
     int word_size = strlen(word);
 
-    for(int i = 0; i < word_size; i++) {
+    for (int i = 0; i < word_size; i++)
+    {
 
         value = value + word[i] * 11 % N;
     }
