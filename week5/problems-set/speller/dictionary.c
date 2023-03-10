@@ -55,14 +55,14 @@ unsigned int hash(const char *word)
     // TODO: Improve this hash function
 
     unsigned int value = 0;
-    unsigned int prime = 33;
+    unsigned int prime = 4294967279u;
 
     while (*word != '\0')
     {
         value = (value << 4) ^ (value >> 28) ^ (*word++ * prime);
     }
 
-    return value % N;
+    return value;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
