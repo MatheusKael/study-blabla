@@ -52,16 +52,8 @@ bool check(const char *word)
 unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
-    unsigned int halval = 0;
-    const unsigned char *p = (const unsigned char *)word;
 
-    while (*p != '\0')
-    {
-        halval = (halval * 31 + *p) % N;
-        ++p;
-    }
-
-    return halval;
+    return *word * 91;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
