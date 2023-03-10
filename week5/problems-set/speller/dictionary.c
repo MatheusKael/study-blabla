@@ -20,7 +20,6 @@ bool is_loaded = false;
 int count;
 char full_path[100] = "./";
 
-
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 50000;
 
@@ -34,22 +33,18 @@ bool check(const char *word)
 
     unsigned int index = hash(word);
 
-
-    int word_len = strlen(word);
     node *ptr = table[index];
     while (ptr != NULL)
     {
 
-        int ptr_word_len = strlen(ptr -> word);
-        if(ptr_word_len != word_len) {
-            return false;
-        }
-        if(strcasecmp(ptr->word, word) == 0) {
+        if (strcasecmp(ptr->word, word) == 0)
+        {
             return true;
         }
         ptr = ptr->next;
     }
 
+    printf("%i, |%s| \n", index, word);
     return false;
 }
 
@@ -63,10 +58,9 @@ unsigned int hash(const char *word)
 
     while (*word != '\0')
     {
-        value = (value << 4) ^ (value >> 28) ^ (*word++ * prime) ;
+        value = (value << 4) ^ (value >> 28) ^ (*word++ * prime);
     }
 
-    printf("%i, %s \n", value% N, word);
     return value % N;
 }
 
