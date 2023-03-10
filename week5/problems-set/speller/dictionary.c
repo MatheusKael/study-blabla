@@ -35,14 +35,17 @@ bool check(const char *word)
     {
 
         node *ptr = table[i];
-        while (ptr[index] == NULL)
+        while (ptr != NULL)
         {
 
-            if(strcmp(ptr[index]-> word, word))
+            if(strcmp(ptr-> word, word)) {
+                return true;
+            }
+            ptr = ptr -> next;
         }
     }
 
-    return true;
+    return false;
 }
 
 // Hashes word to a number
