@@ -30,14 +30,12 @@ bool check(const char *word)
 
     unsigned int index = hash(word);
 
-    if(table[index] == NULL) {
+    if (table[index] == NULL)
+    {
         return false;
     }
 
-
-
-
-   return true;
+    return true;
 }
 
 // Hashes word to a number
@@ -49,7 +47,7 @@ unsigned int hash(const char *word)
 
     while (*p != '\0')
     {
-        halval = (halval  * 31 + *p) %  N;
+        halval = (halval * 31 + *p) % N;
         ++p;
     }
 
@@ -130,14 +128,18 @@ unsigned int size(void)
 bool unload(void)
 {
     // TODO
-    node *ptr[N] = table;
+    for (int i = 0; i < N; i++)
+    {
 
-    while(ptr != NULL) {
-        node *next = ptr -> next;
-        free(ptr);
-        ptr = next;
+        node *ptr = table[i];
+
+        while (ptr != NULL)
+        {
+            node *next = ptr->next;
+            free(ptr);
+            ptr = next;
+        }
     }
-
 
     return true;
 }
