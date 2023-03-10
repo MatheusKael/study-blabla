@@ -22,7 +22,7 @@ char full_path[100] = "./";
 
 
 // TODO: Choose number of buckets in hash table
-const unsigned int N = 143061;
+const unsigned int N = 286123;
 
 // Hash table
 node *table[N];
@@ -33,6 +33,7 @@ bool check(const char *word)
     // TODO
 
     unsigned int index = hash(word);
+    printf("%i, %s \n", index, word);
 
     node *ptr = table[index];
     while (ptr != NULL)
