@@ -20,6 +20,8 @@ bool is_loaded = false;
 int count;
 char full_path[100] = "./";
 
+int primes[] = {2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47};
+
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 286123;
 
@@ -58,7 +60,7 @@ unsigned int hash(const char *word)
     for (int i = 0; i < word_size; i++)
     {
 
-        value = value + word[i] * 11 % N;
+        value = value + word[i] * primes[i % 15] % N;
     }
 
     return value;
