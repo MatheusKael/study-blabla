@@ -34,12 +34,17 @@ bool check(const char *word)
 
     unsigned int index = hash(word);
 
+
+    int word_len = strlen(word);
     node *ptr = table[index];
     while (ptr != NULL)
     {
 
-        if (strcasecmp(ptr->word, word) == 0)
-        {
+        int ptr_word_len = strlen(ptr -> word);
+        if(ptr_word_len != word_len) {
+            return false;
+        }
+        if(strcasecmp(ptr->word, word) == 0) {
             return true;
         }
         ptr = ptr->next;
