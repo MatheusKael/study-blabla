@@ -59,10 +59,10 @@ unsigned int hash(const char *word)
 
     while (*word != '\0')
     {
-        value = (value << 4) ^ (value >> 28) ^ (*word++ * prime) % N;
+        value = (value << 4) ^ (value >> 28) ^ (*word++ * prime);
     }
 
-    return value;
+    return value % N;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
