@@ -15,7 +15,6 @@ typedef struct node
     struct node *next;
 } node;
 
-char *dictionary_data;
 int dictionary_length;
 
 // TODO: Choose number of buckets in hash table
@@ -32,7 +31,7 @@ bool check(const char *word)
     unsigned int index = hash(word);
 
     if(table[index] == NULL) {
-        
+
     }
 
 
