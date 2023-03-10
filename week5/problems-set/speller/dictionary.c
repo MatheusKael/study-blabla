@@ -15,8 +15,8 @@ typedef struct node
     struct node *next;
 } node;
 
-bool is_loaded = false;
-FILE *dic_dir;
+bool is_loaded = false ;
+char full_path[100] = "./";
 
 // TODO: Choose number of buckets in hash table
 const unsigned int N = 26;
@@ -59,9 +59,8 @@ unsigned int hash(const char *word)
 bool load(const char *dictionary)
 {
     // TODO
-    char full_path[100] = "./";
     strcat(full_path, dictionary);
-    dic_dir = fopen(full_path, "rb");
+    FILE *dic_dir = fopen(full_path, "rb");
 
     if (dic_dir == NULL)
     {
@@ -113,19 +112,26 @@ bool load(const char *dictionary)
 unsigned int size(void)
 {
     // TODO
-    if(is_loaded == false) {
+    if (is_loaded == false)
+    {
         return 0;
     }
     int count = 0;
+    FILE *dic_dir = fopen(full_path, "rb");
 
-    char word[LENGTH + 1];
-
-    while (fscanf(dic_dir, "%s", word) != EOF)
+    if (dic_dir == NULL)
     {
-        printf("%s", word);
-        count++;
+
+        printf("dic_dir not found!");
+        fclose(dic_dir);
+        return false;
     }
 
+    char word[LENGTH + 1];
+    while (fscanf(dic_dir, "%s", word) != EOF)
+    {
+    count++;
+    }
     return count;
 }
 
