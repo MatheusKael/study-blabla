@@ -87,9 +87,9 @@ bool load(const char *dictionary)
 
     char word[LENGTH + 1];
     count = 0;
-    while (fscanf(dic_dir, "%s", word) != EOF)
+    while (fgets(word, sizeof(word), dic_dir) != NULL)
     {
-        count++;
+        word[strcspn(word, "\n")] = '\0';
         unsigned int index = hash(word);
 
         node *new_node = malloc(sizeof(node));
@@ -112,6 +112,7 @@ bool load(const char *dictionary)
             new_node->next = table[index];
             table[index] = new_node;
         }
+        count++;
     }
 
     fclose(dic_dir);
