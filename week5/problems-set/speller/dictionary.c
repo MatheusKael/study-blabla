@@ -55,12 +55,11 @@ unsigned int hash(const char *word)
     // TODO: Improve this hash function
 
     unsigned int value = 0;
-    int word_size = strlen(word);
+    unsigned int prime = 4294967279u;
 
-    for (int i = 0; i < word_size; i++)
+    while (*word != '\0')
     {
-
-        value = value * primes[i % 15] + word[i] % N;
+        value = (value << 4) ^ (value >> 28) ^ (*word++ * prime) ;
     }
 
     return value;
