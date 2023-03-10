@@ -103,8 +103,6 @@ bool load(const char *dictionary)
             new_node->next = table[index];
             table[index] = new_node;
         }
-
-        printf("|%s|", table[index]->word);
     }
 
     fclose(dic_dir);
@@ -133,7 +131,7 @@ bool unload(void)
 {
     // TODO
 
-    free(dictionary_data);
+    
 
     return true;
 }
