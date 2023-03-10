@@ -2,6 +2,7 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <strings.h>
 #include <stdlib.h>
 #include <ctype.h>
 #include <stdbool.h>
@@ -38,7 +39,7 @@ bool check(const char *word)
         while (ptr != NULL)
         {
 
-            if(strcmp(ptr-> word, word)) {
+            if(strcasecmp(ptr-> word, word) == 0) {
                 return true;
             }
             ptr = ptr -> next;
