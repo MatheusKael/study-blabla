@@ -33,7 +33,6 @@ bool check(const char *word)
     // TODO
 
     unsigned int index = hash(word);
-    printf("%i, %s \n", index, word);
 
     node *ptr = table[index];
     while (ptr != NULL)
@@ -62,6 +61,7 @@ unsigned int hash(const char *word)
         value = (value << 4) ^ (value >> 28) ^ (*word++ * prime) ;
     }
 
+    printf("%i, %s \n", value% N, word);
     return value % N;
 }
 
