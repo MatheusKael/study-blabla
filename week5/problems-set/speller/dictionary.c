@@ -32,7 +32,8 @@ bool check(const char *word)
 
     unsigned int index = hash(word);
 
-    if (table[index] == NULL)
+    node *ptr = table;
+    while(table[index] == NULL)
     {
         return false;
     }
