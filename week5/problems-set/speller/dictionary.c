@@ -55,7 +55,7 @@ unsigned int hash(const char *word)
     // TODO: Improve this hash function
 
     unsigned int value = 0;
-    unsigned int prime = 4294967279u;
+    unsigned int prime = 33;
 
     while (*word != '\0')
     {
