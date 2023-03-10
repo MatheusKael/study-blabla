@@ -30,7 +30,10 @@ bool check(const char *word)
     // TODO
 
     unsigned int index = hash(word);
-    
+
+    if(table[index] == NULL) {
+        
+    }
 
 
     return false;
