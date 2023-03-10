@@ -53,7 +53,15 @@ unsigned int hash(const char *word)
 {
     // TODO: Improve this hash function
 
-    return *word * 91;
+    unsigned int value = 0;
+    int word_size = strlen(word);
+
+    for(int i = 0; i < word_size; i++) {
+
+        value = value + word[i] * 11 % N;
+    }
+
+    return value;
 }
 
 // Loads dictionary into memory, returning true if successful, else false
