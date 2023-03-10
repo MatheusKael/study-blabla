@@ -15,7 +15,7 @@ typedef struct node
     struct node *next;
 } node;
 
-bool is_loaded = false ;
+bool is_loaded = false;
 int count;
 char full_path[100] = "./";
 
