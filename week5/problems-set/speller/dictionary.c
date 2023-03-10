@@ -31,11 +31,13 @@ bool check(const char *word)
     unsigned int index = hash(word);
 
     if(table[index] == NULL) {
-
+        return false;
     }
 
 
-    return false;
+
+
+   return true;
 }
 
 // Hashes word to a number
