@@ -28,6 +28,11 @@ node *table[N];
 bool check(const char *word)
 {
     // TODO
+
+    unsigned int index = hash(word);
+    
+
+
     return false;
 }
 
