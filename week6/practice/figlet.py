@@ -3,4 +3,4 @@ from pyfiglet import Figlet
 
 f = Figlet(font='slant')
 
-print f.renderText('Text to render')
+printf.renderText('Text to render')
