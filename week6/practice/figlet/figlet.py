@@ -24,6 +24,6 @@ def main():
     elif argv_len == 1:
         TextToRender()
     else:
-            exit(1)
+        exit(1)
 
 main()
