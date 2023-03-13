@@ -17,9 +17,15 @@ def main():
     if argv_len > 3 or argv_len == 2:
         exit(1)
     elif argv_len > 1 and argv[1] in args:
-        TextToRender(font=argv[2])
+        try:
+            TextToRender(font=argv[2])
+        except(FontNotFound):
+            print("font was not found")
     elif argv_len == 1:
-        TextToRender()
+        try:
+            TextToRender()
+        except(FontNotFound):
+            print("font was not found")
     else:
             exit(1)
 
