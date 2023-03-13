@@ -1,5 +1,5 @@
 from sys import argv, exit
-from pyfiglet import Figlet
+from pyfiglet import Figlet, FontNotFound
 
 args = ["-f", "--font"]
 
@@ -7,8 +7,7 @@ args = ["-f", "--font"]
 def TextToRender(font="slant" ):
     try:
         f = Figlet(font=font)
-    except ValueError:
-        print("Font was not found!")
+    except FontNotFound:
         exit(1)
     text = input("Text to render: ")
     print(f.renderText(text))
