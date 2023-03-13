@@ -5,8 +5,10 @@ args = ["-f", "--font"]
 
 
 def TextToRender(font="slant" ):
+    # try:
     f = Figlet(font=font)
-
+    # except FontNotFound:
+    print("Font was not found!")
     text = input("Text to render: ")
     print(f.renderText(text))
 
@@ -17,15 +19,9 @@ def main():
     if argv_len > 3 or argv_len == 2:
         exit(1)
     elif argv_len > 1 and argv[1] in args:
-        try:
-            TextToRender(font=argv[2])
-        except(FontNotFound):
-            print("font was not found")
+        TextToRender(font=argv[2])
     elif argv_len == 1:
-        try:
-            TextToRender()
-        except(FontNotFound):
-            print("font was not found")
+        TextToRender()
     else:
             exit(1)
 
