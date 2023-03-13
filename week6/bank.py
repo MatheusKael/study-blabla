@@ -3,5 +3,7 @@
 
 greeting = input("Greeting: ")
 
-if greeting.lower()[0] == "h":
-    print("")
+if "hello" in greeting:
+    print("$0")
+
+elif ""
