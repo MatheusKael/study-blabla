@@ -5,10 +5,11 @@ args = ["-f", "--font"]
 
 
 def TextToRender(font="slant" ):
-    # try:
-    f = Figlet(font=font)
-    # except FontNotFound:
-    print("Font was not found!")
+    try:
+        f = Figlet(font=font)
+    except ValueError:
+        print("Font was not found!")
+        exit(1)
     text = input("Text to render: ")
     print(f.renderText(text))
 
