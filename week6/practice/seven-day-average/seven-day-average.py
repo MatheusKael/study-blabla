@@ -37,6 +37,8 @@ def calculate(reader):
 
     new_states = {}
 
+    sorted(new_states.items())
+
     for line in reader:
         print(line)
 
