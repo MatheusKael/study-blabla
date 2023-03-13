@@ -37,7 +37,7 @@ def calculate(reader):
 
     new_states = {}
 
-    for line in range(len(reader)):
+    for line in reader:
         print(line)
 
     return new_states
