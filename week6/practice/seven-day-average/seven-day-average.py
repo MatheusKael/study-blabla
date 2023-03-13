@@ -37,14 +37,15 @@ def calculate(reader):
 
     new_states = {}
 
-    for  
+    for line in range(len(reader)):
+        print(line)
 
-    print(reader)
+    return new_states
 
 
 # TODO: Calculate and print out seven day average for given state
 def comparative_averages(new_cases, states):
-    ...
 
+    ret
 
 main()
