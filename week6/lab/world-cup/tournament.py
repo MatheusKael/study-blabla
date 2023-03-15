@@ -20,6 +20,8 @@ def main():
         reader = csv.DictReader(file)
 
         for line in reader:
+            line['rating'] = int(line['rating'])
+
             teams.append(line)
 
     counts = {}
