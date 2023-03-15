@@ -28,10 +28,11 @@ def main():
     # TODO: Simulate N tournaments and keep track of win counts
     for i in range(N):
         winners = simulate_tournament(teams)
-        if winners in counts:
-            counts[winners] += 1
-        else:
-            counts[winner['team']] = 0
+        for winner in winners:
+            if winner['team'] in counts:
+                counts[winner['team']] += 1
+            else:
+                counts[winner['team']] = 0
 
     print(counts)
 
