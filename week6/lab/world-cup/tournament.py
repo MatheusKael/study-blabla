@@ -22,7 +22,6 @@ def main():
         for line in reader:
             teams.append(line['team'])
 
-        print(teams)
 
     counts = {}
     # TODO: Simulate N tournaments and keep track of win counts
@@ -32,7 +31,7 @@ def main():
         print(f"{team}: {counts[team] * 100 / N:.1f}% chance of winning")
 
 
-def simulate_game(team2, team2):
+def simulate_game(team1, team2):
     """Simulate a game. Return True if team1 wins, False otherwise."""
     rating1 = team1["rating"]
     rating2 = team2["rating"]
@@ -56,8 +55,10 @@ def simulate_round(teams):
 
 def simulate_tournament(teams):
     """Simulate a tournament. Return name of winning team."""
-    simulate_round(teams)
 
+    winners = simulate_round(teams)
+
+    print(winners)
 
 
 if __name__ == "__main__":
