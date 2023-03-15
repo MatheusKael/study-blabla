@@ -60,8 +60,7 @@ def simulate_tournament(teams):
 
     winners = simulate_round(teams)
 
-    print(winners)
-
+    return winners[0]
 
 if __name__ == "__main__":
     main()
