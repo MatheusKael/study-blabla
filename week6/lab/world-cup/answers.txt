@@ -11,7 +11,7 @@ Questions:
 
 Which predictions, if any, proved incorrect as you increased the number of simulations?:
 
-
+The team with most chance of winning
 
 Suppose you're charged a fee for each second of compute time your program uses.
 After how many simulations would you call the predictions "good enough"?: TODO
