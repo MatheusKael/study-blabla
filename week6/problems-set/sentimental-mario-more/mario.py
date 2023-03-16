@@ -9,8 +9,10 @@ def bricks(size):
 def main():
     size = 0
     while size <= 0 or size >= 9:
-        size = int(input("Height: "))
-
+        try:
+            size = int(input("Height: "))
+        except ValueError:
+            print("Not a number!")
     bricks(size)
 
 
