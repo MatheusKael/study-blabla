@@ -7,9 +7,9 @@ def bricks(size):
 
 
 def main():
-
-
-    size = int(input())
+    size = 0
+    while size < 1:
+        size = int(input())
 
     bricks(size)
 
