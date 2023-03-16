@@ -7,7 +7,10 @@ def bricks(size):
 
 
 def main():
+
+
     size = int(input())
+
     bricks(size)
 
 
