@@ -1,5 +1,6 @@
 def bricks(size):
     for i in range(size + 1):
+        print("line", i)
         for j in range(size - i):
             print(" ", end="")
         print("#" * i, end="  ")
