@@ -8,7 +8,7 @@ def bricks(size):
 
 def main():
     size = 0
-    while size <= 0:
+    while size <= 0 or size >= 9:
         size = int(input("Height: "))
 
     bricks(size)
