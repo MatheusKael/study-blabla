@@ -1,5 +1,5 @@
 def bricks(size):
-    for i in range(size):
+    for i in range(size + 1):
         for j in range(size - i):
             print(" ", end="")
         print("#" * i, end=" ")
@@ -7,7 +7,7 @@ def bricks(size):
 
 
 def main():
-    size = -1
+    size = 0
     while size <= 0:
         size = int(input())
 
