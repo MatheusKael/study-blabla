@@ -4,7 +4,7 @@ def main():
         int(n)
     except ValueError:
         print("Not valid!")
-    valid = valid_card(n, len(n))
+    valid = valid_card(n)
 
     if valid == True:
 
