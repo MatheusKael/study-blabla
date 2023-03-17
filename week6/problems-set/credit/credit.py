@@ -9,8 +9,9 @@ def main():
     if valid == True:
 
         card_type(n)
-    else:
-        print("INVALID")
+        return
+
+    print("INVALID")
 
 
 def card_type(number):
@@ -21,6 +22,7 @@ def card_type(number):
     elif int(number[:2]) == 34 or int(number[:2]) == 37:
         print("AMEX")
 
+    print("INVALID")
 
 def valid_card(number ):
 
