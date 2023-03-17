@@ -8,18 +8,18 @@ def main():
 
     if valid == True:
 
-        card_type(n)
+        card_type(n, len(n))
         return
 
     print("INVALID")
 
 
-def card_type(number):
-    if number[:1] == '4':
+def card_type(number, n_digits):
+    if number[:1] == '4' and (n_digits == 16 or n_digits == 13):
         print("VISA")
-    elif int(number[:2]) > 50 and int(number[:2]) <= 55:
+    elif int(number[:2]) > 50 and int(number[:2]) <= 55 and n_digits == 16:
         print("MASTERCARD")
-    elif int(number[:2]) == 34 or int(number[:2]) == 37:
+    elif int(number[:2]) == 34 or int(number[:2]) == 37 and n_digits == 15:
         print("AMEX")
 
     print("INVALID")
