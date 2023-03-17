@@ -4,10 +4,10 @@ def main():
         int(n)
     except ValueError:
         print("Not valid!")
-
-    valid = valid_card(n)
+    valid = valid_card(n, len(n))
 
     if valid == True:
+
         card_type(n)
         return
 
@@ -23,27 +23,18 @@ def card_type(number):
         print("AMEX")
 
 
-def valid_card(number):
-    new_digits = ""
-    digits_final_sum = 0
-    digits_sum = 0
+def valid_card(number ):
 
-    for i in range(2, len(number), 2):
-        new_digits += str(int(number[-i]) * 2)
+    digits = [int(digit) for digit in str(number)]
 
-    for i in range(len(new_digits)):
-        digits_sum += int(new_digits[i])
+    for i in range(len(digits) - 2, -1, -2):
+        digits[i] *= 2
+        if digits[i] > 9:
+            digits[i] -= 9
 
-    for i in range(1, len(number), 2):
-        digits_final_sum += int(number[-i])
+    sum_of_digits = sum(digits)
 
-    result = digits_final_sum + digits_sum + int(number[0])
-
-    if str(result)[-1] == "0":
-
-        return True
-
-    return False
+    return sum_of_digits % 2 == 0
 
 
 main()
