@@ -9,9 +9,8 @@ def main():
     if valid == True:
 
         card_type(n)
-        return
-
-    print("INVALID")
+    else:
+        print("INVALID")
 
 
 def card_type(number):
