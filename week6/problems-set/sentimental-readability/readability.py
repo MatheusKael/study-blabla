@@ -24,7 +24,7 @@ def main():
     coleman = (0.0588 * L - 0.296 * S - 15.8)
 
     if coleman < 1:
-        print("Before grade 1")
+        print("Before Grade 1")
     elif coleman > 16:
         print("Grade 16+")
     else:
