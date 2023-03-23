@@ -5,6 +5,43 @@ import sys
 def main():
 
 
+    if len(sys.argv) > 3 or len(sys.argv) < 3:
+        print("Usage: python dna.py ./[csv_file] ./[txt_file]")
+        sys.exit(1)
+
+    database_file = sys.argv[1]
+    sequence_file = sys.argv[2]
+
+    database = {}
+
+    with open(database_file) as csv_file:
+        reader = csv.DictReader(csv_file)
+        for row in reader:
+            database[row['name']] = row
+            database[row['name']].pop('name')
+
+
+    with open(sequence_file) as csv_file:
+        reader = csv.reader(csv_file)
+        for row in reader:
+            sequence = row[0]
+
+    name = list(database.keys())[0]
+    genes = database[name].keys()
+
+    profile = {}
+
+    for gene in genes:
+        longest = longest_match(sequence, gene)
+        if profile.get(gene) is None:
+            profile[gene] = str(longest)
+        elif profile.get(gene) < int(longest):
+            profile[gene] = str(longest)
+
+    if profile in database.values():
+        for name in database:
+            if profile == database[name]:
+                print(name)
 
     return
 
