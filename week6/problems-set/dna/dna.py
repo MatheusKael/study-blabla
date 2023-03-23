@@ -42,7 +42,8 @@ def main():
         for name in database:
             if profile == database[name]:
                 print(name)
-
+    else:
+        print("No match")
     return
 
 
