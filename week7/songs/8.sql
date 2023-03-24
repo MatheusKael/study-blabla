@@ -1,2 +1,2 @@
 --In 8.sql, write a SQL query that lists the names of the songs that feature other artists.
-SELECT avg(energy) AS average_energy FROM songs WHERE artist_id = (SELECT id FROM artists WHERE name = 'Drake');
+SELECT name FROM songs WHERE name LIKE "%feat%";
