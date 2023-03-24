@@ -1,2 +1,2 @@
---In 6.sql, write a SQL query that lists the names of songs that are by Post Malone.
-SELECT name FROM songs WHERE artist_id = (SELECT id FROM artists WHERE name = 'Post Malone');
+--In 7.sql, write a SQL query that returns the average energy of songs that are by Drake
+SELECT avg(energy) AS average_energy FROM songs WHERE artist_id = (SELECT id FROM artists WHERE name = 'Drake');
