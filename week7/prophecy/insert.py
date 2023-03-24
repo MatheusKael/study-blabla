@@ -1,6 +1,9 @@
 import csv
+from cs50 import SQL
 
-with open('./students.csv') as file:
-    students_dict = csv.DictReader(file)
-    for row in students_dict:
-            print(row)
+
+db = SQL("sqlite:///roster.db")
+
+students = db.execute('SELECT * FROM students;')
+
+print(students)
