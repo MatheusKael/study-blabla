@@ -1,2 +1,8 @@
 The audio aura of one listener can be something like red or yellow, indicating that he likes
-positives musics.
+positive musics. A better way to calculate is use more data and more types of songs, and consider more
+parametes, like genre, rhythm, lyric and context.
+
+
+
+
+Just 
