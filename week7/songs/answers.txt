@@ -1,1 +1,2 @@
-The audio aura of one listener 
+The audio aura of one listener can be something like red or yellow, indicating that he likes
+positives musics.
