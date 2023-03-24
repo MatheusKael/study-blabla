@@ -4,7 +4,7 @@ CREATE TABLE students (
     house TEXT,
     head TEXT,
     PRIMARY KEY(id),
-    FOR KEY
+    FOREIGN KEY(house) REFERENCES houses(id)
 );
 
 CREATE TABLE houses {
