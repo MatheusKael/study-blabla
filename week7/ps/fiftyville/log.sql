@@ -52,4 +52,15 @@ SELECT * FROM people WHERE id IN (
         SELECT account_number FROM atm_transactions WHERE atm_location = 'Leggett Street'
                     AND day = 28 AND transaction_type = 'withdraw'
     )
+) AND name IN (
+SELECT people.name FROM bakery_security_logs LEFT JOIN people WHERE people.license_plate = bakery_security_logs.license_plate
+AND people.license_plate IN (
+    SELECT license_plate FROM people WHERE phone_number IN (
+        SELECT caller FROM phone_calls  WHERE caller IN (
+            SELECT phone_number FROM people WHERE passport_number IN (
+                SELECT passport_number FROM passengers WHERE flight_id = 36)
+        ) AND day = 28 AND duration < 60
+    )
+) AND day = 28 AND hour = 10
+
 );
