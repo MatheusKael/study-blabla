@@ -41,3 +41,7 @@ AND people.license_plate IN (
 SELECT * FROM atm_transactions WHERE atm_location = 'Leggett Street'
             AND day = 28;
 
+SELECT * FROM bank_accounts WHERE account_number IN (
+    SELECT * FROM atm_transactions WHERE atm_location = 'Leggett Street'
+                AND day = 28
+) AND transaction_type = 'withdraw';
