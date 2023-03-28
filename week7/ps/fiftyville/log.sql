@@ -34,6 +34,4 @@ AND people.license_plate IN (
                 SELECT passport_number FROM passengers WHERE flight_id = 36)
         ) AND day = 28 AND duration < 60
     )
-) AND activity = 'entrance' AND day = 28 AND hour = 10 AND minute = 15
-    OR
-    activity = 'exit' AND day = 28 AND hour = 10 AND minute < 30;
+) AND day = 28 AND hour = 10;
