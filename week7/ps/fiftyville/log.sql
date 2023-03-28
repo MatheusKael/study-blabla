@@ -4,4 +4,6 @@
 SELECT id FROM flights WHERE origin_airport_id =
     (SELECT id FROM airports WHERE city = "Fiftyville")
     OR destination_airport_id =
-    (SELECT id FROM airports WHERE city = "Fiftyville");
+    (SELECT id FROM airports WHERE city = "Fiftyville")
+    AND
+    year = 2021;
