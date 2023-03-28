@@ -4,9 +4,9 @@
 SELECT * FROM crime_scene_reports WHERE day = 28 AND street = 'Humphrey Street';
 
 -- Select every flighst comming and going to town at July 28, 2021 10:15am
-SELECT id, day FROM flights WHERE id IN (SELECT id FROM flights WHERE origin_airport_id =
-    (SELECT id FROM airports WHERE city = "Fiftyville")
-    OR destination_airport_id =
-    (SELECT id FROM airports WHERE city = "Fiftyville")) AND day = 28;
+--SELECT id, day FROM flights WHERE id IN (SELECT id FROM flights WHERE origin_airport_id =
+--    (SELECT id FROM airports WHERE city = "Fiftyville")
+--    OR destination_airport_id =
+--    (SELECT id FROM airports WHERE city = "Fiftyville")) AND day = 28;
 
-SELECT * FROM interviews WHERE transcript LIKE '%%';
+SELECT * FROM interviews WHERE transcript LIKE '%bakery%' AND day = 28;
