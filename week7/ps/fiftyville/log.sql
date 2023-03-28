@@ -18,3 +18,10 @@ SELECT * FROM phone_calls  WHERE caller IN (
     SELECT phone_number FROM people WHERE passport_number IN (
         SELECT passport_number FROM passengers WHERE flight_id = 36)
     ) AND day = 28 AND duration < 60;
+
+SELECT *, phone_number AS caller FROM people WHERE caller IN (
+    SELECT * FROM phone_calls  WHERE caller IN (
+        SELECT phone_number FROM people WHERE passport_number IN (
+            SELECT passport_number FROM passengers WHERE flight_id = 36)
+    ) AND day = 28 AND duration < 60
+);
