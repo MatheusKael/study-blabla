@@ -12,3 +12,9 @@ SELECT * FROM flights WHERE id IN (SELECT id FROM flights WHERE origin_airport_i
 -- All people from the earliest flight at date 29
 SELECT * FROM people WHERE passport_number IN (
     SELECT passport_number FROM passengers WHERE flight_id = 36);
+
+
+SELECT * FROM phone_calls WHERE caller IN (
+    SELECT phone_number FROM people WHERE passport_number IN (
+        SELECT passport_number FROM passengers WHERE flight_id = 36)
+    ) AND day = 28;
