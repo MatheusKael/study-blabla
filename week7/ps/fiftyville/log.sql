@@ -25,3 +25,13 @@ SELECT *, phone_number AS caller FROM people WHERE caller IN (
             SELECT passport_number FROM passengers WHERE flight_id = 36)
     ) AND day = 28 AND duration < 60
 );
+
+SELECT * FROM bakery_security_logs WHERE license_plate IN (
+
+SELECT *, phone_number AS caller FROM people WHERE caller IN (
+    SELECT caller FROM phone_calls  WHERE caller IN (
+        SELECT phone_number FROM people WHERE passport_number IN (
+            SELECT passport_number FROM passengers WHERE flight_id = 36)
+    ) AND day = 28 AND duration < 60
+);
+);
