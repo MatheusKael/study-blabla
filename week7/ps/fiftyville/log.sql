@@ -7,5 +7,8 @@ SELECT * FROM crime_scene_reports WHERE day = 28 AND street = 'Humphrey Street';
 SELECT * FROM interviews WHERE transcript LIKE '%bakery%' AND day = 28;
 --Select every flight out of town at July 29, 2021
 SELECT * FROM flights WHERE id IN (SELECT id FROM flights WHERE origin_airport_id =
-    (SELECT id FROM airports WHERE city = "Fiftyville")) AND day = 28;
+    (SELECT id FROM airports WHERE city = "Fiftyville")) AND day = 29;
 
+-- All people from the earliest flight at date 29
+SELECT * FROM people WHERE passport_number IN (
+    SELECT passport_number FROM passengers WHERE flight_id = 36);
