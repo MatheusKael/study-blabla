@@ -5,5 +5,4 @@ SELECT id, month, day, year FROM flights WHERE origin_airport_id =
     (SELECT id FROM airports WHERE city = "Fiftyville")
     OR destination_airport_id =
     (SELECT id FROM airports WHERE city = "Fiftyville")
-    AND
-    year = 2021 AND day = 28 AND month = 7;
+    ;
