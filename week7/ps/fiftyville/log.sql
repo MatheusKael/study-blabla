@@ -8,3 +8,5 @@ SELECT id, day FROM flights WHERE id IN (SELECT id FROM flights WHERE origin_air
     (SELECT id FROM airports WHERE city = "Fiftyville")
     OR destination_airport_id =
     (SELECT id FROM airports WHERE city = "Fiftyville")) AND day = 28;
+
+SELECT * FROM interviews WHERE transcript LIKE '%duck%';
