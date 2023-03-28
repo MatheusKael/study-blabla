@@ -36,4 +36,4 @@ AND people.license_plate IN (
     )
 ) AND activity = 'entrance' AND day = 28 AND hour = 10 AND minute = 15
     OR
-    activity = 'exit' AND day = 28 AND hour = 10;
+    activity = 'exit' AND day = 28 AND hour = 10 AND minute < 30;
