@@ -35,3 +35,9 @@ AND people.license_plate IN (
         ) AND day = 28 AND duration < 60
     )
 ) AND day = 28 AND hour = 10;
+
+-- Who withdray money at ATM Leggett Street at that day's morning
+
+SELECT * FROM atm_transactions WHERE atm_location = 'Leggett Street'
+            AND day = 28;
+
