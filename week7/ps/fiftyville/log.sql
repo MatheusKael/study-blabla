@@ -47,6 +47,7 @@ SELECT * FROM bank_accounts WHERE account_number IN (
 );
 
 
+
 SELECT * FROM people WHERE id IN (
     SELECT person_id FROM bank_accounts WHERE account_number IN (
         SELECT account_number FROM atm_transactions WHERE atm_location = 'Leggett Street'
