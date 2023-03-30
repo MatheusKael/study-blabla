@@ -68,5 +68,9 @@ SELECT * FROM passengers WHERE passport_number = (
     SELECT passport_number FROM people WHERE name = 'Bruce'
     );
 
-SELECT * FROM flights where id = 36;
+SELECT * FROM flights WHERE id = 36;
 
+SELECT * FROM airports WHERE id = 4;
+
+
+SELECT * FROM phone_calls WHERE 
