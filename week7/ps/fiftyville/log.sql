@@ -65,4 +65,6 @@ AND people.license_plate IN (
 ) AND day = 28 AND hour = 10 );
 
 
-
+SELECT * FROM phone_calls WHERE caller = (
+    SELECT phone_number FROM people WHERE name = 'Bruce'
+);
