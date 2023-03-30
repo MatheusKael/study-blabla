@@ -63,3 +63,7 @@ SELECT people.name FROM bakery_security_logs LEFT JOIN people WHERE people.licen
         )
     ) AND day = 28 AND hour = 10
 );
+
+SELECT * FROM passengers WHERE passport_number = (
+    SELECT passport_number FROM people WHERE name = 'Bruce'
+    );
