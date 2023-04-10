@@ -47,7 +47,7 @@ function part2() {
             response.hidden = false
         } else {
 
-            input.style = "color:red"
+            input.style = "background-color:red"
 
             response.textContent = "Incorrect"
             response.hidden = false
@@ -60,6 +60,8 @@ function part2() {
 }
 
 
+document.addEventListener("DOMContentLoaded", () => {
+    part1()
+    part2()
+})
 
-part1()
-part2()
