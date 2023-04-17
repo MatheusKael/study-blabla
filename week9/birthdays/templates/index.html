@@ -40,9 +40,10 @@
         </div>
     </div>
     <script>
-        for (let birthday in birthdays) {
-            console.log(birthdays)
-        }
+
+        fetch("/", { method: 'GET' }).then(response => {
+            console.log(response)
+        })
     </script>
 
 </body>
