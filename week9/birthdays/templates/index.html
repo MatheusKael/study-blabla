@@ -41,9 +41,8 @@
     </div>
     <script>
 
-        fetch("/", { method: 'GET' }).then(async response => {
-            let bit = await response
-            console.log(response.birthdays)
+        fetch("/", { method: 'GET' }).then(response => {
+            console.log(response)
         })
     </script>
 
