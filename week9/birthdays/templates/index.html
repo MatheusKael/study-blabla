@@ -42,8 +42,8 @@
     <script>
 
         fetch("/", { method: 'GET' }).then(async response => {
-            let bit = await response.json()
-            console.log(bit)
+            let bit = await response
+            console.log(response)
         })
     </script>
 
