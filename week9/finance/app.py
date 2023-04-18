@@ -76,7 +76,8 @@ def login():
             return apology("must provide password", 403)
 
         # Query database for username
-        rows = db.execute("SELECT * FROM users WHERE username = ?", request.form.get("username"))
+        rows = db.execute("SELECT * FROM users WHERE username = ?",
+                          request.form.get("username"))
 
         # Ensure username exists and password is correct
         if len(rows) != 1 or not check_password_hash(rows[0]["hash"], request.form.get("password")):
@@ -118,13 +119,14 @@ def register():
     username = request.form.get(username)
     password = request.form.get(password)
 
-    if username == NUL or password == NUL :
+    if username == NUL or password == NUL:
         return apology("TODO")
 
+    db.execute(
+        f"INSERT INTO users (username, hash) VALUES ({username}, {password});")
+    user = db.execute(f"SELECT * FROM users WHERE username = '{username}';")
 
-    db.execute(f"INSERT INTO users (username, hash) VALUES ({username}, {password})")
-
-    
+    return user
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
