@@ -123,6 +123,8 @@ def register():
         if username  is None or password is None:
             return apology("TODO")
 
+
+
         db.execute(
             f"INSERT INTO users (username, hash) VALUES ({username}, {password});")
         user = db.execute(f"SELECT * FROM users WHERE username = '{username}';")
