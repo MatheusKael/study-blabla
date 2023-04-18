@@ -123,10 +123,10 @@ def register():
         if username  is None or password is None:
             return apology("TODO")
 
-
+        hash = generate_password_hash(password)
 
         db.execute(
-            f"INSERT INTO users (username, hash) VALUES ({username}, {password});")
+            f"INSERT INTO users (username, hash) VALUES ({username}, {hash});")
         user = db.execute(f"SELECT * FROM users WHERE username = '{username}';")
 
         return user
