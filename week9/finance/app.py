@@ -121,8 +121,10 @@ def register():
     if username == NUL or password == NUL :
         return apology("TODO")
 
-    db.execute("INSERT INTO users (username, hash) VALUES ()")
 
+    db.execute(f"INSERT INTO users (username, hash) VALUES ({username}, {password})")
+
+    
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
