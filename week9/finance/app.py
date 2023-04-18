@@ -116,8 +116,8 @@ def quote():
 def register():
     """Register user"""
 
-    username = request.form.get(username)
-    password = request.form.get(password)
+    username = request.form.get("username")
+    password = request.form.get("password")
 
     if username == NUL or password == NUL:
         return apology("TODO")
