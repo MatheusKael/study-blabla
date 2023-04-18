@@ -110,6 +110,11 @@ def logout():
 @login_required
 def quote():
     """Get stock quote."""
+
+    if request.method == "get":
+        return render_template("quote.html")
+    
+
     return apology("TODO")
 
 
