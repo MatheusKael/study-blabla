@@ -113,7 +113,13 @@ def quote():
 
     if request.method == "get":
         return render_template("quote.html")
-    
+    else:
+        symbol = request.form.get("symbol")
+        stock = lookup()
+
+        return render_template("quoted.html")
+
+
 
     return apology("TODO")
 
