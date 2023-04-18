@@ -115,19 +115,21 @@ def quote():
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
-    if metho
+    if request.method == "POST":
 
-    username = request.form.get("username")
-    password = request.form.get("password")
+        username = request.form.get("username")
+        password = request.form.get("password")
 
-    if username  is None or password is None:
-        return apology("TODO")
+        if username  is None or password is None:
+            return apology("TODO")
 
-    db.execute(
-        f"INSERT INTO users (username, hash) VALUES ({username}, {password});")
-    user = db.execute(f"SELECT * FROM users WHERE username = '{username}';")
+        db.execute(
+            f"INSERT INTO users (username, hash) VALUES ({username}, {password});")
+        user = db.execute(f"SELECT * FROM users WHERE username = '{username}';")
 
-    return user
+        return user
+    else:
+        return render_template("register.html")
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
