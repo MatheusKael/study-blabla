@@ -126,7 +126,7 @@ def register():
         hash = generate_password_hash(password)
 
         db.execute(
-            f"INSERT INTO users (username, hash) VALUES ({username}, {hash});")
+            f"INSERT INTO users (username, hash) VALUES ('{username}', '{hash}');")
         user = db.execute(f"SELECT * FROM users WHERE username = '{username}';")
 
         return user
