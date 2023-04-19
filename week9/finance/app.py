@@ -58,7 +58,12 @@ def buy():
         if stock is None:
             return apology("TODO")
 
-        db.execute("INSERT INTO stocks")
+        stock_found = db.execute(f"SELECT * FROM stocks WHERE name = '{stock.name}'")
+
+        if stock_found is None:
+            stock_found = db.execute(f"INSERT INTO stocks (name, price) VALUES ('{stock.name}', '{stock.price}')")
+
+        
 
         return render_template("quoted.html", stock=stock)
 
