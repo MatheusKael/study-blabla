@@ -72,7 +72,7 @@ def buy():
                 f"SELECT * FROM stocks WHERE name LIKE '{stock_name}';")
 
         user_id = session.get("user_id")
-        user = db.execute(f"SELECT * FROM users WHERE id = '{user_id}'")
+        user = db.execute(f"SELECT * FROM users WHERE id = {user_id}")
         stock_id = stock_found[0]["id"]
 
         updated_cash = user[0]["cash"] - stock_price
