@@ -52,7 +52,7 @@ def buy():
 
     if request.method == "GET":
         return render_template("buy.html")
-    else request.method == "POST":
+    else:
         symbol = request.form.get("symbol")
         stock = lookup(symbol)
 
