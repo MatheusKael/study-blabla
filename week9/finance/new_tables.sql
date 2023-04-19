@@ -1,11 +1,9 @@
-
-CREATE TABLE stocks(
+CREATE TABLE stock_purchases(
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    name TEXT NOT NULL UNIQUE,
-    price NUMERIC NOT NULL
-);
-CREATE TABLE stock_ownerships (
-    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    price NUMERIC NOT NULL,
+    year INTEGER NOT NULL,
+    month INTEGER NOT NULL,
+    day INTEGER NOT NULL,
     user_id INTEGER NOT NULL,
     stock_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
