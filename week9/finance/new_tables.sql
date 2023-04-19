@@ -1,7 +1,7 @@
 
 CREATE TABLE stocks(
     id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
-    name TEXT NOT NULL,
+    name TEXT NOT NULL UNIQUE,
     price NUMERIC NOT NULL,
 );
 CREATE TABLE stock_ownerships (
@@ -11,5 +11,3 @@ CREATE TABLE stock_ownerships (
     FOREIGN KEY (user_id) REFERENCES users(id),
     FOREIGN KEY (stock_id) REFERENCES (id),
 );
-CREATE TABLE users (
-    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, username TEXT NOT NULL, hash TEXT NOT NULL, cash NUMERIC NOT NULL DEFAULT 10000.00);
