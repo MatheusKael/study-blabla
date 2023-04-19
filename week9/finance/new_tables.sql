@@ -9,5 +9,5 @@ CREATE TABLE stock_ownerships (
     user_id INTEGER NOT NULL,
     stock_id INTEGER NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(id),
-    FOREIGN KEY (stock_id) REFERENCES (id),
+    FOREIGN KEY (stock_id) REFERENCES stocks(id),
 );
