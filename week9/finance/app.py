@@ -49,9 +49,20 @@ def index():
 def buy():
     """Buy shares of stock"""
 
-    
+    if request.method == "GET":
+        return render_template("buy.html")
+    else request.method == "POST":
+        symbol = request.form.get("symbol")
+        stock = lookup(symbol)
 
-    return apology("TODO")
+        if stock is None:
+            return apology("TODO")
+
+        db.execute("INSERT INTO stocks")
+
+        return render_template("quoted.html", stock=stock)
+
+
 
 
 @app.route("/history")
