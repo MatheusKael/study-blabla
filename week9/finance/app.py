@@ -84,7 +84,7 @@ def buy():
         db.execute(
             f"INSERT INTO stock_purchases ({columns}) VALUES ({values});")
 
-        return redirect('/')
+        return redirect("/")
 
 
 @app.route("/history")
