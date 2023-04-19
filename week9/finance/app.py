@@ -63,13 +63,13 @@ def buy():
         stock_price = stock["price"]
 
         stock_found = db.execute(
-            f"SELECT * FROM stocks WHERE name = '{stock_name}';")
+            f"SELECT * FROM stocks WHERE name LIKE '{stock_name}';")
 
         if stock_found is None:
             db.execute(
                 f"INSERT INTO stocks (name, price) VALUES ('{stock_name}', {stock_price});")
             stock_found = db.execute(
-                f"SELECT * FROM stocks WHERE name = '{stock_name}';")
+                f"SELECT * FROM stocks WHERE name LIKE '{stock_name}';")
 
         user_id = session.get("user_id")
         print(stock_found)
