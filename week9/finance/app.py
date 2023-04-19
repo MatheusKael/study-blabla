@@ -56,6 +56,7 @@ def buy():
         symbol = request.form.get("symbol")
         stock = lookup(symbol)
 
+        print(stock)
         if stock is None:
             return apology("TODO")
 
