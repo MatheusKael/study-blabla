@@ -56,26 +56,29 @@ def buy():
         symbol = request.form.get("symbol")
         stock = lookup(symbol)
 
-        print(stock.name)
 
         if stock is None:
             return apology("TODO")
 
+        stock_name = stock["name"]
+        stock_price = stock["price"]
+
         stock_found = db.execute(
-            f"SELECT * FROM stocks WHERE name = '{stock.name}';")
+            f"SELECT * FROM stocks WHERE name = '{stock_name}';")
 
         if stock_found is None:
             stock_found = db.execute(
-                f"INSERT INTO stocks (name, price) VALUES ('{stock.name}', {stock.price});")
+                f"INSERT INTO stocks (name, price) VALUES ('{stock_name}', {stock_price});")
 
         user_id = session.get("user_id")
+        stock_id = stock_found["id"]
 
         year = datetime.date.today().year
         month = datetime.date.today().month
         day = datetime.date.today().day
 
         columns = "price, year, month, day, user_id, stock_id"
-        values = f"{stock_found.price}, {year}, {month}, {day}, '{user_id}', '{stock_found.id}'"
+        values = f"{stock_price}, {year}, {month}, {day}, '{user_id}', '{stock_id}'"
 
         db.execute(
             f"INSERT INTO stock_purchases ({columns}) VALUES ({values});")
