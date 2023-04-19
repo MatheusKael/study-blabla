@@ -81,7 +81,7 @@ def buy():
         month = datetime.date.today().month
         day = datetime.date.today().day
 
-        db.execute(f"UPDATE users SET cash = {updated_cash} FROM users WHERE id = '{user_id}';")
+        db.execute(f"UPDATE users SET cash = {updated_cash} FROM users WHERE id = {user_id};")
 
         columns = "price, year, month, day, user_id, stock_id"
         values = f"{stock_price}, {year}, {month}, {day}, '{user_id}', '{stock_id}'"
