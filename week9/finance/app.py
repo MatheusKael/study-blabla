@@ -120,10 +120,6 @@ def quote():
         return render_template("quoted.html", stock=stock)
 
 
-
-    return apology("TODO")
-
-
 @app.route("/register", methods=["GET", "POST"])
 def register():
     """Register user"""
@@ -132,18 +128,20 @@ def register():
         username = request.form.get("username")
         password = request.form.get("password")
 
-        if username  is None or password is None:
+        if username is None or password is None:
             return apology("TODO")
 
         hash = generate_password_hash(password)
 
         db.execute(
             f"INSERT INTO users (username, hash) VALUES ('{username}', '{hash}');")
-        user = db.execute(f"SELECT * FROM users WHERE username = '{username}';")
+        user = db.execute(
+            f"SELECT * FROM users WHERE username = '{username}';")
 
         return user
     else:
         return render_template("register.html")
+
 
 @app.route("/sell", methods=["GET", "POST"])
 @login_required
