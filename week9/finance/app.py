@@ -70,9 +70,9 @@ def buy():
                 f"INSERT INTO stocks (name, price) VALUES ('{stock_name}', {stock_price});")
             stock_found = db.execute(
                 f"SELECT * FROM stocks WHERE name LIKE '{stock_name}';")
+            print(stock_found)
 
         user_id = session.get("user_id")
-        print(stock_found)
         stock_id = stock_found[0]["id"]
 
         year = datetime.date.today().year
