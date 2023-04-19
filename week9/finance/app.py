@@ -72,6 +72,7 @@ def buy():
                 f"SELECT * FROM stocks WHERE name = '{stock_name}';")
 
         user_id = session.get("user_id")
+        print(stock_found)
         stock_id = stock_found[0]["id"]
 
         year = datetime.date.today().year
