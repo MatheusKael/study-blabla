@@ -56,14 +56,17 @@ def buy():
         symbol = request.form.get("symbol")
         stock = lookup(symbol)
 
-        print(stock)
+        print(stock.name)
+
         if stock is None:
             return apology("TODO")
 
-        stock_found = db.execute(f"SELECT * FROM stocks WHERE name = '{stock.name}';")
+        stock_found = db.execute(
+            f"SELECT * FROM stocks WHERE name = '{stock.name}';")
 
         if stock_found is None:
-            stock_found = db.execute(f"INSERT INTO stocks (name, price) VALUES ('{stock.name}', {stock.price});")
+            stock_found = db.execute(
+                f"INSERT INTO stocks (name, price) VALUES ('{stock.name}', {stock.price});")
 
         user_id = session.get("user_id")
 
@@ -74,11 +77,10 @@ def buy():
         columns = "price, year, month, day, user_id, stock_id"
         values = f"{stock_found.price}, {year}, {month}, {day}, '{user_id}', '{stock_found.id}'"
 
-        db.execute(f"INSERT INTO stock_purchases ({columns}) VALUES ({values});")
+        db.execute(
+            f"INSERT INTO stock_purchases ({columns}) VALUES ({values});")
 
         return redirect('/')
-
-
 
 
 @app.route("/history")
