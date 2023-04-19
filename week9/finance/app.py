@@ -1,6 +1,5 @@
 import os
-
-from 
+import datetime
 
 from cs50 import SQL
 from flask import Flask, flash, redirect, render_template, request, session
@@ -60,18 +59,23 @@ def buy():
         if stock is None:
             return apology("TODO")
 
-        stock_found = db.execute(f"SELECT * FROM stocks WHERE name = '{stock.name}'")
+        stock_found = db.execute(f"SELECT * FROM stocks WHERE name = '{stock.name}';")
 
         if stock_found is None:
-            stock_found = db.execute(f"INSERT INTO stocks (name, price) VALUES ('{stock.name}', {stock.price})")
+            stock_found = db.execute(f"INSERT INTO stocks (name, price) VALUES ('{stock.name}', {stock.price});")
+
+        user_id = session.get("user_id")
+
+        year = datetime.date.today().year
+        month = datetime.date.today().month
+        day = datetime.date.today().day
 
         columns = "price, year, month, day, user_id, stock_id"
+        values = f"{stock_found.price}, {year}, {month}, {day}, '{user_id}', '{stock_found.id}'"
 
-        values = f"{stock_found.price}, {}"
+        db.execute(f"INSERT INTO stock_purchases ({columns}) VALUES ({values});")
 
-        db.execute(f"INSERT INTO stock_purchases ({columns}) VALUES ()")
-
-        return render_template("quoted.html", stock=stock)
+        return redirect('/')
 
 
 
