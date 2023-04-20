@@ -47,7 +47,7 @@ def index():
 
     for user_stock in user_stocks:
         user_stock = lookup(user_stock["symbol"])
-
+        print(user_stock)
 
     return render_template("index.html")
 
