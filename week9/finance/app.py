@@ -45,7 +45,7 @@ def index():
 
 
 
-    count = db.execute(f"SELECT user_id, count(stock_id) FROM stock_purchases GROUP BY user_id HAVING user_id = {user_id};")
+    count = db.execute(f"SELECT user_id, count(stock_id) FROM stock_purchases AS sp LEFT JOIN stocks AS sts GROUP BY sp.user_id HAVING sp.user_id = {user_id};")
     user_stocks = db.execute(f"SELECT * FROM stocks WHERE id IN (SELECT stock_id FROM stock_purchases WHERE user_id = {user_id});")
     print(count)
 
