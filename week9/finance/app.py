@@ -47,12 +47,14 @@ def index():
     user_stocks = db.execute(
         f"SELECT user_id, count(stock_id) AS shares_owned, * FROM stock_purchases AS sp LEFT JOIN stocks AS sts ON sts.id = sp.stock_id GROUP BY sp.user_id HAVING sp.user_id = {user_id};")
 
+    total = 0
+
     for user_stock in user_stocks:
         user_stock["price"] = lookup(user_stock["symbol"])["price"]
         user_stock["total_value"] = user_stock["price"] * user_stock["shares_owned"]
-        print(user_stock)
+        total += user_stock["total_value"]
 
-    return render_template("index.html", user_stocks=user_stocks, balance=cash, grand_total)
+    return render_template("index.html", user_stocks=user_stocks, balance=cash, grand_total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
