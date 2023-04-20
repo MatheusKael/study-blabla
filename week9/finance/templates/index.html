@@ -5,6 +5,7 @@ Index
 {% endblock %}
 
 {% block main %}
+{% for user_stock in user_stocks %}
 <table>
     <thead>
         <tr>
@@ -20,4 +21,5 @@ Index
         </tr>
     </tbody>
 </table>
+{%end%}
 {% endblock %}
