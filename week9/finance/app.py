@@ -41,6 +41,12 @@ def after_request(response):
 @login_required
 def index():
     """Show portfolio of stocks"""
+    user_id = session.get("user_id")
+
+    user_stocks = db.execute(f"SELECT * FROM stocks WHERE id IN (SELECT stock_id FROM stock_purchases WHERE user_id = {user_id});")
+
+    for user_stock in user_stocks:
+        print(user_stock)
 
 
     return render_template("index.html")
