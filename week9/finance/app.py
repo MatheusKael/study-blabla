@@ -43,7 +43,7 @@ def index():
     """Show portfolio of stocks"""
     user_id = session.get("user_id")
 
-    user_stocks = db.execute(f"SELECT * FROM stocks WHERE id IN (SELECT stock_id FROM stock_purchases WHERE user_id = {user_id});")
+    user_stocks = db.execute(f"SELECT *, count(*) FROM stocks WHERE id IN (SELECT stock_id FROM stock_purchases WHERE user_id = {user_id});")
 
     for user_stock in user_stocks:
         user_stock = lookup(user_stock["symbol"])
