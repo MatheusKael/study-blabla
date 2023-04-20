@@ -44,7 +44,7 @@ def index():
     user_id = session.get("user_id")
 
     user_stocks = db.execute(
-        f"SELECT user_id, count(stock_id), * FROM stock_purchases AS sp LEFT JOIN stocks AS sts ON sts.id = sp.stock_id GROUP BY sp.user_id HAVING sp.user_id = {user_id};")
+        f"SELECT user_id, count(stock_id), count(stock_id)  * FROM stock_purchases AS sp LEFT JOIN stocks AS sts ON sts.id = sp.stock_id GROUP BY sp.user_id HAVING sp.user_id = {user_id};")
 
     for user_stock in user_stocks:
         user_stock["price"] = lookup(user_stock["symbol"])["price"]
