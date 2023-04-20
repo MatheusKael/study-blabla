@@ -43,14 +43,16 @@ def index():
     """Show portfolio of stocks"""
     user_id = session.get("user_id")
 
+    cash = db.execute(f"SELECT cash FROM users WHERE id = {user_id};")
     user_stocks = db.execute(
-        f"SELECT user_id, count(stock_id), count(stock_id), sum(price) AS total_value FROM stock_purchases AS sp LEFT JOIN stocks AS sts ON sts.id = sp.stock_id GROUP BY sp.user_id HAVING sp.user_id = {user_id};")
+        f"SELECT user_id, count(stock_id) AS shares_owned, * FROM stock_purchases AS sp LEFT JOIN stocks AS sts ON sts.id = sp.stock_id GROUP BY sp.user_id HAVING sp.user_id = {user_id};")
 
     for user_stock in user_stocks:
         user_stock["price"] = lookup(user_stock["symbol"])["price"]
+        user_stock["total_value"] = user_stock["price"] * user_stock["shares_owned"]
         print(user_stock)
 
-    return render_template("index.html", user_stocks=user_stocks)
+    return render_template("index.html", user_stocks=user_stocks, )
 
 
 @app.route("/buy", methods=["GET", "POST"])
