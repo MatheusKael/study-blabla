@@ -43,10 +43,10 @@ def index():
     """Show portfolio of stocks"""
     user_id = session.get("user_id")
 
-
-
-    count = db.execute(f"SELECT user_id, count(stock_id), * FROM stock_purchases AS sp LEFT JOIN stocks AS sts ON sts.= sp.user_id GROUP BY sp.user_id HAVING sp.user_id = {user_id};")
-    user_stocks = db.execute(f"SELECT * FROM stocks WHERE id IN (SELECT stock_id FROM stock_purchases WHERE user_id = {user_id});")
+    count = db.execute(
+        f"SELECT user_id, count(stock_id), * FROM stock_purchases AS sp LEFT JOIN stocks AS sts ON sts.id = sp.stock_id GROUP BY sp.user_id HAVING sp.user_id = {user_id};")
+    user_stocks = db.execute(
+        f"SELECT * FROM stocks WHERE id IN (SELECT stock_id FROM stock_purchases WHERE user_id = {user_id});")
     print(count)
 
     for user_stock in user_stocks:
@@ -93,7 +93,8 @@ def buy():
         month = datetime.date.today().month
         day = datetime.date.today().day
 
-        db.execute(f"UPDATE users AS user SET cash = {updated_cash} FROM users WHERE user.id = {user_id};")
+        db.execute(
+            f"UPDATE users AS user SET cash = {updated_cash} FROM users WHERE user.id = {user_id};")
 
         columns = "price, year, month, day, user_id, stock_id"
         values = f"{stock_price}, {year}, {month}, {day}, '{user_id}', '{stock_id}'"
