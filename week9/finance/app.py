@@ -54,7 +54,7 @@ def index():
         user_stock["total_value"] = user_stock["price"] * user_stock["shares_owned"]
         total += user_stock["total_value"]
 
-    return render_template("index.html", user_stocks=user_stocks, balance=cash, grand_total=total)
+    return render_template("index.html", user_stocks=user_stocks, balance=cash[0]["cash"], grand_total=total)
 
 
 @app.route("/buy", methods=["GET", "POST"])
