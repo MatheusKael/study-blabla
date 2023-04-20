@@ -9,15 +9,19 @@ Index
 <table>
     <thead>
         <tr>
-            <th>{{ user_stock.name }}</th>
-            <th>{{ user_stock. }}</th>
+            <th>Name</th>
+            <th>Current Price</th>
+            <th>Total owned</th>
+            <th>Total value</th>
         </tr>
     </thead>
 
     <tbody>
         <tr>
-            <td>Body content 1</td>
-            <td>Body content 2</td>
+            <td>{{ user_stock.name }}</td>
+            <td>{{ user_stock.price }}</td>
+            <td>{{ user_stock.shares_owned }}</td>
+            <td>{{ user_stock.total_value }}</td>
         </tr>
     </tbody>
 </table>
