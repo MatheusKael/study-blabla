@@ -68,13 +68,14 @@ def buy():
 
         stock_name = stock["name"]
         stock_price = stock["price"]
+        stock_symbol = stock["symbol"]
 
         stock_found = db.execute(
             f"SELECT * FROM stocks WHERE name LIKE '{stock_name}';")
 
         if len(stock_found) == 0:
             db.execute(
-                f"INSERT INTO stocks (name, price) VALUES ('{stock_name}', {stock_price});")
+                f"INSERT INTO stocks (name, price, symbol) VALUES ('{stock_name}', {stock_price}, '{stock_symbol}');")
             stock_found = db.execute(
                 f"SELECT * FROM stocks WHERE name LIKE '{stock_name}';")
 
